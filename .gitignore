@@ -1,0 +1,11 @@
+collecte/
+site-public/
+exports/
+__pycache__/
+*.pyc
+*.part
+*.tmp
+.env
+.env.*
+base-marche.json
+donnees.js

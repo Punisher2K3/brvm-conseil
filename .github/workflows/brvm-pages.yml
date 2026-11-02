@@ -1,0 +1,61 @@
+name: Publier et actualiser BRVM Conseil
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: brvm-publication
+  cancel-in-progress: false
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements.txt
+      - name: Restaurer la base de marché initiale
+        run: python gerer_base.py restaurer
+      - name: Restaurer les bulletins déjà téléchargés
+        uses: actions/cache@v4
+        with:
+          path: collecte
+          key: brvm-collecte-${{ github.run_id }}
+          restore-keys: brvm-collecte-
+      - name: Vérifier et collecter les publications officielles
+        run: python actualisation_auto.py --force --trigger github
+      - name: Vérifier les calculs fondamentaux
+        run: node test_fondamentaux.cjs
+      - name: Construire les fichiers publics
+        run: python preparer_publication.py
+      - name: Conserver les nouvelles données vérifiées
+        run: |
+          python gerer_base.py sauvegarder
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualiser les données officielles BRVM"
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site-public
+      - name: Mettre le site en ligne
+        id: deployment
+        uses: actions/deploy-pages@v4

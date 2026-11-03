@@ -80,6 +80,10 @@
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/bank-africa-bn",
     "reports": [
       {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_3e_trimestre_2026_-_boa_bn.pdf",
+        "title": "20261102 - rapport dactivites - 3e trimestre 2026 - boa bn"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20260723_-_rapport_dactivites_-_1er_semestre_2026_-_boa_bn.pdf",
         "title": "20260723 - rapport dactivites - 1er semestre 2026 - boa bn"
       },
@@ -106,10 +110,6 @@
       {
         "url": "https://www.brvm.org/sites/default/files/20250422_-_etats_financiers_certifies_par_les_commissaires_aux_comptes_-_exercice_2024_-_boa_benin.pdf",
         "title": "20250422 - etats financiers certifies par les commissaires aux comptes - exercice 2024 - boa benin"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20241203_-_rapport_dactivites_-_3eme_trimestre_2024_-_boa_bn.pdf",
-        "title": "20241203 - rapport dactivites - 3eme trimestre 2024 - boa bn"
       }
     ]
   },
@@ -117,6 +117,10 @@
     "slug": "bank-africa-ci",
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/bank-africa-ci",
     "reports": [
+      {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_3e_trimestre_2026_-_boa_ci.pdf",
+        "title": "20261102 - rapport dactivites - 3e trimestre 2026 - boa ci"
+      },
       {
         "url": "https://www.brvm.org/sites/default/files/20261001_-_rapport_dactivites_-_1er_semestre_2026_-_boa_ci.pdf",
         "title": "20261001 - rapport dactivites - 1er semestre 2026 - boa ci"
@@ -144,10 +148,6 @@
       {
         "url": "https://www.brvm.org/sites/default/files/20250516_-_rapport_dactivites_-_1er_trimestre_2025_-_boa_ci.pdf",
         "title": "20250516 - rapport dactivites - 1er trimestre 2025 - boa ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20250402_-_etats_financiers_-_exercice_2024_-_boa_ci.pdf",
-        "title": "20250402 - etats financiers - exercice 2024 - boa ci"
       }
     ]
   },
@@ -180,12 +180,12 @@
         "title": "20250603 - rapport dactivites - 1er trimestre 2025 - boa mali"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20250319_-_etats_financiers_certifies_par_les_cacs_-_exercice_2024_-_boa_mali_0.pdf",
-        "title": "20250319 - etats financiers certifies par les cacs - exercice 2024 - boa mali 0"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20250319_-_etats_financiers_certifies_par_les_cacs_-_exercice_2024_-_boa_mali.pdf",
         "title": "20250319 - etats financiers certifies par les cacs - exercice 2024 - boa mali"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20250319_-_etats_financiers_certifies_par_les_cacs_-_exercice_2024_-_boa_mali_0.pdf",
+        "title": "20250319 - etats financiers certifies par les cacs - exercice 2024 - boa mali 0"
       }
     ]
   },
@@ -210,12 +210,12 @@
         "title": "20260429 - rapport dactivites - 2eme semestre 2025 - boa ng"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20260401_-_rapport_des_commissaires_aux_comptes_sur_les_etats_financiers_annuels_-_exercice_2025_-_boa_ng.pdf",
-        "title": "20260401 - rapport des commissaires aux comptes sur les etats financiers annuels - exercice 2025 - boa ng"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20260401_-_rapport_des_cac_sur_les_conventions_reglementees_et_les_credits_accordes_aux_dirigeants_de_la_banque_-_exercice_2025_-_boa_ng.pdf",
         "title": "20260401 - rapport des cac sur les conventions reglementees et les credits accordes aux dirigeants de la banque - exercice 2025 - boa ng"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20260401_-_rapport_des_commissaires_aux_comptes_sur_les_etats_financiers_annuels_-_exercice_2025_-_boa_ng.pdf",
+        "title": "20260401 - rapport des commissaires aux comptes sur les etats financiers annuels - exercice 2025 - boa ng"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20260324_-_rapport_du_conseil_dadministration_a_lassemblee_generale_ordinaire_des_actionnaires_-_exercice_2025_-_boa_ng_annule_et_remplace_le_precedent.pdf",
@@ -372,12 +372,12 @@
         "title": "20260722 - rapport dactivites - 1er trimestre 2026 - biic bn"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20260619_-_rapport_des_commissaires_aux_comptes_sur_les_etats_financiers_annuels_-_exercice_2025_-_biic.pdf",
-        "title": "20260619 - rapport des commissaires aux comptes sur les etats financiers annuels - exercice 2025 - biic"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20260619_-_rapport_dactivites_annuel_et_etats_financiers_ifrs_-_exercice_2025_-_biic.pdf",
         "title": "20260619 - rapport dactivites annuel et etats financiers ifrs - exercice 2025 - biic"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20260619_-_rapport_des_commissaires_aux_comptes_sur_les_etats_financiers_annuels_-_exercice_2025_-_biic.pdf",
+        "title": "20260619 - rapport des commissaires aux comptes sur les etats financiers annuels - exercice 2025 - biic"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20251204_-_rapport_dactivites_-_2eme_trimestre_2025_-_biic_bn.pdf",
@@ -703,6 +703,14 @@
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/filtisac-ci",
     "reports": [
       {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_1er_semestre_2026_-_filtisac_ci.pdf",
+        "title": "20261102 - rapport dactivites - 1er semestre 2026 - filtisac ci"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_3e_trimestre_2026_-_filtisac_ci.pdf",
+        "title": "20261102 - rapport dactivites - 3e trimestre 2026 - filtisac ci"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20260610_-_etats_financiers_-_exercice_2025_-_filtisac_ci.pdf",
         "title": "20260610 - etats financiers - exercice 2025 - filtisac ci"
       },
@@ -711,12 +719,12 @@
         "title": "20260610 - rapport dactivites - 1er trimestre 2026 - filtisac ci"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20251031_-_rapport_dactivites_-_3eme_trimestre_2025_-_filtisac_ci.pdf",
-        "title": "20251031 - rapport dactivites - 3eme trimestre 2025 - filtisac ci"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20251031_-_rapport_dactivites_-_1er_semestre_2025_-_filtisac_ci.pdf",
         "title": "20251031 - rapport dactivites - 1er semestre 2025 - filtisac ci"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20251031_-_rapport_dactivites_-_3eme_trimestre_2025_-_filtisac_ci.pdf",
+        "title": "20251031 - rapport dactivites - 3eme trimestre 2025 - filtisac ci"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20250523_-_etats_financiers_-_exercice_2024_-_filtisac_ci.pdf",
@@ -725,14 +733,6 @@
       {
         "url": "https://www.brvm.org/sites/default/files/20250523_-_rapport_dactivites_-_1er_trimestre_2025_-_filtisac_ci.pdf",
         "title": "20250523 - rapport dactivites - 1er trimestre 2025 - filtisac ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20241031_-_rapport_dactivites_atteste_par_les_cacs_-_1er_semestre_2024_-_filtisac_ci.pdf",
-        "title": "20241031 - rapport dactivites atteste par les cacs - 1er semestre 2024 - filtisac ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20241031_-_rapport_dactivites_-_3eme_trimestre_2024_-_filtisac_ci.pdf",
-        "title": "20241031 - rapport dactivites - 3eme trimestre 2024 - filtisac ci"
       }
     ]
   },
@@ -805,16 +805,16 @@
         "title": "etats financiers movis ci - publication boc-brvm exercice clos le 31.12.2017"
       },
       {
+        "url": "https://www.brvm.org/sites/default/files/20180621_-_attestation_cac_-_rapport_dactivites_movis_ci_du_1er_sem._2017.pdf",
+        "title": "20180621 - attestation cac - rapport dactivites movis ci du 1er sem. 2017"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20180621_-_etats_financiers_movis_ci_-_publication_boc-brvm_exercice_clos_le_31.12.2016.pdf",
         "title": "20180621 - etats financiers movis ci - publication boc-brvm exercice clos le 31.12.2016"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20180621_-_rapport_dactivite_movis_ci_du_1er_sem._2017.pdf",
         "title": "20180621 - rapport dactivite movis ci du 1er sem. 2017"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20180621_-_attestation_cac_-_rapport_dactivites_movis_ci_du_1er_sem._2017.pdf",
-        "title": "20180621 - attestation cac - rapport dactivites movis ci du 1er sem. 2017"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20161125-etats_financiers_exercice_2015_-_movis_ci.pdf",
@@ -1026,12 +1026,12 @@
         "title": "20261028 - rapport dactivites - 3e trimestre 2026 - orange ci"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20261008_-_attestation_des_commissaires_aux_comptes_sur_le_rapport_dactivites_-_1er_semestre_2026_-_orange_ci.pdf",
-        "title": "20261008 - attestation des commissaires aux comptes sur le rapport dactivites - 1er semestre 2026 - orange ci"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20261008_-_rapport_dactivites_-_1er_semestre_2026_-_orange_ci.pdf",
         "title": "20261008 - rapport dactivites - 1er semestre 2026 - orange ci"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20261008_-_attestation_des_commissaires_aux_comptes_sur_le_rapport_dactivites_-_1er_semestre_2026_-_orange_ci.pdf",
+        "title": "20261008 - attestation des commissaires aux comptes sur le rapport dactivites - 1er semestre 2026 - orange ci"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20260608_-_etats_financiers_approuves_-_exercice_2025_-_orange_ci.pdf",
@@ -1098,6 +1098,10 @@
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/safca-ci",
     "reports": [
       {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_3e_trimestre_2026_-_safca_ci.pdf",
+        "title": "20261102 - rapport dactivites - 3e trimestre 2026 - safca ci"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20260903_-_rapport_dactivites_-_2eme_trimestre_2026_-_safca_ci.pdf",
         "title": "20260903 - rapport dactivites - 2eme trimestre 2026 - safca ci"
       },
@@ -1122,12 +1126,8 @@
         "title": "20250729 - rapport dactivites - 2eme trimestre 2025 - safca ci"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20260703_-_rapport_dactivites_-_4e_trimestre_2024_-_safca_ci.pdf",
-        "title": "20260703 - rapport dactivites - 4e trimestre 2024 - safca ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20260703_-_rapport_des_commissaires_aux_comptes_sur_les_etats_financiers_-_exercice_2024-_safca_ci.pdf",
-        "title": "20260703 - rapport des commissaires aux comptes sur les etats financiers - exercice 2024- safca ci"
+        "url": "https://www.brvm.org/sites/default/files/20250703_-_etats_finaniers_-_exercice_2024_-_safca_ci.pdf",
+        "title": "20250703 - etats finaniers - exercice 2024 - safca ci"
       }
     ]
   },
@@ -1303,6 +1303,10 @@
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/sib",
     "reports": [
       {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_3e_trimestre_2026_-_sib_ci.pdf",
+        "title": "20261102 - rapport dactivites - 3e trimestre 2026 - sib ci"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20260928_-_rapport_dactivites_-_1er_semestre_2026_-_sib_ci.pdf",
         "title": "20260928 - rapport dactivites - 1er semestre 2026 - sib ci"
       },
@@ -1329,10 +1333,6 @@
       {
         "url": "https://www.brvm.org/sites/default/files/20250428_-_rapport_dactivites_-_1er_trimestre_2025_-_sib_ci.pdf",
         "title": "20250428 - rapport dactivites - 1er trimestre 2025 - sib ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20250305_-_rapport_dactivites_annuel_-_exercice_2024_-_sib_ci.pdf",
-        "title": "20250305 - rapport dactivites annuel - exercice 2024 - sib ci"
       }
     ]
   },
@@ -1523,12 +1523,12 @@
         "title": "20251031 - rapport dactivites - 1er semestre 2025 - sode ci"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20250430_-_etats_financiers_-_exercice_2024_-_sode_ci.pdf",
-        "title": "20250430 - etats financiers - exercice 2024 - sode ci"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20250430_-_rapport_dactivites_-_1er_trimestre_2025_-_sode_ci.pdf",
         "title": "20250430 - rapport dactivites - 1er trimestre 2025 - sode ci"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20250430_-_etats_financiers_-_exercice_2024_-_sode_ci.pdf",
+        "title": "20250430 - etats financiers - exercice 2024 - sode ci"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20241031_-_rapport_dactivites_-_1er_semestre_2024_-_sode_ci.pdf",
@@ -1655,6 +1655,10 @@
     "url": "https://www.brvm.org/fr/rapports-societe-cotes/sucrivoire",
     "reports": [
       {
+        "url": "https://www.brvm.org/sites/default/files/20261102_-_rapport_dactivites_-_1er_semestre_2026_-_sucrivoire_ci.pdf",
+        "title": "20261102 - rapport dactivites - 1er semestre 2026 - sucrivoire ci"
+      },
+      {
         "url": "https://www.brvm.org/sites/default/files/20260921_-_rapport_dactivites_-_1er_trimestre_2026_-_sucrivoire_ci.pdf",
         "title": "20260921 - rapport dactivites - 1er trimestre 2026 - sucrivoire ci"
       },
@@ -1681,10 +1685,6 @@
       {
         "url": "https://www.brvm.org/sites/default/files/20250509_-_etats_financiers_-_normes_syscohada_-_exercice_2024_-_sucrivoire_ci.pdf",
         "title": "20250509 - etats financiers - normes syscohada - exercice 2024 - sucrivoire ci"
-      },
-      {
-        "url": "https://www.brvm.org/sites/default/files/20250212_-_rapport_dactivites_annuel_-_exercice_2024_-_sucrivoire_ci.pdf",
-        "title": "20250212 - rapport dactivites annuel - exercice 2024 - sucrivoire ci"
       }
     ]
   },
@@ -1844,16 +1844,16 @@
         "title": "20260430 - etats financiers - exercice 2025 - tractafric motors ci"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20251030_-_rapport_dactivites_-_1er_semestre_2025_-_tractafric_motors_ci.pdf",
-        "title": "20251030 - rapport dactivites - 1er semestre 2025 - tractafric motors ci"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20251030_-_etats_financiers_-_1er_semestre_2025_-_tractafric_motors_ci.pdf",
         "title": "20251030 - etats financiers - 1er semestre 2025 - tractafric motors ci"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20251030_-_etats_financiers_-_3eme_trimestre_2025_-_tractafric_motors_ci.pdf",
         "title": "20251030 - etats financiers - 3eme trimestre 2025 - tractafric motors ci"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20251030_-_rapport_dactivites_-_1er_semestre_2025_-_tractafric_motors_ci.pdf",
+        "title": "20251030 - rapport dactivites - 1er semestre 2025 - tractafric motors ci"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20251001_-_rapport_dactivites_-_1er_trimestre_2025_-_tractafric_motors_ci.pdf",
@@ -1874,12 +1874,12 @@
         "title": "20091016 - ra - trituraf ci - exercice 2004"
       },
       {
-        "url": "https://www.brvm.org/sites/default/files/20090925_-_ra_-_trituraf_ci_-_exercice_2002.pdf",
-        "title": "20090925 - ra - trituraf ci - exercice 2002"
-      },
-      {
         "url": "https://www.brvm.org/sites/default/files/20090925_-_ra_-_trituraf_ci_-_exercice_2003.pdf",
         "title": "20090925 - ra - trituraf ci - exercice 2003"
+      },
+      {
+        "url": "https://www.brvm.org/sites/default/files/20090925_-_ra_-_trituraf_ci_-_exercice_2002.pdf",
+        "title": "20090925 - ra - trituraf ci - exercice 2002"
       },
       {
         "url": "https://www.brvm.org/sites/default/files/20090918_-_efp_-_trituraf_ci_-_exercice_2004.pdf",

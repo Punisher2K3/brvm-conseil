@@ -13,16 +13,22 @@ function renderValuation(a){
  const central=eps*m.peerPER;
  const low=central*.8,high=central*1.2;
  const gap=(central/a.reference-1)*100;
+ const difference=central-a.reference;
+ const discount=Math.abs(difference)/central*100;
+ const assessment=difference>0?'Cours inférieur à la valeur estimée':difference<0?'Cours supérieur à la valeur estimée':'Cours égal à la valeur estimée';
  const reading=a.reference<low?'Sous la fourchette':a.reference>high?'Au-dessus de la fourchette':'Dans la fourchette';
- return `<article class="card"><h4>Combien pourrait valoir cette action ?</h4>
- <p><strong>${money(low)} à ${money(high)} par action</strong> · estimation par comparaison sectorielle.</p>
- <p><strong>${reading}</strong> · cours de référence de ${money(a.reference)} au ${esc(a.asOf)}. Le scénario central de ${money(central)} se situe à ${gap>=0?'+':''}${pct(gap)} du cours.</p>
+ return `<article class="card"><h4>Valeur estimée de l’action</h4>
+ <p><strong>${money(central)} par action</strong> · estimation centrale</p>
+ <p>Cours de référence au ${esc(a.asOf)} : <strong>${money(a.reference)}</strong></p>
+ <p><strong>${assessment}</strong>${difference===0?'':' · '+money(Math.abs(difference))+' d’écart, soit une '+(difference>0?'décote':'prime')+' de '+pct(discount)+' par rapport à la valeur estimée'}. Pour atteindre l’estimation centrale, le cours devrait varier de ${gap>0?'+':''}${pct(gap)}.</p>
+ <details><summary>Voir la fourchette et les hypothèses</summary>
+ <p>${money(low)} à ${money(high)} · ${reading.toLowerCase()}.</p>
  <div class="table-wrap"><table><thead><tr><th>Scénario</th><th>Hypothèse de BPA</th><th>Valeur estimée</th></tr></thead><tbody>
  <tr><td>Prudent</td><td>${money(eps*.8)} (−20 %)</td><td>${money(low)}</td></tr>
  <tr><td>Central</td><td>${money(eps)}</td><td>${money(central)}</td></tr>
  <tr><td>Favorable</td><td>${money(eps*1.2)} (+20 %)</td><td>${money(high)}</td></tr></tbody></table></div>
  <p class="muted">Chaque scénario multiplie le BPA ${d.eps!==null?'publié, ajusté des fractionnements connus':'implicite du PER du bulletin'} par le PER médian de ${fmt(m.peerCount,0)} autres sociétés du secteur (${fmt(m.peerPER)}×). Les variations de ±20 % servent à mesurer la sensibilité au bénéfice. Croissance annuelle du bénéfice observée dans les comptes vérifiés : ${pct(d.earningsGrowth)}.</p>
- <p class="muted">Les écarts de croissance, de dette et de qualité du business peuvent justifier un autre multiple. L’estimation dépend aussi du prix auquel le marché valorise les comparables.</p></article>`;
+ <p class="muted">Les écarts de croissance, de dette et de qualité du business peuvent justifier un autre multiple. L’estimation dépend aussi du prix auquel le marché valorise les comparables.</p></details></article>`;
 }
 function render(a){
  const d=a.deep,f=d.annual,b=d.profile;

@@ -48,6 +48,24 @@ function backtest(history,fee=.01){
  return {n:trades.length,mean:mean(trades.map(t=>t.return)),winRate:trades.length?trades.filter(t=>t.return>0).length/trades.length*100:null,fee,validated:trades.length>=30,trades};
 }
 const ISSUERS={"SNTS": "sonatel", "ORAC": "orange-ci", "ONTBF": "onatel-bf", "PALC": "palm-ci", "SPHC": "saph-ci", "SGBC": "sgci", "SIBC": "sib", "ECOC": "ecobank-ci", "ETIT": "ecobank-tg", "BOAB": "bank-africa-bn", "BOABF": "bank-africa-bf", "BOAC": "bank-africa-ci", "BOAM": "bank-africa-ml", "BOAN": "bank-africa-ng", "BOAS": "bank-africa-sn", "STBC": "sitab", "SLBC": "solibra", "NTLC": "nestle-ci", "CIEC": "cie-ci", "SDCC": "sodeci", "ABJC": "servair-abidjan-ci", "NEIC": "nei-ceda-ci", "SAFC": "safca-ci", "CABC": "sicable", "SICC": "sicor", "SMBC": "smb", "SCRC": "sucrivoire", "ORGT": "oragroup", "NSBC": "nsbc", "UNXC": "uniwax-ci", "UNLC": "unilever-ci", "FTSC": "filtisac-ci", "TTLC": "total", "TTLS": "totalenergies-marketing-sn", "BICC": "bici-ci", "BNBC": "bernabe-ci", "CBIBF": "coris-bank-international", "CFAC": "cfao-motors-ci", "SDSC": "bollore-transport-logistics", "SIVC": "air-liquide-ci", "SEMC": "crown-siem-ci", "BBGC": "bbgci", "BICB": "biic", "LNBB": "lnb", "PRSC": "tractafric-ci", "SHEC": "vivo-energy-ci", "SOGC": "sogb", "STAC": "setao-ci"};
+
+function adjustHistory(history, symbol, asOf) {
+ const defaultSplits=[{symbol:'SNTS',date:'2026-10-26',factor:10}];
+ const splits=(root.BRVM_FUNDAMENTALS?.splits||defaultSplits).filter(event=>event.symbol===symbol && event.date<=asOf);
+ return history.map(row=>{
+  if(row.adjustedTo===asOf)return row;
+  const priceFactor=splits.filter(event=>row.date<event.date).reduce((product,event)=>product*event.factor,1);
+  const dividendFactor=splits.filter(event=>row.dividendDate && row.dividendDate<event.date).reduce((product,event)=>product*event.factor,1);
+  const adjusted={...row,adjustedTo:asOf,originalClose:row.originalClose??row.close};
+  for(const field of ['close','reference','previous','opening']){
+   if(Number.isFinite(row[field]))adjusted[field]=row[field]/priceFactor;
+  }
+  if(Number.isFinite(row.volume))adjusted.volume=row.volume*priceFactor;
+  if(Number.isFinite(row.dividend))adjusted.dividend=row.dividend/dividendFactor;
+  return adjusted;
+ });
+}
+
 function analyse(data,options={}){
  const asOf=options.asOf||today(),profile=options.profile||'equilibre',fee=options.fee??1,budget=options.budget??100000;
  const weights=profile==='revenu'?{quality:25,value:20,income:30,liquidity:20,trend:5}:profile==='prudent'?{quality:30,value:20,income:15,liquidity:30,trend:5}:{quality:25,value:25,income:15,liquidity:20,trend:15};
@@ -55,8 +73,9 @@ function analyse(data,options={}){
  if(!sessions.length)return [];
  const latest=sessions.at(-1),stale=days(asOf,latest.date)>7;
  const financials=root.BRVM_FINANCIALS||[];
- return latest.stocks.map(s=>{
-   const history=sessions.map(x=>x.stocks.find(y=>y.symbol===s.symbol)).filter(Boolean);
+ return latest.stocks.map(raw=>{
+   const s=adjustHistory([raw],raw.symbol,latest.date)[0];
+   const history=adjustHistory(sessions.map(x=>x.stocks.find(y=>y.symbol===s.symbol)).filter(Boolean),s.symbol,latest.date);
    const segment=cleanSegment(history),valid=segment.rows.filter(r=>r.close>0&&!r.suspended&&!r.inconsistent);
    const last20=history.slice(-20),prices=valid.map(r=>r.close),p=s.reference;
    const peers=latest.stocks.filter(x=>x.sector===s.sector&&x.per>0&&x.per<100&&x.symbol!==s.symbol);
@@ -114,6 +133,6 @@ function analyse(data,options={}){
    return {...s,close:s.close||s.reference,asOf:latest.date,history,events:segment.events,score,coverage,weights,components,verdict,positives,negatives,warnings,metrics:{peerPER,peerCount:peers.length,yieldNet,dividendAge,turnover,active,ret20,ma20,ma60,rsi:rsi(prices),volatility,drawdown:prices.length>=20?maxDrawdown(prices):null,revenueGrowth,profitGrowth,indicativeValue,positionLimit,financialAge},financial:fin||null,financialArchive:!fin?financialRecord:null,financialIssues,reports:issuer?.reports||[],issuerUrl:issuer?.url||'https://www.brvm.org/fr/rapports-societes-cotees',scenarios:[scenarios(history,5),scenarios(history,20)],backtest:backtest(history,fee/100),simulation:{budget,fee,shares,cost:shares*p*(1+fee/100),breakEven:p*(1+fee/100)/(1-fee/100)},method:VERSION};
  });
 }
-const api={analyse,scenarios,backtest,cleanSegment,quantile,median,rsi,today,VERSION};
+const api={adjustHistory,analyse,scenarios,backtest,cleanSegment,quantile,median,rsi,today,VERSION};
 root.BRVM_ENGINE=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

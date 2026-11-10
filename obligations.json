@@ -1,41 +1,177 @@
 {
-  "checkedAt": null,
-  "lastSuccess": null,
-  "scope": "Adjudications UMOA-Titres ; couverture des emprunts d’entreprise non encore automatisée.",
-  "warnings": [],
+  "checkedAt": "2026-11-10T14:14:59.436627+00:00",
+  "lastSuccess": "2026-11-10T14:14:59.436627+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
-      "title": "État du Mali — émission simultanée de bons et obligations du Trésor",
+      "title": "es (BAT - OAT - OAT) - Mali - 11/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
       "date": "2026-11-11",
-      "kind": "Adjudication de titres publics",
-      "publicationDate": "2026-10-30",
       "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
       "documents": [
-        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-ML-ES-11.11.2026.pdf"
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-ML-ES-11.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-ML-ES-11.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2023/04/UT_NI_2022_MALI-VF.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-ML-ES-11.11.2026.pdf"
       ],
       "details": [
         {
-          "label": "Montant global",
-          "value": "45 milliards FCFA"
+          "label": "Date de l'opération:",
+          "value": "11/11/2026"
         },
         {
-          "label": "Dépôt des offres",
-          "value": "11 novembre 2026 à 10 h 30 TU ; limite interne de l’intermédiaire à vérifier"
+          "label": "Montant mis en adjudication:",
+          "value": "45 000 millions de FCFA"
         },
         {
-          "label": "OAT 3 ans",
-          "value": "Coupon annuel 6 % ; nominal 10 000 FCFA ; échéance 12 novembre 2029"
+          "label": "Date de valeur:",
+          "value": "12/11/2026"
         },
         {
-          "label": "OAT 5 ans",
-          "value": "Coupon annuel 6,20 % ; nominal 10 000 FCFA ; échéance 29 octobre 2031"
+          "label": "Durée:",
+          "value": "12 mois"
         },
         {
-          "label": "BAT 364 jours",
-          "value": "Nominal 1 000 000 FCFA ; taux déterminé par adjudication"
+          "label": "Echéance:",
+          "value": "10/11/2027"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "%"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "1 000 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "36 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "12/11/2029"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,0000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "60 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "29/10/2031"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,2000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
         }
-      ]
+      ],
+      "kind": "Adjudication de titres publics",
+      "publicationDate": "2026-10-30",
+      "verifiedAt": "2026-11-10T14:14:59.436627+00:00"
+    },
+    {
+      "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
+      "title": "es (BAT - OAT - OAT - OAT) - Burkina - 18/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
+      "date": "2026-11-18",
+      "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
+      "documents": [
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-BF-ES-18.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-BF-ES-18.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/04/NI-2025-–-BF-–-V3-note-dinfos-2025-1.pdf"
+      ],
+      "details": [
+        {
+          "label": "Date de l'opération:",
+          "value": "18/11/2026"
+        },
+        {
+          "label": "Montant mis en adjudication:",
+          "value": "30 000 millions de FCFA"
+        },
+        {
+          "label": "Date de valeur:",
+          "value": "19/11/2026"
+        },
+        {
+          "label": "Durée:",
+          "value": "12 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "17/11/2027"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "%"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "1 000 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "36 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "19/11/2029"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,0000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "60 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "19/11/2031"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,2000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "84 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "19/11/2033"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,4000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        }
+      ],
+      "kind": "Adjudication de titres publics",
+      "publicationDate": null,
+      "verifiedAt": "2026-11-10T14:14:59.436627+00:00"
     }
-  ]
+  ],
+  "warnings": [],
+  "scope": "Adjudications annoncées sur UMOA-Titres. Couverture des emprunts d’entreprise et des appels publics à l’épargne non encore automatisée."
 }

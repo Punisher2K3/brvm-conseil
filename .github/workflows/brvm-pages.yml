@@ -36,6 +36,8 @@ jobs:
           path: collecte
           key: brvm-collecte-${{ github.run_id }}
           restore-keys: brvm-collecte-
+      - name: Surveiller les annonces obligataires officielles
+        run: python collecter_obligations.py
       - name: Vérifier et collecter les publications officielles
         run: |
           if ! python actualisation_auto.py --force --trigger github; then
@@ -56,7 +58,7 @@ jobs:
           python gerer_base.py sauvegarder
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js
+          git add obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js
           if ! git diff --cached --quiet; then
             git commit -m "Actualiser les données officielles BRVM"
             git push

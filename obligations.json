@@ -1,0 +1,41 @@
+{
+  "checkedAt": null,
+  "lastSuccess": null,
+  "scope": "Adjudications UMOA-Titres ; couverture des emprunts d’entreprise non encore automatisée.",
+  "warnings": [],
+  "events": [
+    {
+      "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
+      "title": "État du Mali — émission simultanée de bons et obligations du Trésor",
+      "date": "2026-11-11",
+      "kind": "Adjudication de titres publics",
+      "publicationDate": "2026-10-30",
+      "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
+      "documents": [
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-ML-ES-11.11.2026.pdf"
+      ],
+      "details": [
+        {
+          "label": "Montant global",
+          "value": "45 milliards FCFA"
+        },
+        {
+          "label": "Dépôt des offres",
+          "value": "11 novembre 2026 à 10 h 30 TU ; limite interne de l’intermédiaire à vérifier"
+        },
+        {
+          "label": "OAT 3 ans",
+          "value": "Coupon annuel 6 % ; nominal 10 000 FCFA ; échéance 12 novembre 2029"
+        },
+        {
+          "label": "OAT 5 ans",
+          "value": "Coupon annuel 6,20 % ; nominal 10 000 FCFA ; échéance 29 octobre 2031"
+        },
+        {
+          "label": "BAT 364 jours",
+          "value": "Nominal 1 000 000 FCFA ; taux déterminé par adjudication"
+        }
+      ]
+    }
+  ]
+}

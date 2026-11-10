@@ -170,6 +170,47 @@
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
       "verifiedAt": "2026-11-10T14:46:43.594014+00:00"
+    },
+    {
+      "id": "https://www.africabourse.com/opportunite/734",
+      "title": "Fidelis Finance — PME Élan Croissance UMOA 3 — 7,00 % 2026-2031",
+      "date": "2026-11-19",
+      "openDate": "2026-10-28",
+      "closeDate": "2026-11-19",
+      "kind": "Souscription d’entreprise — appel public à l’épargne",
+      "publicationDate": null,
+      "source": "https://www.africabourse.com/opportunite/734",
+      "documents": [
+        "https://www.africabourse.com/uploads/opportunite/6da9eb5204ed16e5867e48454c3385d5.pdf"
+      ],
+      "details": [
+        {
+          "label": "Montant",
+          "value": "15 milliards FCFA"
+        },
+        {
+          "label": "Nominal unitaire",
+          "value": "10 000 FCFA"
+        },
+        {
+          "label": "Coupon annuel",
+          "value": "7,00 % brut"
+        },
+        {
+          "label": "Durée",
+          "value": "5 ans, dont 1 an de différé sur le capital"
+        }
+      ],
+      "verifiedSupplement": [
+        {
+          "label": "Coupon annoncé par Fidelis Finance",
+          "value": "7,00 % brut l’an"
+        },
+        {
+          "label": "Durée annoncée par Fidelis Finance",
+          "value": "5 ans, dont 1 an de différé sur le capital"
+        }
+      ]
     }
   ],
   "warnings": [],

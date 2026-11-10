@@ -2,6 +2,7 @@
 from pathlib import Path
 import json,shutil,hashlib,re
 from html import escape
+from urllib.parse import urlparse
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parent
 PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js']
@@ -12,13 +13,14 @@ def obligations_html():
     data=json.loads(p.read_text(encoding='utf-8'))
     today=datetime.now(timezone.utc).date().isoformat()
     e=lambda value:escape(str(value or 'Non confirmé'),quote=True)
-    safe=lambda url:e(url) if str(url).startswith('https://www.umoatitres.org/') else '#'
+    safe=lambda url:e(url) if urlparse(str(url)).scheme=='https' and urlparse(str(url)).hostname in ('www.umoatitres.org','umoatitres.org','www.africabourse.com','africabourse.com') else '#'
     cards=[]
     for item in data.get('events',[]):
         if item['date']<today:continue
         details=''.join('<li><strong>'+e(r['label'])+' :</strong> '+e(r['value'])+'</li>' for r in item.get('details',[]))
         docs=' · '.join('<a target="_blank" rel="noopener" href="'+safe(u)+'">Document officiel '+str(i+1)+'</a>' for i,u in enumerate(item.get('documents',[])))
-        cards.append('<article class="card"><p class="eyebrow">'+e(item.get('kind'))+'</p><h3>'+e(item['title'])+'</h3><p><strong>Opération du '+e(item['date'])+'</strong></p><ul>'+details+'</ul><p>Date de publication : '+e(item.get('publicationDate'))+'. Taux net fiscal et rendement au prix obtenu : à vérifier.</p><p><a target="_blank" rel="noopener" href="'+safe(item['source'])+'">Annonce officielle</a> · '+docs+'</p></article>')
+        period=('Souscription du '+e(item['openDate'])+' au '+e(item['closeDate'])) if item.get('openDate') else 'Adjudication du '+e(item['date'])
+        cards.append('<article class="card"><p class="eyebrow">'+e(item.get('kind'))+'</p><h3>'+e(item['title'])+'</h3><p><strong>'+period+'</strong></p><ul>'+details+'</ul><p>Date de publication : '+e(item.get('publicationDate'))+'. Taux net fiscal et rendement au prix obtenu : à vérifier.</p><p><a target="_blank" rel="noopener" href="'+safe(item['source'])+'">Annonce officielle</a> · '+docs+'</p></article>')
     status='<p class="muted">Dernière vérification : '+e(data.get('checkedAt'))+'. Dernière collecte réussie : '+e(data.get('lastSuccess'))+'.</p>'
     warning='<p class="notice">Certaines sources n’ont pas pu être vérifiées. Les dernières annonces connues sont conservées ; leur actualité reste à confirmer.</p>' if data.get('warnings') else ''
     return status+warning+('<div class="grid">'+''.join(cards)+'</div>' if cards else '<p>Aucune opération à venir retrouvée dans les annonces collectées. Cela ne prouve pas une absence d’émissions.</p>')+'<p class="muted">'+e(data.get('scope'))+' Pour un particulier, la souscription passe par un intermédiaire habilité. Les coupons annoncés ne sont pas nécessairement le rendement obtenu.</p>'

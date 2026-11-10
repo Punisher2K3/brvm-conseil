@@ -121,6 +121,7 @@ function renderForecastSection(){
  select.onchange=show;show();
 }
 function render(){
+ BRVM_RESEARCH_UI.mount(analyses,window.BRVM_FUNDAMENTALS||{});
  renderForecastSection();
  const q=$('search').value.toLocaleLowerCase('fr');
  const rows=analyses.filter(a=>(a.name+' '+a.symbol).toLocaleLowerCase('fr').includes(q)&&($('sector').value==='all'||a.sector===$('sector').value)&&($('filter').value==='all'||a.verdict===$('filter').value));
@@ -153,7 +154,7 @@ function detail(symbol,open=true){
  $('detailBody').innerHTML=`<div class="detail-title"><div><p class="eyebrow">${esc(a.symbol)} · ${esc(sectors[a.sector]||'Secteur non identifié')}</p><h2>${esc(a.name)}</h2></div><div class="price">${fmt(a.reference)} <small>FCFA</small><p class="muted">Cours de référence · ${a.asOf}</p></div></div><span class="badge ${tone(a.verdict)}">${esc(a.verdict)}</span><div class="notice"><strong>Score ${fmt(a.score)} /100 · couverture ${a.coverage} %.</strong> ${a.financial&&a.components.quality!==null?'Les résultats comparables sont intégrés.':a.financial?'Un résultat récent est disponible, mais la dimension financière ne peut pas être entièrement notée.':'Les comptes récents manquent : l’analyse financière reste partielle.'} Ce score reflète les règles du modèle ; il n’est pas une probabilité de gain.</div>
  ${a.liveQuote?`<aside class="notice"><strong>Dernier cours web : ${fmt(a.liveQuote.price)} FCFA · ${esc(window.BRVM_FUNDAMENTALS.liveMarket.session)} à ${esc(window.BRVM_FUNDAMENTALS.liveMarket.time)} (Abidjan).</strong><br>Les avis et simulations ci-dessous utilisent le bulletin complet du ${a.asOf}, au cours de référence de ${fmt(a.reference)} FCFA. Le cours web est un instantané distinct et peut évoluer.</aside>`:''}
  ${plainSummary(a)}
- ${BRVM_DEEP_UI.render(a)}
+ ${BRVM_DEEP_UI.render(a)}${BRVM_RESEARCH_UI.detail(a,analyses,window.BRVM_FUNDAMENTALS||{})}
  <details class="compact-metrics"><summary>Voir les chiffres en un coup d’œil</summary><div class="metrics">${[['PER',fmt(a.per,2)],['Médiane PER du secteur',fmt(m.peerPER,2)],['Dividende net récent / cours',fmt(m.yieldNet,2)+' %'],['Montant médian échangé',fmt(m.turnover)+' FCFA'],['Séances avec échanges',fmt(m.active)+' %'],['Variation sur 20 observations',percent(m.ret20)],['Volatilité annualisée',fmt(m.volatility,1)+' %'],['Baisse maximale du segment',percent(m.drawdown)]].map(([k,v])=>`<div><span>${k}</span><strong>${v}</strong></div>`).join('')}</div></details>
  ${explainedIndicators(a)}
  ${chart(a)}<div class="detail-grid"><article class="card"><h3>Ce qui soutient le dossier</h3>${list(a.positives)}</article><article class="card"><h3>Ce qui appelle à la prudence</h3>${list([...a.negatives,...a.warnings])}</article></div>

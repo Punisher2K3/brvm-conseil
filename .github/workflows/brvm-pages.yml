@@ -49,6 +49,8 @@ jobs:
         run: |
           node test_fondamentaux.cjs
           node test_previsions.cjs
+          node test_valorisations.cjs
+          node --check valorisations_ui.js
           node --check app.js
           node --check fiche_fondamentale.js
       - name: Construire les fichiers publics

@@ -4,7 +4,7 @@ import json,shutil,hashlib,re
 from html import escape
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parent
-PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js']
+PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js']
 
 def obligations_html():
     p=ROOT/'obligations.json'

@@ -32,7 +32,7 @@ class Page(HTMLParser):
 def read(url):
     if urlparse(url).hostname not in HOSTS:raise ValueError("Hôte non officiel")
     with urlopen(Request(url,headers={"User-Agent":"BRVMConseil/4.0"}),timeout=30) as r:
-        if r.geturl().split("/")[2] not in ("www.umoatitres.org","umoatitres.org"):raise ValueError("Redirection non officielle")
+        if urlparse(r.geturl()).hostname not in HOSTS:raise ValueError("Redirection non officielle")
         html=r.read(3000000).decode("utf-8",errors="replace")
     p=Page(url);p.feed(html);return p
 def operation_date(url):

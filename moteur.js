@@ -54,8 +54,8 @@ function adjustHistory(history, symbol, asOf) {
  const splits=(root.BRVM_FUNDAMENTALS?.splits||defaultSplits).filter(event=>event.symbol===symbol && event.date<=asOf);
  return history.map(row=>{
   if(row.adjustedTo===asOf)return row;
-  const priceFactor=splits.filter(event=>row.date<event.date).reduce((product,event)=>product*event.factor,1);
-  const dividendFactor=splits.filter(event=>row.dividendDate && row.dividendDate<event.date).reduce((product,event)=>product*event.factor,1);
+  const priceFactor=splits.filter(event=>row.date<event.date && (!row.adjustedTo || event.date>row.adjustedTo)).reduce((product,event)=>product*event.factor,1);
+  const dividendFactor=priceFactor;
   const adjusted={...row,adjustedTo:asOf,originalClose:row.originalClose??row.close};
   for(const field of ['close','reference','previous','opening']){
    if(Number.isFinite(row[field]))adjusted[field]=row[field]/priceFactor;

@@ -37,10 +37,12 @@ function forecastNextClose(a) {
  const last=rows.at(-1);
  const valid=row=>row && row.close>0 && row.volume>0 && !row.suspended && !row.inconsistent;
  if(!valid(last))return {available:false,reason:'Dernière séance sans clôture échangée exploitable.'};
- const returns=[];
+ const returns=[],features=[];
+ const imbalance=row=>row?.orderBook?.usable && row.orderBook.date===row.date ? row.orderBook.imbalance : null;
  for(let i=1;i<rows.length;i++){
   if(valid(rows[i-1]) && valid(rows[i]) && (Date.parse(rows[i].date)-Date.parse(rows[i-1].date))/86400000<=7){
    returns.push(rows[i].close/rows[i-1].close-1);
+   features.push(imbalance(rows[i-1]));
   }
  }
  if(returns.length<100)return {available:false,reason:'Au moins 100 variations quotidiennes valides sont nécessaires après la dernière rupture de série.'};
@@ -50,16 +52,24 @@ function forecastNextClose(a) {
   const recent=past.slice(-40);
   if(model===0)return 0;
   if(model===1)return average(recent);
-  return average(recent.slice(-5))*.5;
+  if(model===2)return average(recent.slice(-5))*.5;
+  const observations=past.map((y,i)=>({y,x:features[i]})).filter(v=>Number.isFinite(v.x));
+  const x=past.length<returns.length?features[past.length]:imbalance(last);
+  if(observations.length<20 || !Number.isFinite(x))return 0;
+  const beta=observations.reduce((s,v)=>s+v.x*v.y,0)/(1+observations.reduce((s,v)=>s+v.x*v.x,0));
+  return Math.max(-.075,Math.min(.075,beta*x));
  };
- const names=['Cours inchangé','Moyenne des 40 dernières variations','Tendance récente atténuée'];
+ const names=['Cours inchangé','Moyenne des 40 dernières variations','Tendance récente atténuée','Déséquilibre des limites résiduelles (régression)'];
  const split=Math.floor(returns.length*.6);
- const selectionErrors=[0,1,2].map(model=>{
+ const orderTraining=features.slice(0,Math.floor(returns.length*.6)).filter(Number.isFinite).length;
+ const orderTests=features.slice(Math.floor(returns.length*.6)).filter(Number.isFinite).length;
+ const candidates=orderTraining>=40 && orderTests>=20 && Number.isFinite(imbalance(last))?[0,1,2,3]:[0,1,2];
+ const selectionErrors=candidates.map(model=>{
   const errors=[];
   for(let i=25;i<split;i++)errors.push(Math.abs(returns[i]-predict(returns.slice(0,i),model)));
   return average(errors);
  });
- const selected=selectionErrors.indexOf(Math.min(...selectionErrors));
+ const selected=candidates[selectionErrors.indexOf(Math.min(...selectionErrors))];
  const errors=[],baselineErrors=[],coverage=[];
  for(let i=split;i<returns.length;i++){
   const past=returns.slice(0,i);
@@ -80,22 +90,38 @@ function forecastNextClose(a) {
  return {available:true,date:last.date,price:last.close,n:returns.length,tests:errors.length,model:names[selected],
   expected:last.close*(1+expected),low:last.close*(1+expected+quantile(residuals,.1)),high:last.close*(1+expected+quantile(residuals,.9)),
   mae:average(errors)*100,baseline:average(baselineErrors)*100,coverage:coverage.length?average(coverage)*100:null,
-  positiveRate:positive/returns.length*100,better:average(errors)<average(baselineErrors)*.95};
+  orderTraining,orderTests,orderCandidate:candidates.includes(3),book:last.orderBook||null,positiveRate:positive/returns.length*100,better:average(errors)<average(baselineErrors)*.95};
+}
+function nextWeekday(date) {
+ const d=new Date(date+'T12:00:00Z');
+ do {d.setUTCDate(d.getUTCDate()+1);} while(d.getUTCDay()===0||d.getUTCDay()===6);
+ return d.toISOString().slice(0,10);
+}
+function renderOrderBook(a) {
+ const b=a.history.at(-1)?.orderBook;
+ if(!b)return '<p>Limites résiduelles : récupération automatique des archives en cours, ou bulletin sans tableau exploitable. Elles ne sont pas remplacées par zéro.</p>';
+ return '<details><summary>Achats et ventes résiduels au '+esc(b.date)+'</summary><p>Limite achat : '+money(b.bid)+' · '+fmt(b.bidQuantity,0)+' titres. Limite vente : '+money(b.ask)+' · '+fmt(b.askQuantity,0)+' titres.</p><p>'+(b.usable?'Déséquilibre des quantités publiées : '+pct(b.imbalance*100)+'. Écart achat/vente : '+pct(b.spreadPct)+'.':'Limites absentes, croisées ou non numériques : observation exclue du modèle.')+'</p><p>Photographie des limites résiduelles de fin de séance, pas le carnet complet ni des ordres garantis pour demain. <a href="'+esc(b.source)+'" target="_blank" rel="noopener">Bulletin officiel, page '+b.page+'</a></p></details>';
 }
 function renderForecast(a) {
  const f=forecastNextClose(a);
- if(!f.available)return '<article class="card"><h4>Prévision de la prochaine clôture</h4><p>'+esc(f.reason)+'</p><p>Prévision non calculable pour cette action avec cet historique.</p></article>';
- return `<article class="card"><h4>Prévision de la prochaine clôture</h4>
- <p><strong>${money(f.expected)}</strong> · estimation pour la prochaine séance après le ${esc(f.date)}.</p>
+ const target=nextWeekday(f.date||a.asOf);
+ const today=new Intl.DateTimeFormat('fr-CA',{timeZone:'Africa/Abidjan',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+ const label=target===today?'de la journée du':'de la prochaine séance attendue le';
+ const outdated=target<today;
+ if(!f.available)return '<article class="card"><h4>Prévision de la prochaine clôture</h4><p>'+esc(f.reason)+'</p><p>Prévision non calculable pour cette action avec cet historique.</p>'+renderOrderBook(a)+'</article>';
+ return `<article class="card"><h4>Prévision de fin de cotation ${label} ${esc(target)}</h4>
+ <p><strong>${money(f.expected)}</strong> · cours de clôture estimé par action.</p>
+ <p class="muted">Date attendue en excluant les week-ends ; jours fériés et fermetures exceptionnelles à confirmer. Prévision calculée avec le bulletin du ${esc(f.date)}. ${outdated?'Cette échéance est passée : attendre un nouveau bulletin pour une prévision actuelle.':'Le cours observé en séance reste distinct de cette prévision quotidienne.'}</p>
+ ${renderOrderBook(a)}
  <p>Dernière clôture échangée ${money(f.price)}. Fourchette empirique visant 80 % des observations ${money(f.low)} à ${money(f.high)}.</p>
  <p><strong>${f.better?'Erreur réduite de plus de 5 % face au cours inchangé sur le test':'Avantage prédictif non établi face au cours inchangé'}</strong></p>
  <p>Sur ${f.tests} prévisions gardées pour le test, erreur absolue moyenne ${pct(f.mae)} du cours de départ. Repère cours inchangé ${pct(f.baseline)}. Couverture effectivement observée de la fourchette ${pct(f.coverage)}.</p>
  <details><summary>Comprendre le calcul et sa fiabilité</summary>
- <p>Trois modèles comparés chronologiquement sur la première partie de l’historique. Modèle sélectionné ${esc(f.model)}. Évaluation sur la dernière partie, avec un entraînement utilisant uniquement les données antérieures à chaque prévision. ${f.n} variations valides après la dernière rupture détectée. L’intervalle utilise les quantiles 10 % et 90 % des erreurs antérieures. La couverture de 80 % est une cible, à confronter au taux observé.</p>
+ <p>Trois modèles de cours comparés chronologiquement sur la première partie de l’historique. Modèle sélectionné ${esc(f.model)}. Évaluation sur la dernière partie, avec un entraînement utilisant uniquement les données antérieures à chaque prévision. ${f.n} variations valides après la dernière rupture détectée. Le modèle supplémentaire utilisant les limites résiduelles est ${f.orderCandidate?'inclus dans la comparaison':'encore exclu faute de couverture suffisante'} : ${f.orderTraining} observations dans la partie de sélection et ${f.orderTests} dans la partie de test (minimums 40 et 20, plus des limites actuelles valides). Il estime la relation entre le déséquilibre de la veille et la variation suivante, sans utiliser les ordres du jour prédit. L’intervalle utilise les quantiles 10 % et 90 % des erreurs antérieures. La couverture de 80 % est une cible, à confronter au taux observé.</p>
  <p>Fréquence historique des séances en hausse ${pct(f.positiveRate)}. Cette fréquence décrit l’échantillon et sa validité comme probabilité de hausse future reste à établir. Frais, glissement, liquidité et nouvelles annonces peuvent modifier le résultat d’un achat.</p>
  <p>Horizon de la prévision fixé à la prochaine séance boursière. Une actualisation de cours pendant la séance ne transforme pas ce modèle quotidien en prévision de clôture du jour. Les suspensions, incohérences et ruptures détectées limitent les données utilisables.</p></details>
  <h4>Maximum de la journée et ordres à la seconde</h4>
- <p>Ces estimations restent indisponibles. Le jeu de données actuel contient les cours quotidiens et volumes agrégés. Il faut un flux horodaté de transactions et de carnet d’ordres, puis un historique intrajournalier pour entraîner et tester ces modèles.</p>
+ <p>Ces estimations restent indisponibles. Le jeu de données contient les cours quotidiens, volumes et limites résiduelles des bulletins disponibles. Il faut un flux horodaté de transactions et de carnet d’ordres, puis un historique intrajournalier pour entraîner et tester ces modèles.</p>
  <p><a href="https://www.brvm.org/fr/node/185" target="_blank" rel="noopener">Flux de données BRVM</a> · <a href="https://otexts.com/fpp3/tscv.html" target="_blank" rel="noopener">Validation chronologique des prévisions</a></p>
  </article>`;
 }
@@ -125,5 +151,5 @@ function bind(a){
  const input=document.getElementById('inflationScenario');if(!input)return;
  input.oninput=()=>{const raw=input.value,n=Number(raw),p=a.deep.performance;document.getElementById('realReturn').textContent=raw===''?'Rendement corrigé de l’inflation : renseignez une hypothèse.':n<=-100||!Number.isFinite(n)||n>100?'Saisissez un taux annuel entre −99 et 100 %.':'Rendement réel simulé avec cette hypothèse : '+pct(((1+p.nominal/100)/Math.pow(1+n/100,p.days/365.25)-1)*100);};
 }
-root.BRVM_DEEP_UI={render,bind};
+root.BRVM_DEEP_UI={render,bind,forecastNextClose,nextWeekday,renderForecast};
 })(window);

@@ -94,6 +94,7 @@ def perform(trigger='scheduled',force=False):
                     command=[runtime(),'-u',str(ROOT/'collecter.py'),'--jours','200','--incremental']
                     if trigger in ('scheduled','manual'):command.append('--refresh-catalogue')
                     execute(command,log)
+                    execute([runtime(),str(ROOT/'collecter_ordres.py')],log)
                     execute([runtime(),str(ROOT/'publier_finances.py')],log)
                     execute([runtime(),str(ROOT/'actualiser_fondamentaux.py')],log)
                 session=read_json(ROOT/'base-marche.json',{}).get('session')

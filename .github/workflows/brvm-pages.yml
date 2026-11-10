@@ -39,7 +39,9 @@ jobs:
       - name: Vérifier et collecter les publications officielles
         run: python actualisation_auto.py --force --trigger github
       - name: Vérifier les calculs fondamentaux
-        run: node test_fondamentaux.cjs
+        run: |
+          node test_fondamentaux.cjs
+          node test_previsions.cjs
       - name: Construire les fichiers publics
         run: python preparer_publication.py
       - name: Conserver les nouvelles données vérifiées

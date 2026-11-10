@@ -109,7 +109,19 @@ function forecastBrief(a){
  const target=BRVM_DEEP_UI.nextWeekday(f.date);
  return '<small><strong>Clôture estimée : '+fmt(f.expected)+' FCFA</strong><br>Séance attendue du '+esc(target)+'<br>Fourchette : '+fmt(f.low)+' à '+fmt(f.high)+' FCFA<br>'+(f.better?'Erreur réduite sur le test historique.':'Avantage prédictif non établi.')+'</small>';
 }
+function renderForecastSection(){
+ const select=$('forecastAction');if(!select)return;
+ const previous=select.value;
+ const entries=analyses.map(a=>{let f=forecastCache.get(a);if(!f){f=BRVM_DEEP_UI.forecastNextClose(a);forecastCache.set(a,f);}return {a,f};});
+ select.innerHTML=entries.map(({a,f})=>'<option value="'+esc(a.symbol)+'">'+esc(a.symbol+' · '+a.name)+(f.available?'':' · prévision indisponible')+'</option>').join('');
+ const chosen=entries.find(x=>x.a.symbol===previous)||entries.find(x=>x.a.symbol==='SNTS'&&x.f.available)||entries.find(x=>x.f.available)||entries[0];
+ if(chosen)select.value=chosen.a.symbol;
+ $('forecastCoverage').textContent=entries.filter(x=>x.f.available).length+' prévisions calculables sur '+entries.length+' actions. Une valeur indisponible signifie que les données ne permettent pas le calcul.';
+ const show=()=>{const item=analyses.find(a=>a.symbol===select.value);$('forecastPanel').innerHTML=item?BRVM_DEEP_UI.renderForecast(item):'<p>Aucune action disponible.</p>';};
+ select.onchange=show;show();
+}
 function render(){
+ renderForecastSection();
  const q=$('search').value.toLocaleLowerCase('fr');
  const rows=analyses.filter(a=>(a.name+' '+a.symbol).toLocaleLowerCase('fr').includes(q)&&($('sector').value==='all'||a.sector===$('sector').value)&&($('filter').value==='all'||a.verdict===$('filter').value));
  const key=$('sort').value;

@@ -37,11 +37,15 @@ jobs:
           key: brvm-collecte-${{ github.run_id }}
           restore-keys: brvm-collecte-
       - name: Vérifier et collecter les publications officielles
-        run: python actualisation_auto.py --force --trigger github
+        run: |
+          python actualisation_auto.py --force --trigger github
+          python -c "import json; d=json.load(open('base-marche.json',encoding='utf-8')); print('Séance analysée :',d['session']); print('Séances avec limites résiduelles :',sum(s.get('orderBookExtraction',0)>0 for s in d['sessions'])); print('Actions avec limites dans le dernier bulletin :',sum('orderBook' in r for r in d['stocks']))"
       - name: Vérifier les calculs fondamentaux
         run: |
           node test_fondamentaux.cjs
           node test_previsions.cjs
+          node --check app.js
+          node --check fiche_fondamentale.js
       - name: Construire les fichiers publics
         run: python preparer_publication.py
       - name: Conserver les nouvelles données vérifiées

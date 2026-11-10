@@ -23,4 +23,24 @@ const data=c.window.BRVM_FUNDAMENTALS,results=c.window.BRVM_ENGINE.analyse(c.win
 test('48 descriptions et capitalisations officielles ; distributions sourcées',()=>{assert.equal(data.businesses.length,48);assert.equal(data.capitalisations.length,48);assert.ok(data.dividends.length>=300);for(const d of data.dividends)assert.ok(d.source.startsWith('https://www.brvm.org/'));});
 test('Tous les comptes publiés ont source, date, pages et empreinte',()=>{assert.ok(data.accounts.length>=15);for(const f of data.accounts){assert.ok(f.verified);assert.match(f.sourceHash,/^[a-f0-9]{64}$/);assert.ok(f.pages.length);assert.ok(f.published>f.periodEnd);}});
 test('Sonatel : BPA post-fractionnement et capitalisation cohérents',()=>{const a=results.find(x=>x.symbol==='SNTS');const d=engine.analyse(a,data);assert.equal(d.eps,342);assert.equal(d.capitalisationSnapshot.shares,1e9);assert.equal(d.capitalisationSnapshot.marketCap,d.capitalisationSnapshot.price*1e9);if(data.capitalisationSession===a.asOf)assert.equal(d.marketCap,a.reference*1e9);else assert.equal(d.marketCap,null);});
+
+test('Sonatel : anciens cours et volumes ramenés à la nouvelle unité',()=>{
+ const original={date:'2026-09-30',close:45000,reference:45000,previous:44000,opening:44000,volume:100,value:4500000,dividend:1740};
+ const adjusted=c.window.BRVM_ENGINE.adjustHistory([original],'SNTS','2026-11-10')[0];
+ assert.equal(adjusted.close,4500);
+ assert.equal(adjusted.volume,1000);
+ assert.equal(adjusted.value,4500000);
+ assert.equal(adjusted.dividend,174);
+ assert.equal(original.close,45000);
+});
+test('Sonatel : dividende post-fractionnement et absence de double ajustement',()=>{
+ const adjust=c.window.BRVM_ENGINE.adjustHistory;
+ const old={date:'2026-09-30',close:45000,dividend:1740};
+ const current={date:'2026-11-05',close:4200,dividend:174};
+ assert.equal(adjust([current],'SNTS','2026-11-10')[0].dividend,174);
+ assert.equal(adjust(adjust([old],'SNTS','2026-11-01'),'SNTS','2026-11-10')[0].close,4500);
+ assert.equal(adjust([old],'ORAC','2026-11-10')[0].close,45000);
+ assert.equal(adjust([old],'SNTS','2026-10-01')[0].close,45000);
+});
+
 console.log(count+' tests fondamentaux réussis.');

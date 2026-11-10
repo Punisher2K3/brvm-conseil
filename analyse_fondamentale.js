@@ -20,7 +20,10 @@ function analyse(a,store={},options={}){
  const dividends=years.map(year=>{
   const rows=historyEvents.filter(x=>x.year===year);
   const unique=new Map(rows.map(x=>[[x.exDate,x.payment,x.net].join('|'),x]));
-  const distributions=[...unique.values()];
+  const distributions=[...unique.values()].map(row=>{
+   const factor=(store.splits||[]).filter(event=>event.symbol===a.symbol && event.date<=end && (row.exDate||row.payment||String(row.year)+'-12-31')<event.date).reduce((product,event)=>product*event.factor,1);
+   return {...row,originalNet:row.net,net:row.net/factor,adjustmentFactor:factor};
+  });
   return {year,net:distributions.length?distributions.reduce((s,x)=>s+x.net,0):null,distributions};
  });
  const quotes=a.history.filter(x=>x.close>0&&!x.suspended&&!x.inconsistent);
@@ -62,7 +65,7 @@ function analyse(a,store={},options={}){
   const real=finite(inflation)&&inflation>-100?((1+nominal/100)/Math.pow(1+inflation/100,days/365.25)-1)*100:null;
   performance={available:true,start:start.date,end:last.date,days,priceReturn:growth(last.close,start.close),distribution,nominal,real,inflation:finite(inflation)?inflation:null,fee:fee*100};
  }
- return {annual:f,archive:!f?annual:null,age,eps,epsImplicit:a.per>0?a.reference/a.per:null,epsFactor,equity,debt,debtEquity,roe:roe===null?null:roe*100,operatingMargin:margin===null?null:margin*100,earningsGrowth,marketCap,capitalisationSnapshot,shares:marketCap!==null?cap.shares:null,capitalisationSource:cap?.source,dividends,dividendYears:dividends.filter(x=>x.net!==null).length,range:{low,high,start:quotes[0]?.date,end:quotes.at(-1)?.date,count:quotes.length,unadjusted:true},valuation,profile,criteria,qualityCoverage:known,performance,banking};
+ return {annual:f,archive:!f?annual:null,age,eps,epsImplicit:a.per>0?a.reference/a.per:null,epsFactor,equity,debt,debtEquity,roe:roe===null?null:roe*100,operatingMargin:margin===null?null:margin*100,earningsGrowth,marketCap,capitalisationSnapshot,shares:marketCap!==null?cap.shares:null,capitalisationSource:cap?.source,dividends,dividendYears:dividends.filter(x=>x.net!==null).length,range:{low,high,start:quotes[0]?.date,end:quotes.at(-1)?.date,count:quotes.length,unadjusted:false},valuation,profile,criteria,qualityCoverage:known,performance,banking};
 }
 root.BRVM_DEEP={analyse,ratio,growth};if(typeof module!=='undefined')module.exports=root.BRVM_DEEP;
 })(typeof window!=='undefined'?window:globalThis);

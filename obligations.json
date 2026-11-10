@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-10T14:14:59.436627+00:00",
-  "lastSuccess": "2026-11-10T14:14:59.436627+00:00",
+  "checkedAt": "2026-11-10T14:46:43.594014+00:00",
+  "lastSuccess": "2026-11-10T14:46:43.594014+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
@@ -77,7 +77,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": "2026-10-30",
-      "verifiedAt": "2026-11-10T14:14:59.436627+00:00"
+      "verifiedAt": "2026-11-10T14:46:43.594014+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -169,7 +169,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-10T14:14:59.436627+00:00"
+      "verifiedAt": "2026-11-10T14:46:43.594014+00:00"
     }
   ],
   "warnings": [],

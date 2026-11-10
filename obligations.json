@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-10T14:46:43.594014+00:00",
-  "lastSuccess": "2026-11-10T14:46:43.594014+00:00",
+  "checkedAt": "2026-11-10T15:19:33.327519+00:00",
+  "lastSuccess": "2026-11-10T15:19:33.327519+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
@@ -77,7 +77,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": "2026-10-30",
-      "verifiedAt": "2026-11-10T14:46:43.594014+00:00"
+      "verifiedAt": "2026-11-10T15:19:33.327519+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -169,7 +169,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-10T14:46:43.594014+00:00"
+      "verifiedAt": "2026-11-10T15:19:33.327519+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -213,6 +213,9 @@
       ]
     }
   ],
-  "warnings": [],
-  "scope": "Adjudications annoncées sur UMOA-Titres. Couverture des emprunts d’entreprise et des appels publics à l’épargne non encore automatisée."
+  "warnings": [
+    "Liste des souscriptions : ValueError",
+    "Souscription non vérifiée : https://www.africabourse.com/opportunite/734 (ValueError)"
+  ],
+  "scope": "Adjudications UMOA-Titres et souscriptions obligataires identifiées chez la SGI Africabourse. Couverture non exhaustive ; émissions d’entreprise actualisées automatiquement, clôture anticipée à confirmer auprès du placeur."
 }

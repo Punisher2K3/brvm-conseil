@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-11T10:49:26.053845+00:00",
-  "lastSuccess": "2026-11-11T10:49:26.053845+00:00",
+  "checkedAt": "2026-11-11T18:39:32.527274+00:00",
+  "lastSuccess": "2026-11-11T18:39:32.527274+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-11-11-2026/",
@@ -11,7 +11,9 @@
         "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-ML-ES-11.11.2026.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-ML-ES-11.11.2026.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2023/04/UT_NI_2022_MALI-VF.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-ML-ES-11.11.2026.pdf"
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-ML-ES-11.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/Annonce-au-MTP-ML-ES-11.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/Compte-Rendu-ML-ES-11.11.2026.pdf"
       ],
       "details": [
         {
@@ -73,11 +75,43 @@
         {
           "label": "Valeur nominale unitaire:",
           "value": "10 000 F CFA"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "45 000 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "13 525,0000 millions de FCFA"
+        },
+        {
+          "label": "Taux moyen pondéré:",
+          "value": "4,1353 %"
+        },
+        {
+          "label": "Taux marginal",
+          "value": "4,1500 %"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "45 000 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "47 335,0800 millions de FCFA"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "45 000 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "4 500,0000 millions de FCFA"
         }
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": "2026-10-30",
-      "verifiedAt": "2026-11-11T10:49:26.053845+00:00"
+      "verifiedAt": "2026-11-11T18:39:32.527274+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -169,7 +203,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-11T10:49:26.053845+00:00"
+      "verifiedAt": "2026-11-11T18:39:32.527274+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -221,7 +255,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-11T10:49:26.053845+00:00"
+      "verifiedAt": "2026-11-11T18:39:32.527274+00:00"
     }
   ],
   "warnings": [

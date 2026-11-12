@@ -98,7 +98,8 @@ def perform(trigger='scheduled',force=False):
                     execute(command,log)
                     execute([runtime(),str(ROOT/'collecter_ordres.py')],log)
                     execute([runtime(),str(ROOT/'publier_finances.py')],log)
-                    execute([runtime(),str(ROOT/'actualiser_fondamentaux.py')],log)
+                    if os.environ.get('BRVM_SEPARATE_FUNDAMENTALS')!='1':
+                        execute([runtime(),str(ROOT/'actualiser_fondamentaux.py')],log)
                 session=read_json(ROOT/'base-marche.json',{}).get('session')
                 changed=revision()!=old_revision
                 state.update(state='done',finishedAt=now(),lastSuccess=now(),session=session,changed=changed,newSession=session!=old_session,message='Nouvelle séance intégrée ; les avis seront recalculés.' if session!=old_session else 'Vérification terminée : aucune nouvelle séance publiée.')

@@ -55,7 +55,9 @@ def main():
  validate_market(read(ROOT/'base-marche.json',{}))
  stages=[];py=sys.executable
  os.environ['BRVM_BACKFILL_BATCH']='5' if deep else '0'
- stages.append(stage('Cours et fondamentaux',[py,'actualisation_auto.py','--force','--trigger','github'],DATA[:6],1200,validator=validate_market))
+ os.environ['BRVM_SEPARATE_FUNDAMENTALS']='1'
+ stages.append(stage('Bulletins et comptes normalisés',[py,'actualisation_auto.py','--force','--trigger','github'],DATA[:6],1200,validator=validate_market))
+ stages.append(stage('Cours web, capitalisations et dividendes',[py,'actualiser_fondamentaux.py'],['fondamentaux.json','fondamentaux.js'],480))
  stages.append(stage('Annonces obligataires',[py,'collecter_obligations.py'],['obligations.json'],180))
  stages.append(stage('Sources complémentaires',[py,'collecter_sources.py','--lot','12','--archives-lot','2' if deep else '0'],['sources-complementaires.json.gz'],480))
  if deep:

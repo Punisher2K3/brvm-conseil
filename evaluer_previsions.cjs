@@ -2,7 +2,7 @@
 const fs=require('node:fs'),crypto=require('node:crypto'),zlib=require('node:zlib');
 const model=require('./previsions.js');
 const directions=require('./signaux.js'),{reconcile,eventsFor,extendHistory}=require('./rapprocher_sources.cjs');
-const {selectPilot}=require('./pilote.cjs'),execution=require('./decision.js'),announcements=require('./annonces.cjs');
+const {selectPilot}=require('./pilote.cjs'),announcements=require('./annonces.cjs');
 const data=JSON.parse(fs.readFileSync('base-marche.json','utf8'));
 const fundamentals=JSON.parse(fs.readFileSync('fondamentaux.json','utf8'));
 const supplement=fs.existsSync('sources-complementaires.json.gz')?JSON.parse(zlib.gunzipSync(fs.readFileSync('sources-complementaires.json.gz'))):{};
@@ -18,7 +18,7 @@ for(const stock of data.sessions.at(-1).stocks){
  if(currentConflict&&signal.available){signal.direction='uncertain';signal.label='Signal suspendu : sources divergentes';signal.support='blocked';}
  predictions.push({symbol:stock.symbol,name:stock.name,sector:stock.sector,...f,signal,secondaryHistory:extended.added,trainingStart:history[0]?.date,recentEvents:eventsFor(supplement,stock.symbol,asOf),sourceConflict:currentConflict});
 }
-const inputHash=crypto.createHash('sha256');for(const name of ['base-marche.json','fondamentaux.json','previsions.js','signaux.js','decision.js','pilote.cjs','annonces.cjs','rapprocher_sources.cjs','sources-complementaires.json.gz'])if(fs.existsSync(name))inputHash.update(name).update(fs.readFileSync(name));
+const inputHash=crypto.createHash('sha256');for(const name of ['base-marche.json','fondamentaux.json','previsions.js','signaux.js','pilote.cjs','annonces.cjs','rapprocher_sources.cjs','sources-complementaires.json.gz'])if(fs.existsSync(name))inputHash.update(name).update(fs.readFileSync(name));
 const report={version:model.VERSION,generatedAt,asOf,dataRevision:data.revision||data.fetched,inputSha256:inputHash.digest('hex'),
  sessions:data.sessions.length,firstSession:data.sessions[0].date,sourceSummary:sources.summary,sourceConflicts:sources.conflicts.slice(-200),scope:'Clôture de la prochaine séance avec échange valide ; transitions révisées et séances sans transaction exclues du test.',predictions};
 const readJournal=()=>fs.existsSync('previsions-journal.json')?JSON.parse(fs.readFileSync('previsions-journal.json','utf8')):{version:1,records:[]};
@@ -38,7 +38,6 @@ for(const f of predictions){
   if(recorded.signal&&f.signal?.available){f.signal={...f.signal,...recorded.signal};f.signal.label=f.signal.direction==='up'?'Hausse envisagée':f.signal.direction==='down'?'Baisse envisagée':'Signal incertain';}
   f.events=recorded.events||[];f.eventsTracked=recorded.eventsTracked===true;
  }
- f.execution=execution.execution(f);
  f.newsCandidate=announcements.newsChallenger(f,f.events,settled,model.VERSION);
  if(f.newsCandidate.available)f.nextCandidates.push({name:f.newsCandidate.name,expected:f.newsCandidate.expected});
  if(f.sourceConflict&&f.signal?.available){f.signal.direction='uncertain';f.signal.label='Signal suspendu : sources divergentes';f.signal.support='blocked';}

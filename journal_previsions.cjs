@@ -1,6 +1,5 @@
 'use strict';
 const model=require('./previsions.js');
-const execution=require('./decision.js');
 function updateJournal(previous,data,predictions,recordedAt,inputSha256){
  const journal=JSON.parse(JSON.stringify(previous||{version:1,records:[]})),today=recordedAt.slice(0,10);
  const sessions=[...data.sessions].sort((a,b)=>a.date.localeCompare(b.date));
@@ -16,9 +15,6 @@ function updateJournal(previous,data,predictions,recordedAt,inputSha256){
    record.outcome.returnPct=y*100;
    record.outcome.baselineError=Number.isFinite(record.originPrice)?actual.close-record.originPrice:null;
    record.outcome.candidateErrors=(record.challengers||[]).filter(c=>Number.isFinite(c.expected)).map(c=>({name:c.name,error:actual.close-c.expected}));
-   const scenario=execution.fromPrices(actual.opening,actual.close,record.executionHypotheses||execution.DEFAULTS);
-   record.outcome.openToCloseNetPct=scenario.available?scenario.netReturnPct:null;
-   record.outcome.opening=Number.isFinite(actual.opening)?actual.opening:null;
    if(record.signalExperiment?.probabilities)record.outcome.signalExperimentBrier=['down','stable','up'].reduce((sum,key)=>sum+(record.signalExperiment.probabilities[key]/100-(key===record.outcome.direction?1:0))**2,0);
   }
  }
@@ -27,7 +23,7 @@ function updateJournal(previous,data,predictions,recordedAt,inputSha256){
   const id=[f.symbol,f.date,model.VERSION].join('|');if(journal.records.some(r=>r.id===id))continue;
   journal.records.push({id,symbol:f.symbol,origin:f.date,targetIndicative:f.target,recordedAt,version:model.VERSION,inputSha256,model:f.model,expected:f.expected,low:f.low,high:f.high,
    originPrice:f.price,challengers:f.nextCandidates,
-   sector:f.sector,pilotMember:f.pilot?.selected===true,regime:f.regime?.key,eventsTracked:f.eventsTracked===true,events:f.events||[],executionHypotheses:execution.DEFAULTS,
+   sector:f.sector,pilotMember:f.pilot?.selected===true,regime:f.regime?.key,eventsTracked:f.eventsTracked===true,events:f.events||[],
    signalExperiment:f.signal?.experiment,
    signal:f.signal?{version:f.signal.version,direction:f.signal.direction,probabilities:f.signal.probabilities,support:f.signal.support}:undefined});
  }

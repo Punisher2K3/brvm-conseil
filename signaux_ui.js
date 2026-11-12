@@ -3,7 +3,7 @@
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(n,d=1)=>Number.isFinite(n)?new Intl.NumberFormat('fr-FR',{maximumFractionDigits:d}).format(n):'—';
 const money=n=>fmt(n,2)+' FCFA';
-let universe='all',slippagePct=.25;
+let universe='all';
 const safe=url=>{try{const u=new URL(url);return u.protocol==='https:'&&['www.brvm.org','bfin.brvm.org','www.sikafinance.com','www.richbourse.com'].includes(u.hostname)?esc(u.href):'#';}catch{return '#';}};
 function card(f,options={}){
  const s=f.signal,p=s.probabilities,up=s.direction==='up',main=up?p.up:p.down,side=s.metrics.sides.find(v=>v.side===(up?2:0));
@@ -52,19 +52,9 @@ function mount(report,analyses,onSelect){
  const el=document.getElementById('signaux');if(!el)return;
  if(report?.asOf!==analyses[0]?.asOf||report?.dataRevision!==(root.BRVM_DATA?.revision||root.BRVM_DATA?.fetched)){el.innerHTML='<h2>Prévisions de hausse et de baisse</h2><p>Actualisation des signaux en attente du rapport correspondant à ce bulletin.</p>';return;}
  const today=new Intl.DateTimeFormat('fr-CA',{timeZone:'Africa/Abidjan',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
- const options={universe,slippagePct,feePct:analyses[0]?.simulation?.fee??1};
+ const options={universe};
  el.innerHTML=render(report,analyses,today,options);el.querySelectorAll('[data-forecast-symbol]').forEach(b=>b.onclick=()=>onSelect(b.dataset.forecastSymbol));
  const filter=el.querySelector('#signalUniverse');if(filter)filter.onchange=()=>{universe=filter.value;mount(report,analyses,onSelect);};
- const input=el.querySelector('#signalFee'),slip=el.querySelector('#signalSlippage');
- const apply=()=>{
-  try{
-   const settings=root.BRVM_EXECUTION.settings({feePct:parseFloat(input.value),slippagePct:parseFloat(slip.value)});slippagePct=settings.slippagePct;
-   const main=document.getElementById('fee');if(main){main.value=String(settings.feePct);main.dispatchEvent(new Event('change',{bubbles:true}));}
-   else mount(report,analyses,onSelect);
-  }catch(e){el.querySelector('#signalCostError').textContent='Saisissez des hypothèses entre 0 et 5 % pour chaque opération.';}
- };
- if(input&&slip){input.onchange=apply;slip.onchange=apply;}
- const costButton=el.querySelector('#signalCostApply');if(costButton)costButton.onclick=apply;
 }
-root.BRVM_SIGNALS_UI={render,mount,costOptions:(feePct=1)=>({feePct,slippagePct})};if(typeof module!=='undefined')module.exports={render};
+root.BRVM_SIGNALS_UI={render,mount};if(typeof module!=='undefined')module.exports={render};
 })(typeof window!=='undefined'?window:globalThis);

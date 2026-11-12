@@ -1,6 +1,6 @@
-# Groupe pilote, coûts et annonces — version j1-2.1.0
+# Groupe pilote et annonces — version j1-2.1.0
 
-La rubrique Hausse / baisse ajoute un groupe pilote, un filtre, des scénarios de coûts et un suivi des annonces. Les valeurs hors pilote conservent leurs prévisions et restent accessibles avec « Toutes les actions ». Les données disponibles ne prouvent pas encore une supériorité générale de prévision.
+La rubrique Hausse / baisse ajoute un groupe pilote, un filtre et un suivi des annonces. Les valeurs hors pilote conservent leurs prévisions et restent accessibles avec « Toutes les actions ». Les données disponibles ne prouvent pas encore une supériorité générale de prévision.
 
 ## Groupe pilote
 
@@ -10,24 +10,7 @@ Les valeurs éligibles sont triées par montant médian décroissant, puis par s
 
 La composition est enregistrée avant la séance avec chaque prévision. Les résultats futurs du pilote utilisent cette composition enregistrée, pas la liste sélectionnée après avoir vu les cours. Aucune performance historique de portefeuille n'est attribuée au groupe choisi aujourd'hui. Ce groupe n'est pas une liste d'achats.
 
-## Coûts et prix accessible
-
-Deux hypothèses modifiables sont proposées : frais par opération et écart d'exécution par opération. Les valeurs initiales de 1 % et 0,25 % sont illustratives ; elles ne constituent ni les tarifs officiels de la BRVM ni une mesure du spread de chaque titre. Les frais restent synchronisés avec le contrôle existant du site.
-
-Pour un prix d'entrée de référence P, un prix de sortie F, des frais f et un écart s en fractions :
-
-```text
-Coût d'achat = P × (1+s) × (1+f)
-Produit net de vente = F × (1-s) × (1-f)
-Rendement net simulé = produit net / coût d'achat − 1
-Seuil de revente = coût d'achat / [(1-s) × (1-f)]
-```
-
-Le scénario central et les deux bornes sont évalués. « Oui dans la fourchette » signifie que même sa borne basse couvre les coûts supposés ; « Non » signifie que même sa borne haute ne les couvre pas ; sinon le résultat est indéterminé. La fourchette n'est pas une borne maximale garantie des cours futurs.
-
-Le scénario avant séance utilise le dernier cours comme référence d'entrée. Une fois le marché fermé, ce cours peut être inaccessible : le prochain prix d'ouverture peut être différent. Le site ne prétend pas qu'un achat au dernier cours serait exécutable. Une opération n'est jamais transmise.
-
-Le journal conserve les hypothèses par défaut utilisées lors de l'enregistrement. Après réception du bulletin suivant, il peut mesurer séparément une simulation de l'ouverture suivante vers la clôture, avec le véritable cours d'ouverture publié et ces hypothèses. Cette simulation ignore encore la disponibilité réelle de la quantité, les contraintes d'exécution et une fiscalité supplémentaire éventuelle ; elle n'est pas le rendement réel d'un investisseur. Les changements d'hypothèses effectués par un visiteur ne réécrivent pas le journal.
+Les nouveaux scénarios de frais et d’écart d’exécution ont été retirés à la demande de l’utilisateur. Le contrôle de frais déjà présent dans les simulations historiques est conservé. Les anciens enregistrements du journal restent intacts.
 
 ## Situations et méthodes candidates
 
@@ -51,6 +34,6 @@ Un candidat numérique « cours + annonces » nécessite au moins 30 observation
 
 ## Validation et exploitation
 
-Le contrôle `node test_recherche.cjs` couvre les coûts composés, les données invalides, la sélection du pilote sans données futures, la diversité sectorielle, les annonces tardives ou dupliquées, les témoins et dates de l'étude, la séparation entre candidat et prévision principale, la simulation à l'ouverture suivante et l'échappement des contenus. Il s'ajoute aux contrôles du moteur, des probabilités, de la collecte, du journal et des valorisations.
+Le contrôle `node test_recherche.cjs` couvre la sélection du pilote sans données futures, la diversité sectorielle, les annonces tardives ou dupliquées, les témoins et dates de l'étude, la séparation entre candidat et prévision principale, la simulation à l'ouverture suivante et l'échappement des contenus. Il s'ajoute aux contrôles du moteur, des probabilités, de la collecte, du journal et des valorisations.
 
 La publication conserve le workflow GitHub Actions existant. Les fichiers de données et le journal déjà présents sur la branche principale ne sont pas remplacés par une copie locale ; la nouvelle version enregistre ses prochaines prévisions pendant la construction du site.

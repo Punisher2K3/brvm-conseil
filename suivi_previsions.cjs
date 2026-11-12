@@ -21,9 +21,9 @@ function monitoring(journal,version){
    directionExperiment,
    challengers,reviewCandidates:challengers.filter(c=>c.sessions>=30&&c.mae<c.productionMae*.95&&c.mae<c.baselineMae*.95).map(c=>c.name)});
  }
- const pilotRecords=scored.filter(r=>r.pilotMember===true),pilotBuySignals=pilotRecords.filter(r=>r.signal?.direction==='up'&&Number.isFinite(r.outcome.openToCloseNetPct));
+ const pilotRecords=scored.filter(r=>r.pilotMember===true);
  return {version,recorded:records.length,scored:scored.length,distinctSessions:dates.length,first:dates[0]||null,last:dates.at(-1)||null,bySymbol,
-  pilot:{n:pilotRecords.length,distinctSessions:new Set(pilotRecords.map(r=>r.outcome.date)).size,buySignals:pilotBuySignals.length,simulatedOpenCloseNetPct:mean(pilotBuySignals.map(r=>r.outcome.openToCloseNetPct)),scope:'Simulation ouverture-clôture sous hypothèses, sans preuve d’exécution ni rendement de portefeuille.'},
+  pilot:{n:pilotRecords.length,distinctSessions:new Set(pilotRecords.map(r=>r.outcome.date)).size,scope:'Résultats futurs avec la composition du pilote enregistrée avant chaque séance.'},
   degrading:bySymbol.filter(s=>s.degrading).map(s=>s.symbol),readyForReview:bySymbol.filter(s=>s.reviewCandidates.length||s.directionExperiment.readyForReview).map(s=>s.symbol),
   message:dates.length<30?'Collecte des résultats futurs : moins de 30 séances réellement observées pour cette version.':'Suivi prospectif disponible, à examiner action par action.'};
 }

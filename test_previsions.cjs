@@ -2,7 +2,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
 const c={window:{},Intl,Date}; vm.createContext(c);
-for(const name of ['moteur.js','fiche_fondamentale.js'])vm.runInContext(fs.readFileSync(name,'utf8'),c);
+for(const name of ['moteur.js','previsions.js','fiche_fondamentale.js'])vm.runInContext(fs.readFileSync(name,'utf8'),c);
 const api=c.window.BRVM_DEEP_UI;
 assert.equal(api.nextWeekday('2026-11-06'),'2026-11-09');
 assert.equal(api.nextWeekday('2026-11-09'),'2026-11-10');
@@ -28,3 +28,4 @@ assert.match(api.renderForecast(a),/échéance est passée/);
 const sparse=sample(160).map((r,i)=>i<135?{...r,orderBook:undefined}:r);
 assert.equal(api.forecastNextClose({...a,history:sparse}).orderCandidate,false);
 console.log('Prévisions : dates, insuffisance, suspensions, carnets incomplets, fourchettes et affichage vérifiés.');
+

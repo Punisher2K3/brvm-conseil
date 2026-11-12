@@ -5,7 +5,7 @@ from html import escape
 from urllib.parse import urlparse
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parent
-PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js']
+PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js','previsions.js','previsions-calcul.js','previsions-calcul.json','previsions-journal.json','signaux_ui.js','sources-complementaires.json']
 
 def obligations_html():
     p=ROOT/'obligations.json'
@@ -31,6 +31,8 @@ def main():
     deep=json.loads((ROOT/'fondamentaux.json').read_text(encoding='utf-8-sig'))
     if len(deep.get('capitalisations',[]))<40:raise ValueError('Capitalisations incomplètes')
     out=ROOT/'site-public';out.mkdir(exist_ok=True)
+    source=ROOT/'sources-complementaires.json'
+    if not source.exists():source.write_text('{}',encoding='utf-8')
     for name in PUBLIC:shutil.copyfile(ROOT/name,out/name)
     (out/'mode-public.js').write_text('window.BRVM_PUBLIC_MODE = true;\n',encoding='utf-8')
     html=(out/'index.html').read_text(encoding='utf-8').replace('<script src="donnees.js">','<script src="mode-public.js"></script><script src="donnees.js">')
@@ -45,3 +47,4 @@ def main():
     (out/'status-public.json').write_text(json.dumps({'revision':actualisation_auto.revision(),'session':market['session'],'published':market.get('revision') or market.get('fetched'),'mode':'github-pages','intervalMinutes':60},ensure_ascii=False),encoding='utf-8')
     print('Site public prêt : '+str(out))
 if __name__=='__main__':main()
+

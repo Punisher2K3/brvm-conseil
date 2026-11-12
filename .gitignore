@@ -9,3 +9,10 @@ __pycache__/
 .env.*
 base-marche.json
 donnees.js
+
+
+previsions-calcul.js
+
+previsions-calcul.json
+
+sources-complementaires.json

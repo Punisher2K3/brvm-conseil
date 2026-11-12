@@ -31,67 +31,6 @@ function renderValuation(a){
  <p class="muted">Les écarts de croissance, de dette et de qualité du business peuvent justifier un autre multiple. L’estimation dépend aussi du prix auquel le marché valorise les comparables.</p></details></article>`;
 }
 
-function forecastNextClose(a) {
- if(a.verdict==='Avis suspendu')return {available:false,reason:'Avis suspendu ou données périmées. Prévision différée jusqu’à réception de données exploitables.'};
- const rows=window.BRVM_ENGINE.cleanSegment(a.history).rows;
- const last=rows.at(-1);
- const valid=row=>row && row.close>0 && row.volume>0 && !row.suspended && !row.inconsistent;
- if(!valid(last))return {available:false,reason:'Dernière séance sans clôture échangée exploitable.'};
- const returns=[],features=[];
- const imbalance=row=>row?.orderBook?.usable && row.orderBook.date===row.date ? row.orderBook.imbalance : null;
- for(let i=1;i<rows.length;i++){
-  if(valid(rows[i-1]) && valid(rows[i]) && (Date.parse(rows[i].date)-Date.parse(rows[i-1].date))/86400000<=7){
-   returns.push(rows[i].close/rows[i-1].close-1);
-   features.push(imbalance(rows[i-1]));
-  }
- }
- if(returns.length<100)return {available:false,reason:'Au moins 100 variations quotidiennes valides sont nécessaires après la dernière rupture de série.'};
- const average=values=>values.reduce((sum,value)=>sum+value,0)/values.length;
- const quantile=(values,p)=>window.BRVM_ENGINE.quantile(values,p);
- const predict=(past,model)=>{
-  const recent=past.slice(-40);
-  if(model===0)return 0;
-  if(model===1)return average(recent);
-  if(model===2)return average(recent.slice(-5))*.5;
-  const observations=past.map((y,i)=>({y,x:features[i]})).filter(v=>Number.isFinite(v.x));
-  const x=past.length<returns.length?features[past.length]:imbalance(last);
-  if(observations.length<20 || !Number.isFinite(x))return 0;
-  const beta=observations.reduce((s,v)=>s+v.x*v.y,0)/(1+observations.reduce((s,v)=>s+v.x*v.x,0));
-  return Math.max(-.075,Math.min(.075,beta*x));
- };
- const names=['Cours inchangé','Moyenne des 40 dernières variations','Tendance récente atténuée','Déséquilibre des limites résiduelles (régression)'];
- const split=Math.floor(returns.length*.6);
- const orderTraining=features.slice(0,Math.floor(returns.length*.6)).filter(Number.isFinite).length;
- const orderTests=features.slice(Math.floor(returns.length*.6)).filter(Number.isFinite).length;
- const candidates=orderTraining>=40 && orderTests>=20 && Number.isFinite(imbalance(last))?[0,1,2,3]:[0,1,2];
- const selectionErrors=candidates.map(model=>{
-  const errors=[];
-  for(let i=25;i<split;i++)errors.push(Math.abs(returns[i]-predict(returns.slice(0,i),model)));
-  return average(errors);
- });
- const selected=candidates[selectionErrors.indexOf(Math.min(...selectionErrors))];
- const errors=[],baselineErrors=[],coverage=[];
- for(let i=split;i<returns.length;i++){
-  const past=returns.slice(0,i);
-  const predicted=predict(past,selected);
-  const previousErrors=[];
-  for(let j=25;j<i;j++)previousErrors.push(returns[j]-predict(returns.slice(0,j),selected));
-  if(previousErrors.length>=30){
-   const low=predicted+quantile(previousErrors,.1),high=predicted+quantile(previousErrors,.9);
-   coverage.push(returns[i]>=low && returns[i]<=high?1:0);
-  }
-  errors.push(Math.abs(returns[i]-predicted));
-  baselineErrors.push(Math.abs(returns[i]));
- }
- const residuals=[];
- for(let i=25;i<returns.length;i++)residuals.push(returns[i]-predict(returns.slice(0,i),selected));
- const expected=predict(returns,selected);
- const positive=returns.filter(value=>value>0).length;
- return {available:true,date:last.date,price:last.close,n:returns.length,tests:errors.length,model:names[selected],
-  expected:last.close*(1+expected),low:last.close*(1+expected+quantile(residuals,.1)),high:last.close*(1+expected+quantile(residuals,.9)),
-  mae:average(errors)*100,baseline:average(baselineErrors)*100,coverage:coverage.length?average(coverage)*100:null,
-  orderTraining,orderTests,orderCandidate:candidates.includes(3),book:last.orderBook||null,positiveRate:positive/returns.length*100,better:average(errors)<average(baselineErrors)*.95};
-}
 function nextWeekday(date) {
  const d=new Date(date+'T12:00:00Z');
  do {d.setUTCDate(d.getUTCDate()+1);} while(d.getUTCDay()===0||d.getUTCDay()===6);
@@ -102,28 +41,36 @@ function renderOrderBook(a) {
  if(!b)return '<p>Limites résiduelles : récupération automatique des archives en cours, ou bulletin sans tableau exploitable. Elles ne sont pas remplacées par zéro.</p>';
  return '<details><summary>Achats et ventes résiduels au '+esc(b.date)+'</summary><p>Limite achat : '+money(b.bid)+' · '+fmt(b.bidQuantity,0)+' titres. Limite vente : '+money(b.ask)+' · '+fmt(b.askQuantity,0)+' titres.</p><p>'+(b.usable?'Déséquilibre des quantités publiées : '+pct(b.imbalance*100)+'. Écart achat/vente : '+pct(b.spreadPct)+'.':'Limites absentes, croisées ou non numériques : observation exclue du modèle.')+'</p><p>Photographie des limites résiduelles de fin de séance, pas le carnet complet ni des ordres garantis pour demain. <a href="'+esc(b.source)+'" target="_blank" rel="noopener">Bulletin officiel, page '+b.page+'</a></p></details>';
 }
+function forecastNextClose(a) {
+ if(a.verdict==='Avis suspendu')return {available:false,reason:'Avis suspendu : vérifier la qualité et la fraîcheur des données.'};
+ const report=root.BRVM_FORECAST_REPORT;
+ const revision=root.BRVM_DATA?.revision||root.BRVM_DATA?.fetched;
+ if(report?.version===root.BRVM_FORECAST.VERSION && report.asOf===a.asOf && report.dataRevision===revision){
+  const saved=report.predictions.find(f=>f.symbol===a.symbol);if(saved)return saved;
+ }
+ return root.BRVM_FORECAST.forecast(a,{data:root.BRVM_DATA,fundamentals:root.BRVM_FUNDAMENTALS});
+}
 function renderForecast(a) {
  const f=forecastNextClose(a);
- const target=nextWeekday(f.date||a.asOf);
- const today=new Intl.DateTimeFormat('fr-CA',{timeZone:'Africa/Abidjan',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
- const label=target===today?'de la journée du':'de la prochaine séance attendue le';
- const outdated=target<today;
- if(!f.available)return '<article class="card"><h4>Prévision de la prochaine clôture</h4><p>'+esc(f.reason)+'</p><p>Prévision non calculable pour cette action avec cet historique.</p>'+renderOrderBook(a)+'</article>';
- return `<article class="card"><h4>Prévision de fin de cotation ${label} ${esc(target)}</h4>
- <p><strong>${money(f.expected)}</strong> · cours de clôture estimé par action.</p>
- <p class="muted">Date attendue en excluant les week-ends ; jours fériés et fermetures exceptionnelles à confirmer. Prévision calculée avec le bulletin du ${esc(f.date)}. ${outdated?'Cette échéance est passée : attendre un nouveau bulletin pour une prévision actuelle.':'Le cours observé en séance reste distinct de cette prévision quotidienne.'}</p>
+ if(!f.available)return '<article class="card"><h4>Prévision de la prochaine clôture</h4><p>'+esc(f.reason)+'</p>'+renderOrderBook(a)+'</article>';
+ const target=f.target,today=new Intl.DateTimeFormat('fr-CA',{timeZone:'Africa/Abidjan',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+ const outdated=target<today,m=f.metrics;
+ return `<article class="card"><p class="eyebrow">ESTIMATION À UNE SÉANCE</p><h4>Prévision de fin de cotation du ${esc(target)}</h4>
+ <p><strong>${money(f.expected)}</strong> · estimation centrale de la clôture.</p>
+ <p>Dernière clôture du ${esc(f.date)} : <strong>${money(f.price)}</strong>. Fourchette visant une couverture de 80 % : <strong>${money(f.low)} à ${money(f.high)}</strong>.</p>
+ <p class="${outdated?'notice':'muted'}">${outdated?'Cette échéance est passée : cette estimation n’est pas une prévision pour demain. Attendre un nouveau bulletin.':'Prochain jour de semaine attendu, sous réserve des jours fériés et fermetures. Une nouvelle publication officielle est nécessaire pour changer la date de départ.'}</p>
+ <div class="metrics"><div><span>Erreur moyenne historique</span><strong>${money(m.maeFcfa)}</strong><small>${pct(m.mae)} du cours de départ</small></div><div><span>Dans une erreur de ±1 %</span><strong>${pct(m.within1)}</strong><small>sur ${m.n} séances de test</small></div><div><span>Couverture de la fourchette</span><strong>${pct(m.coverage)}</strong><small>cible 80 %, observée sur ${m.intervalN} tests</small></div></div>
+ <p><strong>${f.better?'Gain historique supérieur à 5 % face au cours inchangé.':'Avantage prédictif supérieur à 5 % non établi.'}</strong> Erreur du repère « demain = aujourd’hui » : ${pct(m.baseline)} ; gain relatif mesuré : ${pct(m.gain)}.</p>
+ <p>Méthode retenue pour la prochaine séance : <strong>${esc(f.model)}</strong>. ${f.modelId===0?'Le modèle conserve le dernier cours car les autres méthodes ne montrent pas un avantage récent assez régulier.':''}</p>
  ${renderOrderBook(a)}
- <p>Dernière clôture échangée ${money(f.price)}. Fourchette empirique visant 80 % des observations ${money(f.low)} à ${money(f.high)}.</p>
- <p><strong>${f.better?'Erreur réduite de plus de 5 % face au cours inchangé sur le test':'Avantage prédictif non établi face au cours inchangé'}</strong></p>
- <p>Sur ${f.tests} prévisions gardées pour le test, erreur absolue moyenne ${pct(f.mae)} du cours de départ. Repère cours inchangé ${pct(f.baseline)}. Couverture effectivement observée de la fourchette ${pct(f.coverage)}.</p>
- <details><summary>Comprendre le calcul et sa fiabilité</summary>
- <p>Trois modèles de cours comparés chronologiquement sur la première partie de l’historique. Modèle sélectionné ${esc(f.model)}. Évaluation sur la dernière partie, avec un entraînement utilisant uniquement les données antérieures à chaque prévision. ${f.n} variations valides après la dernière rupture détectée. Le modèle supplémentaire utilisant les limites résiduelles est ${f.orderCandidate?'inclus dans la comparaison':'encore exclu faute de couverture suffisante'} : ${f.orderTraining} observations dans la partie de sélection et ${f.orderTests} dans la partie de test (minimums 40 et 20, plus des limites actuelles valides). Il estime la relation entre le déséquilibre de la veille et la variation suivante, sans utiliser les ordres du jour prédit. L’intervalle utilise les quantiles 10 % et 90 % des erreurs antérieures. La couverture de 80 % est une cible, à confronter au taux observé.</p>
- <p>Fréquence historique des séances en hausse ${pct(f.positiveRate)}. Cette fréquence décrit l’échantillon et sa validité comme probabilité de hausse future reste à établir. Frais, glissement, liquidité et nouvelles annonces peuvent modifier le résultat d’un achat.</p>
- <p>Horizon de la prévision fixé à la prochaine séance boursière. Une actualisation de cours pendant la séance ne transforme pas ce modèle quotidien en prévision de clôture du jour. Les suspensions, incohérences et ruptures détectées limitent les données utilisables.</p></details>
- <h4>Maximum de la journée et ordres à la seconde</h4>
- <p>Ces estimations restent indisponibles. Le jeu de données contient les cours quotidiens, volumes et limites résiduelles des bulletins disponibles. Il faut un flux horodaté de transactions et de carnet d’ordres, puis un historique intrajournalier pour entraîner et tester ces modèles.</p>
- <p><a href="https://www.brvm.org/fr/node/185" target="_blank" rel="noopener">Flux de données BRVM</a> · <a href="https://otexts.com/fpp3/tscv.html" target="_blank" rel="noopener">Validation chronologique des prévisions</a></p>
- </article>`;
+ <details><summary>Voir les modèles et la validation</summary><p>Test chronologique du ${esc(m.start)} au ${esc(m.end)}, ${m.n} séances. À chaque date, les modèles sont entraînés et choisis avec les seules observations antérieures. Le choix est révisé régulièrement ; un candidat doit réduire l’erreur récente d’au moins 2 % et gagner sur deux des trois sous-périodes de sélection.</p>
+ <div class="table-wrap"><table><thead><tr><th>Méthode candidate</th><th>Séances testées</th><th>Erreur moyenne</th></tr></thead><tbody>${f.candidates.map(c=>'<tr><td>'+esc(c.name)+'</td><td>'+c.n+'</td><td>'+pct(c.mae)+'</td></tr>').join('')}</tbody></table></div>
+ <p>Les résultats de chaque candidat servent au diagnostic. Le meilleur candidat du tableau n’est pas choisi rétrospectivement pour améliorer le score affiché.</p>
+ <p>Cours et volumes utilisés ; contexte du marché ${f.usesMarket?'disponible':'insuffisant'}, secteur ${f.usesSector?'disponible':'insuffisant'}, limites résiduelles ${f.orderCandidate?'éligibles':'insuffisantes'}. ${f.n} transitions d’apprentissage et de test, ${f.excluded} transitions exclues. Les fractionnements vérifiés sont ajustés. Les références modifiées, les cours incohérents et les séances sans échange sont exclus ; les résultats ne décrivent donc pas ces situations.</p>
+ <p>Erreur inférieure à ±0,5 % dans ${pct(m.within05)} des tests ; 90e percentile de l’erreur : ${pct(m.p90)}. Séances de cours inchangé : ${pct(m.unchanged)}. Une faible erreur sur un cours inchangé ne démontre pas la capacité à prévoir une hausse.</p>
+ <p>La fourchette utilise uniquement les erreurs antérieures de la procédure complète, avec une fenêtre de 60 observations. Sa couverture future n’est pas garantie. Les montants sont des estimations, sans validation au pas de cotation.</p>
+ <p>Journal enregistré avant la séance : ${root.BRVM_FORECAST_REPORT?.prospective?.scored??0} observations évaluables. Les tests historiques restent distincts de ce suivi réel. Les nouvelles annonces, la disponibilité d’un acheteur et les frais ne sont pas prédits.</p>
+ <p><a href="https://otexts.com/fpp3/tscv.html" target="_blank" rel="noopener">Validation chronologique</a> · <a href="https://www.brvm.org/fr/bulletins-officiels-de-la-cote" target="_blank" rel="noopener">Bulletins officiels BRVM</a></p></details></article>`;
 }
 
 function render(a){
@@ -153,3 +100,4 @@ function bind(a){
 }
 root.BRVM_DEEP_UI={render,bind,forecastNextClose,nextWeekday,renderForecast};
 })(window);
+

@@ -36,7 +36,8 @@ def revision():
     match=re.search(r'BRVM_FINANCIALS_REVISION\s*=\s*[\'"]([a-f0-9]+)',finances)
     extra=(ROOT/'fondamentaux.js').read_text(encoding='utf-8') if (ROOT/'fondamentaux.js').exists() else ''
     deep=re.search(r'BRVM_FUNDAMENTALS_REVISION\s*=\s*[\'"]([a-f0-9]+)',extra)
-    return str(market.get('revision') or market.get('fetched') or '')+'|'+(match[1] if match else 'legacy')+'|'+(deep[1] if deep else 'legacy')
+    forecast=read_json(ROOT/'previsions-calcul.json',{}).get('inputSha256','none')
+    return str(market.get('revision') or market.get('fetched') or '')+'|'+(match[1] if match else 'legacy')+'|'+(deep[1] if deep else 'legacy')+'|'+forecast
 class ProjectLock:
     def __enter__(self):
         path=ROOT/'collecte'/'actualisation.lock';path.parent.mkdir(exist_ok=True)
@@ -91,7 +92,7 @@ def perform(trigger='scheduled',force=False):
             old_session=read_json(ROOT/'base-marche.json',{}).get('session')
             try:
                 with (ROOT/'collecte'/'actualisation.log').open('w',encoding='utf-8') as log:
-                    command=[runtime(),'-u',str(ROOT/'collecter.py'),'--jours','200','--incremental']
+                    command=[runtime(),'-u',str(ROOT/'collecter.py'),'--jours','200','--incremental','--historique-lot','5']
                     if trigger in ('scheduled','manual'):command.append('--refresh-catalogue')
                     execute(command,log)
                     execute([runtime(),str(ROOT/'collecter_ordres.py')],log)
@@ -119,3 +120,4 @@ def main():
     result=perform(args.trigger,args.force);print(json.dumps(result,ensure_ascii=False))
     if result.get('state')=='error' and result.get('result') not in ('busy','skipped'):sys.exit(1)
 if __name__=='__main__':main()
+

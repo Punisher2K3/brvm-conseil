@@ -1,0 +1,34 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const price=require('./previsions.js'),signals=require('./signaux.js'),{reconcile,eventsFor,extendHistory}=require('./rapprocher_sources.cjs'),{monitoring}=require('./suivi_previsions.cjs');
+function fixture(n=170){let p=100;return Array.from({length:n},(_,i)=>{const date=new Date(Date.UTC(2025,0,1+i)).toISOString().slice(0,10),previous=p;p*=1+.01*Math.sin(i*.7);return {date,close:p,reference:p,previous,volume:100+i%9,symbol:'TEST',sector:'IND'};});}
+const rows=fixture(),run=history=>signals.forecast(price.prepare({symbol:'TEST',asOf:history.at(-1).date,history}),{trace:true});
+const f=run(rows),prefix=run(rows.slice(0,140));
+assert.equal(f.available,true);assert.ok(Math.abs(Object.values(f.probabilities).reduce((a,b)=>a+b,0)-100)<1e-10);
+const trace=f.trace.find(r=>r.origin===prefix.date);assert.deepEqual(trace.p.map(v=>v*100),[prefix.probabilities.down,prefix.probabilities.stable,prefix.probabilities.up]);
+assert.equal(signals.label(0),1);assert.equal(signals.label(-.006),0);assert.equal(signals.label(.006),2);
+assert.equal(signals.picked([.34,.33,.33]),null);assert.equal(signals.picked([.2,.2,.6]),2);
+const constant=rows.map(r=>({...r,close:100,reference:100,previous:100}));assert.equal(run(constant).direction,'uncertain');
+const data={session:'2026-11-12',sessions:[{date:'2026-10-23',stocks:[{symbol:'SNTS',close:43850}]}]},fundamentals={splits:[{symbol:'SNTS',date:'2026-10-26',factor:10}]};
+const supplemental={observations:[{symbol:'SNTS',date:'2026-10-23',close:4385,low:4300,high:4400,provider:'Sika Finance',source:'https://www.sikafinance.com/'}]};
+assert.equal(reconcile(data,fundamentals,supplemental).bars.size,1);
+assert.equal(reconcile(data,{},supplemental).conflicts.length,1);
+assert.equal(reconcile(data,fundamentals,{observations:[{...supplemental.observations[0],revisedAt:'2026-11-12'}]}).bars.size,0);
+assert.equal(eventsFor({events:[{symbols:['SNTS'],url:'https://www.brvm.org/',publishedAt:'2026-10-01',firstSeenAt:'2026-11-12T20:00:00Z'}]},'SNTS','2026-10-02').length,0);
+assert.equal(eventsFor({events:[{symbols:['SNTS'],url:'https://www.brvm.org/',publishedAt:'2026-11-11',firstSeenAt:'2026-11-12T20:00:00Z'}]},'SNTS','2026-11-12').length,1);
+const records=Array.from({length:40},(_,i)=>({version:'test',symbol:'TEST',signal:{direction:'up'},expected:100,originPrice:100,low:90,high:110,outcome:{eligible:true,date:'2026-11-12',direction:'up',close:102,error:2,baselineError:2,candidateErrors:[{name:'challenger',error:1}]}}));
+const monitored=monitoring({records},'test');assert.equal(monitored.distinctSessions,1);assert.match(monitored.message,/moins de 30 séances/);
+assert.equal(monitored.bySymbol[0].reviewCandidates.length,0);
+const distinct=records.map((r,i)=>({...r,outcome:{...r.outcome,date:new Date(Date.UTC(2026,8,1+i)).toISOString().slice(0,10)}}));
+assert.equal(monitoring({records:distinct},'test').bySymbol[0].reviewCandidates.length,1);
+const degraded=distinct.map((r,i)=>({...r,outcome:{...r.outcome,error:i<20?1:2}}));assert.equal(monitoring({records:degraded},'test').bySymbol[0].degrading,true);
+const official={session:rows.at(-1).date,sessions:rows.slice(40).map(r=>({date:r.date,stocks:[r]}))};
+const extra={observations:rows.map(r=>({...r,low:r.close*.99,high:r.close*1.01,opening:r.close,provider:'Sika Finance',source:'https://www.sikafinance.com/'}))};
+const agreement=reconcile(official,{},extra),extended=extendHistory(official,{},extra,'TEST',agreement);
+assert.equal(extended.added,40);assert.equal(extended.history.length,rows.length);
+assert.equal(extendHistory(official,{},extra,'TEST',{...agreement,conflicts:[{symbol:'TEST'}]}).added,0);
+// Une candidature exige aussi 30 dates distinctes, et pas 30 duplications d'une séance.
+const c={window:{},Intl,Date,URL};vm.createContext(c);vm.runInContext(fs.readFileSync('signaux_ui.js','utf8'),c);
+const html=c.window.BRVM_SIGNALS_UI.render({asOf:'2026-11-12',predictions:[],sourceSummary:{states:[{provider:'<script>',url:'javascript:alert(1)',state:'blocked'}]}},[],'2026-11-12');
+assert.ok(!html.includes('href="javascript:'));assert.ok(!html.includes('<script>'));assert.match(html,/Aucune hausse/);
+console.log('Signaux : probabilités, absence de données futures, stabilité, sources, fractionnement, actualités, suivi et échappement vérifiés.');

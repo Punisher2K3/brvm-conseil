@@ -115,8 +115,33 @@ def publish_data(data):
     data['revision']=datetime.now(timezone.utc).isoformat()
     for name,payload in [('base-marche.json',json.dumps(data,ensure_ascii=False)),('donnees.js','window.BRVM_DATA = '+json.dumps(data,ensure_ascii=False)+';\n')]:
         temp=ROOT/(name+'.tmp');temp.write_text(payload,encoding='utf-8');temp.replace(ROOT/name)
+
+def merge_sessions(existing,results):
+    """Une panne ponctuelle ne supprime jamais une séance validée auparavant."""
+    sessions={s['date']:s for s in existing.get('sessions',[])}
+    for result in results:
+        previous=sessions.get(result['date'])
+        # Préserver les limites déjà extraites si le nouveau PDF est strictement identique.
+        if previous and previous.get('sha256') and previous.get('sha256')==result.get('sha256') and previous.get('orderBookExtraction') and not result.get('orderBookExtraction'):
+            result=previous
+        sessions[result['date']]=result
+    return sorted(sessions.values(),key=lambda s:s['date'])
+
+def history_batch(existing,end,days,limit):
+    """Petit lot borné, avec curseur avancé même pour un jour sans bulletin."""
+    if not limit or not existing.get('sessions'):return [],None
+    oldest=min(s['date'] for s in existing['sessions'])
+    cursor=existing.get('historyBackfill',{}).get('nextBefore',oldest)
+    start=date.fromisoformat(min(cursor,oldest))-timedelta(days=1)
+    floor=end-timedelta(days=days)
+    dates=[];at=start
+    while at>=floor and len(dates)<limit:
+        if at.weekday()<5:dates.append(at)
+        at-=timedelta(days=1)
+    return dates,{'nextBefore':(dates[-1] if dates else max(start,floor)).isoformat(),'floor':floor.isoformat(),'attempted':len(dates),'complete':at<floor}
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--jours',type=int,default=200);ap.add_argument('--sans-catalogue',action='store_true');ap.add_argument('--incremental',action='store_true');ap.add_argument('--refresh-catalogue',action='store_true'); args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--jours',type=int,default=200);ap.add_argument('--sans-catalogue',action='store_true');ap.add_argument('--incremental',action='store_true');ap.add_argument('--refresh-catalogue',action='store_true');ap.add_argument('--historique-lot',type=int,default=0);ap.add_argument('--historique-jours',type=int,default=1095); args=ap.parse_args()
+    existing=json.loads((ROOT/'base-marche.json').read_text(encoding='utf-8')) if (ROOT/'base-marche.json').exists() else {}
     text=fetch(HOST+'/fr/bulletins-officiels-de-la-cote',CACHE/'bulletins.html',True).read_text(encoding='utf-8')
     known={re.search(r'(20\d{6})',u)[1]:u for u in links(text) if re.search(r'boc_20\d{6}.*\.pdf',u,re.I)}
     if not known:raise RuntimeError('Aucun lien de bulletin reconnu ; dernière base conservée.')
@@ -132,9 +157,9 @@ def main():
             parsed=parse_boc(candidate,direct)
             if parsed['date']==current.isoformat():known[f'{current:%Y%m%d}']=direct;end=current
         except Exception:pass
-    if args.incremental and (ROOT/'base-marche.json').exists():
-        existing=json.loads((ROOT/'base-marche.json').read_text(encoding='utf-8'))
-        if existing.get('session','')>=end.isoformat():
+    older,backfill=history_batch(existing,end,args.historique_jours,args.historique_lot)
+    if args.incremental and existing:
+        if existing.get('session','')>=end.isoformat() and not older:
             catalog_path=ROOT/'catalogue.json'
             catalog_age=(datetime.now(timezone.utc).timestamp()-catalog_path.stat().st_mtime) if catalog_path.exists() else float('inf')
             if not args.sans_catalogue and (args.refresh_catalogue or catalog_age>86400):
@@ -143,7 +168,10 @@ def main():
                     existing['catalogue']=cat;publish_data(existing)
             print('Aucune nouvelle séance officielle : '+existing['session']+'. Base conservée.',flush=True)
             return
-    dates=[end-timedelta(days=i) for i in range(args.jours) if (end-timedelta(days=i)).weekday()<5]
+    known_dates={s['date'] for s in existing.get('sessions',[])}
+    old_missing={s for s in existing.get('missingDates',[]) if s<(end-timedelta(days=7)).isoformat()}
+    dates=[end-timedelta(days=i) for i in range(args.jours) if (end-timedelta(days=i)).weekday()<5 and (not args.incremental or ((end-timedelta(days=i)).isoformat() not in known_dates|old_missing))]
+    dates=sorted(set(dates+older),reverse=True)
     results=[]; failures=[]
     with ThreadPoolExecutor(max_workers=3) as pool:
         futures={pool.submit(download_day,d,known):d for d in dates}
@@ -152,11 +180,16 @@ def main():
             if r:results.append(r)
             else:failures.append(futures[f].isoformat())
             if i%10==0:print(f'Bulletins : {i}/{len(dates)}, {len(results)} validés.',flush=True)
-    if not results:raise RuntimeError('Aucun bulletin validé ; anciennes données conservées.')
-    results.sort(key=lambda r:r['date'])
+    if not results and not existing:raise RuntimeError('Aucun bulletin validé ; anciennes données conservées.')
+    results=merge_sessions(existing,results)
     cat=json.loads((ROOT/'catalogue.json').read_text(encoding='utf-8')) if (ROOT/'catalogue.json').exists() else []
-    if not args.sans_catalogue:cat=catalogue()
-    data=dict(version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(failures))
+    catalog_path=ROOT/'catalogue.json'
+    catalog_age=(datetime.now(timezone.utc).timestamp()-catalog_path.stat().st_mtime) if catalog_path.exists() else float('inf')
+    if not args.sans_catalogue and (not args.incremental or args.refresh_catalogue or catalog_age>86400):cat=catalogue()
+    missing=(set(existing.get('missingDates',[]))|set(failures))-{s['date'] for s in results}
+    data=dict(existing,version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(missing))
+    if backfill:data['historyBackfill']=backfill
     publish_data(data)
     print(f'Base prête : {len(results)} séances, {len(data["stocks"])} actions. Dates sans bulletin : {len(failures)}.',flush=True)
 if __name__=='__main__':main()
+

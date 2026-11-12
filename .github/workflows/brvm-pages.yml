@@ -71,11 +71,15 @@ jobs:
           python preparer_publication.py
           python verifier_publication.py
       - name: Préparer la sauvegarde de données
-        run: python pipeline_actualisation.py --sauvegarder
+        id: backup
+        run: |
+          python pipeline_actualisation.py --sauvegarder
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
       - name: Conserver une sauvegarde récupérable
         uses: actions/upload-artifact@v4
         with:
-          name: sauvegarde-brvm-${{ github.run_id }}
+          name: sauvegarde-brvm-${{ steps.backup.outputs.date }}
+          overwrite: true
           path: collecte/sauvegarde-donnees.zip
           retention-days: 30
           if-no-files-found: error

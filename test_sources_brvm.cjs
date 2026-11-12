@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict'),{mergeOfficial}=require('./sources_brvm.cjs'),{eventsFor}=require('./rapprocher_sources.cjs'),ui=require('./brvm_officiel_ui.js');
+const doc={url:'https://www.brvm.org/a.pdf',title:'<script>SONATEL',kind:'communiques',publishedAt:'2026-11-12',firstSeenAt:'2026-11-12T20:00:00Z',symbols:['SNTS']};
+const prior={...doc,firstSeenAt:'2026-11-12T19:00:00Z'};
+const merged=mergeOfficial({events:[prior]},{documents:[doc,{...doc,url:'https://evil.example/a.pdf'},{...doc,url:'https://www.brvm.org/b.pdf',publishedAt:null}]});
+assert.equal(merged.events.length,1);assert.equal(merged.events[0].firstSeenAt,prior.firstSeenAt);
+assert.equal(eventsFor(merged,'SNTS','2026-11-11').length,0);assert.equal(eventsFor(merged,'SNTS','2026-11-12').length,1);
+const html=ui.library({documents:[doc]});assert.ok(!html.includes('<script>'));assert.match(html,/&lt;script&gt;/);
+assert.equal(ui.library({documents:[doc]},'BOAC').includes('a.pdf'),false);
+console.log('Sources BRVM : dates, doublons, hôtes, rattachement et affichage vérifiés.');

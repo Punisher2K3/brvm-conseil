@@ -31,20 +31,36 @@ def main():
     deep=json.loads((ROOT/'fondamentaux.json').read_text(encoding='utf-8-sig'))
     if len(deep.get('capitalisations',[]))<40:raise ValueError('Capitalisations incomplètes')
     out=ROOT/'site-public';out.mkdir(exist_ok=True)
+    official_public(out,market,deep)
     source=ROOT/'sources-complementaires.json'
     if not source.exists():source.write_text('{}',encoding='utf-8')
     for name in PUBLIC:shutil.copyfile(ROOT/name,out/name)
+    shutil.copyfile(ROOT/'brvm_officiel_ui.js',out/'brvm_officiel_ui.js')
     (out/'mode-public.js').write_text('window.BRVM_PUBLIC_MODE = true;\n',encoding='utf-8')
     html=(out/'index.html').read_text(encoding='utf-8').replace('<script src="donnees.js">','<script src="mode-public.js"></script><script src="donnees.js">')
     html=re.sub(r'<section class="update-help">.*?</section>','<section class="update-help"><strong>Actualisation des données en ligne</strong><p>Une collecte GitHub Actions est programmée chaque heure. Les visiteurs consultent la dernière publication réussie ; le démarrage des tâches peut être retardé. Le bouton Actualiser recherche cette publication sans lancer une collecte depuis le navigateur.</p><p>Les cours web du jour et le dernier bulletin complet sont datés séparément. Les avis utilisent le bulletin complet. Les nouveaux bilans restent soumis à vérification avant intégration.</p></section>',html,flags=re.S)
     html=html.replace('<!-- OBLIGATIONS_AUTOMATIQUES -->',obligations_html())
     # Sépare les versions de code et de données afin que les caches de CDN ne mélangent pas des schémas.
-    version=hashlib.sha256(''.join((out/name).read_text(encoding='utf-8') for name in PUBLIC if name!='index.html').encode()).hexdigest()[:16]
+    version=hashlib.sha256(''.join((out/name).read_text(encoding='utf-8') for name in PUBLIC+['brvm-officiel-public.js','brvm_officiel_ui.js'] if name!='index.html').encode()).hexdigest()[:16]
     html=re.sub(r'(src|href)="([^"?]+\.(?:js|css))"',lambda m:f'{m[1]}="{m[2]}?v={version}"',html)
     (out/'index.html').write_text(html,encoding='utf-8')
     (out/'.nojekyll').write_text('',encoding='utf-8')
     import actualisation_auto
     (out/'status-public.json').write_text(json.dumps({'revision':actualisation_auto.revision(),'session':market['session'],'published':market.get('revision') or market.get('fetched'),'mode':'github-pages','intervalMinutes':60},ensure_ascii=False),encoding='utf-8')
     print('Site public prêt : '+str(out))
+def official_public(out,market,deep):
+    source=ROOT/'brvm-officiel.json'
+    data=json.loads(source.read_text(encoding='utf-8')) if source.exists() else {}
+    indices=ROOT/'indices-brvm.json'
+    index_data=json.loads(indices.read_text(encoding='utf-8')) if indices.exists() else {'sessions':[]}
+    # Le texte des PDF est conservé dans l’archive privée de collecte ; le site publie les références.
+    documents=[{k:d.get(k) for k in ['url','title','kind','publishedAt','firstSeenAt','symbols','listing']}|{'downloaded':bool(d.get('extraction'))} for d in data.get('documents',[])]
+    today=datetime.now(timezone.utc).date().isoformat()
+    payload={k:data.get(k) for k in ['checkedAt','summary','collections','scope','calendar']}
+    payload.update(documents=documents,indices=index_data['sessions'],market={'sessions':len(market['sessions']),'first':market['sessions'][0]['date'],'last':market['session']},symbols=sorted(r['symbol'] for r in market['stocks']),upcomingDividends=[d for d in deep.get('dividends',[]) if max(d.get('exDate') or '',d.get('payment') or '')>=today])
+    encoded=json.dumps(payload,ensure_ascii=False).replace('<','\\u003c')
+    (out/'brvm-officiel-public.json').write_text(encoded,encoding='utf-8')
+    (out/'brvm-officiel-public.js').write_text('window.BRVM_OFFICIAL = '+encoded+';\n',encoding='utf-8')
+    (out/'indices-brvm.json').write_text(json.dumps(index_data,ensure_ascii=False),encoding='utf-8')
 if __name__=='__main__':main()
 

@@ -4,13 +4,17 @@ from datetime import date, timedelta, datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urljoin, urlparse, unquote
 from html.parser import HTMLParser
-import subprocess, json, re, hashlib, argparse, sys, os, shutil
+import subprocess, json, re, hashlib, argparse, sys, os, shutil, threading
 import pdfplumber
 from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 
 ROOT=Path(__file__).resolve().parent
 CACHE=ROOT/'collecte'; CACHE.mkdir(exist_ok=True)
 HOST='https://www.brvm.org'
+_NETWORK_LOCK=threading.Lock()
+_NETWORK_CLIENT=None
+_RETRIEVAL_ISSUES={}
 SECTORS={'CB':'Consommation de base','CD':'Consommation discrétionnaire','ENE':'Énergie','FIN':'Services financiers','IND':'Industrie','SPU':'Services publics','TEL':'Télécommunications'}
 class Links(HTMLParser):
     def __init__(self): super().__init__(); self.links=[]
@@ -22,12 +26,14 @@ def fetch(url, path, refresh=False):
     if urlparse(url).hostname not in ('www.brvm.org','bfin.brvm.org'): raise ValueError('Source non officielle')
     temp=path.with_suffix(path.suffix+'.part')
     try:
-        if os.name=='nt':
-            env=dict(os.environ,BRVM_URL=url,BRVM_DESTINATION=str(temp))
-            r=subprocess.run([shutil.which('pwsh') or 'powershell','-NoProfile','-Command',"$ErrorActionPreference='Stop'; Invoke-WebRequest -UseBasicParsing -Uri $env:BRVM_URL -OutFile $env:BRVM_DESTINATION -TimeoutSec 35"],capture_output=True,env=env)
-            if r.returncode:raise RuntimeError(f'Téléchargement impossible : {url}')
-        else:
-            with urlopen(Request(url,headers={'User-Agent':'BRVMConseil/3.0'}),timeout=35) as response:temp.write_bytes(response.read())
+        # Respecte robots.txt et l’intervalle de requêtes, même avec plusieurs tâches.
+        global _NETWORK_CLIENT
+        with _NETWORK_LOCK:
+            if _NETWORK_CLIENT is None:
+                from collecter_brvm import Client
+                _NETWORK_CLIENT=Client(10000)
+            _,raw=_NETWORK_CLIENT.get(url,ttl=0 if refresh else None)
+            temp.write_bytes(raw)
     except Exception:
         temp.unlink(missing_ok=True);raise
     temp.replace(path); return path
@@ -53,7 +59,7 @@ def parse_boc(path,url,use_cache=True):
         first=pdf.pages[0].extract_text() or ''
         session=french_date(first)
         if not session:raise ValueError('Date du bulletin absente')
-        # Schema explicitement validé sur les bulletins 2026 : arrêt sûr en cas de changement.
+        # Géométrie validée sur les bulletins 2025 et 2026 : arrêt sûr en cas de changement.
         for page_index in (2,3):
             if page_index>=len(pdf.pages):continue
             pg=pdf.pages[page_index]; words=pg.extract_words()
@@ -75,6 +81,8 @@ def parse_boc(path,url,use_cache=True):
                 row['inconsistent']=calculated is not None and variation is not None and abs(calculated-variation)>0.16
                 records.append(row)
     if not 40<=len(records)<=55:raise ValueError(f'Extraction incomplète : {len(records)} actions')
+    active=[r for r in records if r.get('close') and r.get('volume',0)>0]
+    if sum(r['inconsistent'] for r in active)>max(3,len(active)*.15):raise ValueError('Colonnes ou variations incohérentes : bulletin non intégré')
     result=dict(date=session,source=url,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),stocks=records)
     cached.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8'); return result
 def download_day(d,known):
@@ -84,8 +92,10 @@ def download_day(d,known):
         try:
             fetch(url,path); result=parse_boc(path,url)
             if result['date']!=d.isoformat(): raise ValueError('Date de séance différente')
+            _RETRIEVAL_ISSUES.pop(d.isoformat(),None)
             return result
-        except Exception:
+        except Exception as exc:
+            if not isinstance(exc,HTTPError) or exc.code not in (404,410):_RETRIEVAL_ISSUES[d.isoformat()]={'date':d.isoformat(),'message':str(exc)[:250]}
             # Un fichier déjà extrait mais portant une autre date n'est jamais accepté.
             if path.with_suffix('.json').exists():break
             path.unlink(missing_ok=True)
@@ -159,7 +169,7 @@ def main():
         except Exception:pass
     older,backfill=history_batch(existing,end,args.historique_jours,args.historique_lot)
     if args.incremental and existing:
-        if existing.get('session','')>=end.isoformat() and not older:
+        if existing.get('session','')>=end.isoformat() and not older and not existing.get('retrievalIssues'):
             catalog_path=ROOT/'catalogue.json'
             catalog_age=(datetime.now(timezone.utc).timestamp()-catalog_path.stat().st_mtime) if catalog_path.exists() else float('inf')
             if not args.sans_catalogue and (args.refresh_catalogue or catalog_age>86400):
@@ -171,7 +181,8 @@ def main():
     known_dates={s['date'] for s in existing.get('sessions',[])}
     old_missing={s for s in existing.get('missingDates',[]) if s<(end-timedelta(days=7)).isoformat()}
     dates=[end-timedelta(days=i) for i in range(args.jours) if (end-timedelta(days=i)).weekday()<5 and (not args.incremental or ((end-timedelta(days=i)).isoformat() not in known_dates|old_missing))]
-    dates=sorted(set(dates+older),reverse=True)
+    retry=[date.fromisoformat(r['date']) for r in existing.get('retrievalIssues',[])[:5]]
+    dates=sorted(set(dates+older+retry),reverse=True)
     results=[]; failures=[]
     with ThreadPoolExecutor(max_workers=3) as pool:
         futures={pool.submit(download_day,d,known):d for d in dates}
@@ -187,7 +198,9 @@ def main():
     catalog_age=(datetime.now(timezone.utc).timestamp()-catalog_path.stat().st_mtime) if catalog_path.exists() else float('inf')
     if not args.sans_catalogue and (not args.incremental or args.refresh_catalogue or catalog_age>86400):cat=catalogue()
     missing=(set(existing.get('missingDates',[]))|set(failures))-{s['date'] for s in results}
-    data=dict(existing,version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(missing))
+    issues={r['date']:r for r in existing.get('retrievalIssues',[])};issues.update(_RETRIEVAL_ISSUES)
+    for result in results:issues.pop(result['date'],None)
+    data=dict(existing,version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(missing),retrievalIssues=list(issues.values()))
     if backfill:data['historyBackfill']=backfill
     publish_data(data)
     print(f'Base prête : {len(results)} séances, {len(data["stocks"])} actions. Dates sans bulletin : {len(failures)}.',flush=True)

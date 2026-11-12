@@ -24,10 +24,11 @@ jobs:
           node test_previsions_j1.cjs
           node test_signaux.cjs
           node test_recherche.cjs
+          node test_sources_brvm.cjs
           python -m unittest test_collecter_sources.py
           node test_journal_previsions.cjs
           node test_valorisations.cjs
-          python -m unittest test_collecte_historique.py
+          python -m unittest test_collecte_historique.py test_collecter_brvm.py
           node --check previsions.js
           node --check fiche_fondamentale.js
           node --check app.js

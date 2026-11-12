@@ -4,21 +4,24 @@ const model=require('./previsions.js');
 const directions=require('./signaux.js'),{reconcile,eventsFor,extendHistory}=require('./rapprocher_sources.cjs');
 const {selectPilot}=require('./pilote.cjs'),announcements=require('./annonces.cjs');
 const data=JSON.parse(fs.readFileSync('base-marche.json','utf8'));
+const official=fs.existsSync('brvm-officiel.json')?JSON.parse(fs.readFileSync('brvm-officiel.json','utf8')):{};
 const fundamentals=JSON.parse(fs.readFileSync('fondamentaux.json','utf8'));
-const supplement=fs.existsSync('sources-complementaires.json.gz')?JSON.parse(zlib.gunzipSync(fs.readFileSync('sources-complementaires.json.gz'))):{};
+let supplement=fs.existsSync('sources-complementaires.json.gz')?JSON.parse(zlib.gunzipSync(fs.readFileSync('sources-complementaires.json.gz'))):{};
+supplement=require('./sources_brvm.cjs').mergeOfficial(supplement,official);
 const sources=reconcile(data,fundamentals,supplement);
 const generatedAt=new Date().toISOString(),today=generatedAt.slice(0,10),asOf=data.session;
 const ctx=model.context(data,asOf),predictions=[];
 for(const stock of data.sessions.at(-1).stocks){
  const extended=extendHistory(data,fundamentals,supplement,stock.symbol,sources),history=extended.history;
- const a={symbol:stock.symbol,asOf,history},options={data,fundamentals,context:ctx,bars:sources.bars};
+ const calendar={...official.calendar,closedDates:(official.calendar?.closedDates||[]).filter(d=>!data.sessions.some(s=>s.date===d))};
+ const a={symbol:stock.symbol,asOf,history},options={data,fundamentals,context:ctx,bars:sources.bars,calendar};
  const f=model.forecast(a,options);
  const signal=f.available?directions.forecast(model.prepare(a,options)):{available:false,reason:f.reason};
  const currentConflict=sources.conflicts.some(c=>c.symbol===stock.symbol&&c.date===asOf);
  if(currentConflict&&signal.available){signal.direction='uncertain';signal.label='Signal suspendu : sources divergentes';signal.support='blocked';}
  predictions.push({symbol:stock.symbol,name:stock.name,sector:stock.sector,...f,signal,secondaryHistory:extended.added,trainingStart:history[0]?.date,recentEvents:eventsFor(supplement,stock.symbol,asOf),sourceConflict:currentConflict});
 }
-const inputHash=crypto.createHash('sha256');for(const name of ['base-marche.json','fondamentaux.json','previsions.js','signaux.js','pilote.cjs','annonces.cjs','rapprocher_sources.cjs','sources-complementaires.json.gz'])if(fs.existsSync(name))inputHash.update(name).update(fs.readFileSync(name));
+const inputHash=crypto.createHash('sha256');for(const name of ['base-marche.json','fondamentaux.json','previsions.js','signaux.js','pilote.cjs','annonces.cjs','rapprocher_sources.cjs','sources-complementaires.json.gz','brvm-officiel.json','sources_brvm.cjs'])if(fs.existsSync(name))inputHash.update(name).update(fs.readFileSync(name));
 const report={version:model.VERSION,generatedAt,asOf,dataRevision:data.revision||data.fetched,inputSha256:inputHash.digest('hex'),
  sessions:data.sessions.length,firstSession:data.sessions[0].date,sourceSummary:sources.summary,sourceConflicts:sources.conflicts.slice(-200),scope:'Clôture de la prochaine séance avec échange valide ; transitions révisées et séances sans transaction exclues du test.',predictions};
 const readJournal=()=>fs.existsSync('previsions-journal.json')?JSON.parse(fs.readFileSync('previsions-journal.json','utf8')):{version:1,records:[]};

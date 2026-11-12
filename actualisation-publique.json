@@ -1,37 +1,37 @@
 {
   "version": 1,
-  "lastAttemptAt": "2026-11-12T23:12:16.544768+00:00",
-  "finishedAt": "2026-11-12T23:14:09.408719+00:00",
-  "state": "degraded",
+  "lastAttemptAt": "2026-11-12T23:15:02.207152+00:00",
+  "finishedAt": "2026-11-12T23:16:27.426241+00:00",
+  "state": "ok",
   "session": "2026-11-12",
   "stages": [
     {
       "name": "Cours et fondamentaux",
-      "startedAt": "2026-11-12T23:12:16.700339+00:00",
-      "status": "degraded",
-      "message": "CalledProcessError : dernière copie valide conservée.",
-      "finishedAt": "2026-11-12T23:14:02.383458+00:00"
+      "startedAt": "2026-11-12T23:15:02.401380+00:00",
+      "status": "ok",
+      "finishedAt": "2026-11-12T23:16:17.422056+00:00"
     },
     {
       "name": "Annonces obligataires",
-      "startedAt": "2026-11-12T23:14:02.451158+00:00",
+      "startedAt": "2026-11-12T23:16:17.509061+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-12T23:14:07.977954+00:00"
+      "finishedAt": "2026-11-12T23:16:25.589939+00:00"
     },
     {
       "name": "Sources complémentaires",
-      "startedAt": "2026-11-12T23:14:08.043615+00:00",
+      "startedAt": "2026-11-12T23:16:25.675529+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-12T23:14:09.009639+00:00"
+      "finishedAt": "2026-11-12T23:16:26.691591+00:00"
     },
     {
       "name": "Indices officiels",
-      "startedAt": "2026-11-12T23:14:09.075660+00:00",
+      "startedAt": "2026-11-12T23:16:26.774732+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-12T23:14:09.340248+00:00"
+      "finishedAt": "2026-11-12T23:16:27.339935+00:00"
     }
   ],
   "intervalMinutes": 60,
   "archiveAfterUtcHour": 15,
-  "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/43326774289"
+  "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/43327173869",
+  "lastSuccessfulCollection": "2026-11-12T23:16:17.422056+00:00"
 }

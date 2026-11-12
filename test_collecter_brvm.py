@@ -30,4 +30,16 @@ class OfficialTest(unittest.TestCase):
   result,n=merge_archives({'sessions':[old]},{'sessions':[new,{**old,'stocks':[]} ]})
   self.assertEqual(n,1);self.assertEqual(result['sessions'][-1],old)
   with self.assertRaises(ValueError):merge_archives({'sessions':[old]},{'sessions':[{'date':'2026-11-10','stocks':[]} ]})
+ def test_temporary_server_error_keeps_cached_source(self):
+  import collecter,tempfile
+  from pathlib import Path
+  from urllib.error import HTTPError
+  from unittest.mock import Mock,patch
+  client=Mock();client.get.side_effect=HTTPError('https://www.brvm.org/test',500,'Server Error',{},None)
+  with tempfile.TemporaryDirectory(dir=collecter.CACHE) as folder,patch.object(collecter,'_NETWORK_CLIENT',client),patch.object(collecter,'_FETCH_WARNINGS',[]):
+   self.assertTrue(Path(folder).resolve().is_relative_to(collecter.CACHE.resolve()))
+   path=Path(folder)/'source.html';path.write_text('ancienne copie valide',encoding='utf-8')
+   self.assertEqual(collecter.fetch('https://www.brvm.org/test',path,True).read_text(encoding='utf-8'),'ancienne copie valide')
+   self.assertEqual(len(collecter._FETCH_WARNINGS),1)
+   with self.assertRaises(HTTPError):collecter.fetch('https://www.brvm.org/test',Path(folder)/'absent.html',True)
 if __name__=='__main__':unittest.main()

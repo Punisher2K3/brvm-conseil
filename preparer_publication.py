@@ -57,7 +57,7 @@ def official_public(out,market,deep):
     documents=[{k:d.get(k) for k in ['url','title','kind','publishedAt','firstSeenAt','symbols','listing']}|{'downloaded':bool(d.get('extraction'))} for d in data.get('documents',[])]
     today=datetime.now(timezone.utc).date().isoformat()
     payload={k:data.get(k) for k in ['checkedAt','summary','collections','scope','calendar']}
-    payload.update(documents=documents,indices=index_data['sessions'],market={'sessions':len(market['sessions']),'first':market['sessions'][0]['date'],'last':market['session']},symbols=sorted(r['symbol'] for r in market['stocks']),upcomingDividends=[d for d in deep.get('dividends',[]) if max(d.get('exDate') or '',d.get('payment') or '')>=today])
+    payload.update(documents=documents,indices=index_data['sessions'],market={'sessions':len(market['sessions']),'first':market['sessions'][0]['date'],'last':market['session'],'warnings':market.get('collectionWarnings',[])},symbols=sorted(r['symbol'] for r in market['stocks']),upcomingDividends=[d for d in deep.get('dividends',[]) if max(d.get('exDate') or '',d.get('payment') or '')>=today])
     encoded=json.dumps(payload,ensure_ascii=False).replace('<','\\u003c')
     (out/'brvm-officiel-public.json').write_text(encoded,encoding='utf-8')
     (out/'brvm-officiel-public.js').write_text('window.BRVM_OFFICIAL = '+encoded+';\n',encoding='utf-8')

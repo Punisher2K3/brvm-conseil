@@ -15,6 +15,7 @@ HOST='https://www.brvm.org'
 _NETWORK_LOCK=threading.Lock()
 _NETWORK_CLIENT=None
 _RETRIEVAL_ISSUES={}
+_FETCH_WARNINGS=[]
 SECTORS={'CB':'Consommation de base','CD':'Consommation discrétionnaire','ENE':'Énergie','FIN':'Services financiers','IND':'Industrie','SPU':'Services publics','TEL':'Télécommunications'}
 class Links(HTMLParser):
     def __init__(self): super().__init__(); self.links=[]
@@ -34,8 +35,13 @@ def fetch(url, path, refresh=False):
                 _NETWORK_CLIENT=Client(10000)
             _,raw=_NETWORK_CLIENT.get(url,ttl=0 if refresh else None)
             temp.write_bytes(raw)
-    except Exception:
-        temp.unlink(missing_ok=True);raise
+    except Exception as exc:
+        temp.unlink(missing_ok=True)
+        if path.exists() and (isinstance(exc,OSError) or isinstance(exc,PermissionError)):
+            _FETCH_WARNINGS.append({'url':url,'message':str(exc)[:250],'fallback':'Dernière copie locale conservée ; source non actualisée.'})
+            print('Source non actualisée, cache conservé : '+url,flush=True)
+            return path
+        raise
     temp.replace(path); return path
 def links(text):
     p=Links();p.feed(text);return [urljoin(HOST,u) for u in p.links]
@@ -176,6 +182,8 @@ def main():
                 cat=catalogue()
                 if cat!=existing.get('catalogue'):
                     existing['catalogue']=cat;publish_data(existing)
+            if _FETCH_WARNINGS:
+                existing['collectionWarnings']=_FETCH_WARNINGS;publish_data(existing)
             print('Aucune nouvelle séance officielle : '+existing['session']+'. Base conservée.',flush=True)
             return
     known_dates={s['date'] for s in existing.get('sessions',[])}
@@ -200,7 +208,7 @@ def main():
     missing=(set(existing.get('missingDates',[]))|set(failures))-{s['date'] for s in results}
     issues={r['date']:r for r in existing.get('retrievalIssues',[])};issues.update(_RETRIEVAL_ISSUES)
     for result in results:issues.pop(result['date'],None)
-    data=dict(existing,version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(missing),retrievalIssues=list(issues.values()))
+    data=dict(existing,version=2,source=results[-1]['source'],fetched=datetime.now(timezone.utc).isoformat(),session=results[-1]['date'],stocks=results[-1]['stocks'],sessions=results,catalogue=cat,missingDates=sorted(missing),retrievalIssues=list(issues.values()),collectionWarnings=_FETCH_WARNINGS)
     if backfill:data['historyBackfill']=backfill
     publish_data(data)
     print(f'Base prête : {len(results)} séances, {len(data["stocks"])} actions. Dates sans bulletin : {len(failures)}.',flush=True)

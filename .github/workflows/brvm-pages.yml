@@ -47,12 +47,17 @@ jobs:
           python -c "import json; d=json.load(open('base-marche.json',encoding='utf-8')); print('Séance analysée :',d['session']); print('Séances avec limites résiduelles :',sum(s.get('orderBookExtraction',0)>0 for s in d['sessions'])); print('Actions avec limites dans le dernier bulletin :',sum('orderBook' in r for r in d['stocks']))"
       - name: Vérifier les calculs fondamentaux
         run: |
+          python -m unittest test_collecte_historique.py
           node test_fondamentaux.cjs
           node test_previsions.cjs
+          node test_previsions_j1.cjs
+          node test_journal_previsions.cjs
           node test_valorisations.cjs
           node --check valorisations_ui.js
           node --check app.js
           node --check fiche_fondamentale.js
+      - name: Calculer et enregistrer les prévisions avant leur échéance
+        run: node evaluer_previsions.cjs
       - name: Construire les fichiers publics
         run: python preparer_publication.py
       - name: Conserver les nouvelles données vérifiées
@@ -60,7 +65,7 @@ jobs:
           python gerer_base.py sauvegarder
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js
+          git add obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js previsions-journal.json
           if ! git diff --cached --quiet; then
             git commit -m "Actualiser les données officielles BRVM"
             git push
@@ -72,3 +77,4 @@ jobs:
       - name: Mettre le site en ligne
         id: deployment
         uses: actions/deploy-pages@v4
+

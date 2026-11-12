@@ -191,7 +191,7 @@ async function applyPublishedData(revision){
  if(revision===appliedRevision||dataRefreshRunning)return;
  if($('detail').open){pendingRevision=revision;$('job').textContent='De nouvelles données sont disponibles. Elles seront chargées automatiquement à la fermeture de cette fiche.';return;}
  dataRefreshRunning=true;
- try{await loadDataScript('donnees.js');await loadDataScript('finances.js');await loadDataScript('fondamentaux.js');data=window.BRVM_DATA;appliedRevision=currentRevision();$('autoStatus').dataset.appliedRevision=appliedRevision;pendingRevision=null;recalculate();$('job').textContent='Nouvelles données chargées et avis recalculés automatiquement.';}
+ try{await loadDataScript('donnees.js');await loadDataScript('finances.js');await loadDataScript('fondamentaux.js');await loadDataScript('previsions-calcul.js');data=window.BRVM_DATA;appliedRevision=currentRevision();$('autoStatus').dataset.appliedRevision=appliedRevision;pendingRevision=null;recalculate();$('job').textContent='Nouvelles données chargées et avis recalculés automatiquement.';}
  catch(e){$('job').textContent='Les nouvelles données n’ont pas pu être chargées. Les dernières données affichées sont conservées.';}
  finally{dataRefreshRunning=false;}
 }
@@ -247,3 +247,4 @@ function renderLiveMarket(){
  el.innerHTML='<strong>Cours officiels disponibles : '+esc(live.session)+' à '+esc(live.time)+' (Abidjan).</strong> Dernier bulletin complet analysé : '+esc(data.session)+'. '+(live.session>data.session?'Les cours de cette nouvelle séance sont affichés dans le tableau ; son bulletin PDF n’est pas encore intégré aux avis.':'Les cours web sont présentés séparément du cours de référence des calculs.')+' <a href="'+esc(live.source)+'" target="_blank" rel="noopener">Vérifier sur la BRVM ↗</a>';
  $('session').textContent='Cours web : '+live.session+' · bulletin : '+data.session;
 }
+

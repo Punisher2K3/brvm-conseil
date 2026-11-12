@@ -1,0 +1,32 @@
+name: Vérifier les prévisions J+1
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements.txt
+      - run: python gerer_base.py restaurer
+      - name: Vérifier les calculs et la conservation des données
+        run: |
+          node test_fondamentaux.cjs
+          node test_previsions.cjs
+          node test_previsions_j1.cjs
+          node test_journal_previsions.cjs
+          node test_valorisations.cjs
+          python -m unittest test_collecte_historique.py
+          node --check previsions.js
+          node --check fiche_fondamentale.js
+          node --check app.js
+      - run: node evaluer_previsions.cjs
+      - run: python preparer_publication.py

@@ -91,7 +91,7 @@ def perform(trigger='scheduled',force=False):
             old_session=read_json(ROOT/'base-marche.json',{}).get('session')
             try:
                 with (ROOT/'collecte'/'actualisation.log').open('w',encoding='utf-8') as log:
-                    command=[runtime(),'-u',str(ROOT/'collecter.py'),'--jours','200','--incremental']
+                    command=[runtime(),'-u',str(ROOT/'collecter.py'),'--jours','200','--incremental','--historique-lot','5']
                     if trigger in ('scheduled','manual'):command.append('--refresh-catalogue')
                     execute(command,log)
                     execute([runtime(),str(ROOT/'collecter_ordres.py')],log)
@@ -119,3 +119,4 @@ def main():
     result=perform(args.trigger,args.force);print(json.dumps(result,ensure_ascii=False))
     if result.get('state')=='error' and result.get('result') not in ('busy','skipped'):sys.exit(1)
 if __name__=='__main__':main()
+

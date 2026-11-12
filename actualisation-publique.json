@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "lastAttemptAt": "2026-11-12T23:12:16.544768+00:00",
+  "finishedAt": "2026-11-12T23:14:09.408719+00:00",
+  "state": "degraded",
+  "session": "2026-11-12",
+  "stages": [
+    {
+      "name": "Cours et fondamentaux",
+      "startedAt": "2026-11-12T23:12:16.700339+00:00",
+      "status": "degraded",
+      "message": "CalledProcessError : dernière copie valide conservée.",
+      "finishedAt": "2026-11-12T23:14:02.383458+00:00"
+    },
+    {
+      "name": "Annonces obligataires",
+      "startedAt": "2026-11-12T23:14:02.451158+00:00",
+      "status": "ok",
+      "finishedAt": "2026-11-12T23:14:07.977954+00:00"
+    },
+    {
+      "name": "Sources complémentaires",
+      "startedAt": "2026-11-12T23:14:08.043615+00:00",
+      "status": "ok",
+      "finishedAt": "2026-11-12T23:14:09.009639+00:00"
+    },
+    {
+      "name": "Indices officiels",
+      "startedAt": "2026-11-12T23:14:09.075660+00:00",
+      "status": "ok",
+      "finishedAt": "2026-11-12T23:14:09.340248+00:00"
+    }
+  ],
+  "intervalMinutes": 60,
+  "archiveAfterUtcHour": 15,
+  "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/43326774289"
+}

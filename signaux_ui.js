@@ -3,14 +3,16 @@
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(n,d=1)=>Number.isFinite(n)?new Intl.NumberFormat('fr-FR',{maximumFractionDigits:d}).format(n):'—';
 const money=n=>fmt(n,2)+' FCFA';
+let universe='all',slippagePct=.25;
 const safe=url=>{try{const u=new URL(url);return u.protocol==='https:'&&['www.brvm.org','bfin.brvm.org','www.sikafinance.com','www.richbourse.com'].includes(u.hostname)?esc(u.href):'#';}catch{return '#';}};
-function card(f){
+function card(f,options={}){
  const s=f.signal,p=s.probabilities,up=s.direction==='up',main=up?p.up:p.down,side=s.metrics.sides.find(v=>v.side===(up?2:0));
  return `<article class="direction-card ${up?'direction-up':'direction-down'}"><div class="direction-label">${up?'↗ Hausse envisagée':'↘ Risque de baisse'}</div>
  <h3>${esc(f.symbol)} <small>${esc(f.name)}</small></h3><p class="signal-probability">${fmt(main)} % <span>estimation du modèle pour cette issue</span></p>
  <div class="probability-row" aria-label="Trois issues estimées"><span>↘ Baisse ${fmt(p.down)} %</span><span>≈ Stabilité ${fmt(p.stable)} %</span><span>↗ Hausse ${fmt(p.up)} %</span></div>
  <p class="signal-support"><strong>${s.support==='historical'?'Appui historique à confirmer':'Signal fragile — fiabilité non établie'}</strong></p>
  <p>Clôture estimée : <strong>${money(f.expected)}</strong><br><span class="muted">${esc(f.target)} · dernier cours ${money(f.price)}</span></p>
+ ${root.BRVM_PILOT_UI?.card(f,options)||''}
  <p class="muted">Baisse et hausse : variation dépassant 0,5 %. Stabilité : entre −0,5 % et +0,5 %. Les probabilités restent expérimentales.</p>
  ${f.capturedAt?'<p class="muted">Estimation enregistrée le '+esc(f.capturedAt.replace('T',' ').slice(0,16))+' UTC, puis conservée pour cette séance.</p>':''}
  <details><summary>Fiabilité et informations récentes</summary>
@@ -21,9 +23,9 @@ function card(f){
  <p>Les nouvelles collectées aujourd’hui sont un contexte de vérification. Leur effet sur le cours n’est pas chiffré sans historique horodaté validé.</p></details>
  <button data-forecast-symbol="${esc(f.symbol)}">Examiner la prévision</button></article>`;
 }
-function render(report,analyses,today){
+function render(report,analyses,today,options={}){
  const live=new Map(analyses.map(a=>[a.symbol,a]));
- const predictions=(report?.predictions||[]).filter(f=>live.has(f.symbol));
+ const predictions=(report?.predictions||[]).filter(f=>live.has(f.symbol)&&(options.universe!=='pilot'||report?.pilot?.members.includes(f.symbol)));
  const available=predictions.filter(f=>f.available&&f.signal?.available&&live.get(f.symbol).verdict!=='Avis suspendu');
  const expired=available.length>0&&available[0].target<today;
  const ups=available.filter(f=>f.signal.direction==='up').sort((a,b)=>b.signal.probabilities.up-a.signal.probabilities.up);
@@ -31,11 +33,12 @@ function render(report,analyses,today){
  const noSignal=predictions.filter(f=>!available.includes(f)||f.signal.direction==='uncertain');
  const title=available[0]?.target||'à confirmer';
  const summary=report?.sourceSummary||{},continuous=report?.continuous||{};
- const panel=(label,items,empty)=>'<div><h3>'+label+' <span class="direction-count">'+items.length+'</span></h3>'+(items.length?'<div class="signal-card-grid">'+items.map(card).join('')+'</div>':'<p class="signal-empty">'+empty+'</p>')+'</div>';
+ const panel=(label,items,empty)=>'<div><h3>'+label+' <span class="direction-count">'+items.length+'</span></h3>'+(items.length?'<div class="signal-card-grid">'+items.map(f=>card(f,options)).join('')+'</div>':'<p class="signal-empty">'+empty+'</p>')+'</div>';
  const grouped=new Map();for(const state of summary.states||[]){if(!grouped.has(state.provider))grouped.set(state.provider,[]);grouped.get(state.provider).push(state);}
  return `<p class="eyebrow">PRÉVISIONS AVANT LA PROCHAINE SÉANCE</p><h2>Hausse ou baisse : les signaux à surveiller.</h2>
  <p>Séance attendue du <strong>${esc(title)}</strong> · données du bulletin du ${esc(report?.asOf||'—')}.</p>
  <p class="signal-caution"><strong>Une tendance estimée, avec son incertitude.</strong> ${expired?'Échéance passée : attendre une nouvelle collecte.':'Un signal peut être erroné. Il ne suffit pas à décider d’un achat ; les frais, le prix proposé et la facilité de revente comptent aussi.'}</p>
+ ${root.BRVM_PILOT_UI?.panel(report,options)||''}
  <div class="direction-summary"><span>↗ ${ups.length} hausse(s) envisagée(s)</span><span>↘ ${downs.length} risque(s) de baisse</span><span>≈ ${noSignal.length} sans signal exploitable</span></div>
  ${expired?'<p class="notice">Ces signaux sont archivés et ne décrivent pas la prochaine séance actuelle.</p>':''}
  <div class="direction-columns">${panel('↗ Hausses envisagées',ups,'Aucune hausse assez nette selon les critères actuels. Aucune action n’est ajoutée pour remplir cette liste.')}${panel('↘ Risques de baisse',downs,'Aucun biais de baisse assez net selon les critères actuels.')}</div>
@@ -49,7 +52,19 @@ function mount(report,analyses,onSelect){
  const el=document.getElementById('signaux');if(!el)return;
  if(report?.asOf!==analyses[0]?.asOf||report?.dataRevision!==(root.BRVM_DATA?.revision||root.BRVM_DATA?.fetched)){el.innerHTML='<h2>Prévisions de hausse et de baisse</h2><p>Actualisation des signaux en attente du rapport correspondant à ce bulletin.</p>';return;}
  const today=new Intl.DateTimeFormat('fr-CA',{timeZone:'Africa/Abidjan',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
- el.innerHTML=render(report,analyses,today);el.querySelectorAll('[data-forecast-symbol]').forEach(b=>b.onclick=()=>onSelect(b.dataset.forecastSymbol));
+ const options={universe,slippagePct,feePct:analyses[0]?.simulation?.fee??1};
+ el.innerHTML=render(report,analyses,today,options);el.querySelectorAll('[data-forecast-symbol]').forEach(b=>b.onclick=()=>onSelect(b.dataset.forecastSymbol));
+ const filter=el.querySelector('#signalUniverse');if(filter)filter.onchange=()=>{universe=filter.value;mount(report,analyses,onSelect);};
+ const input=el.querySelector('#signalFee'),slip=el.querySelector('#signalSlippage');
+ const apply=()=>{
+  try{
+   const settings=root.BRVM_EXECUTION.settings({feePct:parseFloat(input.value),slippagePct:parseFloat(slip.value)});slippagePct=settings.slippagePct;
+   const main=document.getElementById('fee');if(main){main.value=String(settings.feePct);main.dispatchEvent(new Event('change',{bubbles:true}));}
+   else mount(report,analyses,onSelect);
+  }catch(e){el.querySelector('#signalCostError').textContent='Saisissez des hypothèses entre 0 et 5 % pour chaque opération.';}
+ };
+ if(input&&slip){input.onchange=apply;slip.onchange=apply;}
+ const costButton=el.querySelector('#signalCostApply');if(costButton)costButton.onclick=apply;
 }
-root.BRVM_SIGNALS_UI={render,mount};if(typeof module!=='undefined')module.exports={render};
+root.BRVM_SIGNALS_UI={render,mount,costOptions:(feePct=1)=>({feePct,slippagePct})};if(typeof module!=='undefined')module.exports={render};
 })(typeof window!=='undefined'?window:globalThis);

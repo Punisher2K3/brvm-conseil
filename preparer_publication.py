@@ -5,7 +5,7 @@ from html import escape
 from urllib.parse import urlparse
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parent
-PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js','previsions.js','previsions-calcul.js','previsions-calcul.json','previsions-journal.json','signaux_ui.js','sources-complementaires.json']
+PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js','previsions.js','previsions-calcul.js','previsions-calcul.json','previsions-journal.json','signaux_ui.js','sources-complementaires.json','decision.js','pilote_ui.js']
 
 def obligations_html():
     p=ROOT/'obligations.json'

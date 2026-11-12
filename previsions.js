@@ -1,7 +1,7 @@
 /* Prévisions J+1 : toutes les décisions au point t utilisent uniquement les données <= t. */
 (function(root){
 'use strict';
-const VERSION='j1-1.2.0';
+const VERSION='j1-2.1.0';
 const CONFIG=Object.freeze({warmup:30,selection:20,testStart:60,minimum:80,window:80,calibration:60});
 const mean=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
 const clamp=(x,l=-.10,h=.10)=>Math.max(l,Math.min(h,x));
@@ -49,11 +49,13 @@ function prepare(a,options={}){
   const volumeBase=median(w.map(r=>r.volume).filter(v=>Number.isFinite(v)&&v>0));
   const bar=options.bars?.get(a.symbol+'|'+current.date);
   const hasBar=!!(bar?.verified&&bar.close>0&&bar.high>=bar.low);
+  const relativeVolume=current.volume/Math.max(1,volumeBase);
+  const regime=relativeVolume>=1.8?'active':vol>=.025?'volatile':vmean>.003?'trend_up':vmean<-.003?'trend_down':'calm';
   return {x:[(own[i]||0)/.03,mean(past.slice(-5))/.03,vmean/.03,vol/.03,clamp(Math.log(Math.max(1,current.volume)/Math.max(1,volumeBase)),-4,4)/4,past.filter(v=>v===0).length/past.length,
    peers.length>=10?mean(peers.map(r=>r.value))/.03:0,sector.length>=2?mean(sector.map(r=>r.value))/.03:0,peers.length>=10?1:0,sector.length>=2?1:0,
    hasBook?book.imbalance:0,hasBook?clamp(spread/10,0,3):0,hasBook?1:0,
    hasBar?clamp((bar.high-bar.low)/bar.close,0,.2)/.05:0,hasBar&&bar.high>bar.low?(bar.close-bar.low)/(bar.high-bar.low)-.5:0,hasBar?1:0],hasBook,hasBar,market:peers.length>=10,sector:sector.length>=2,
-   median:median(past),average:vmean,momentum:mean(past.slice(-5)),reversal:-(own[i]||0)*.25};
+   median:median(past),average:vmean,momentum:mean(past.slice(-5)),reversal:-(own[i]||0)*.25,regime,relativeVolume,volatilityPct:vol*100};
  }
  for(let i=19;i<rows.length-1;i++){
   const f=features(i),y=pairReturn(rows[i],rows[i+1]);
@@ -83,20 +85,24 @@ function ridge(past,current,dim,lambda){
  for(let j=0;j<n;j++)gram[j][j]+=j?lambda:1e-6;
  const beta=solve(gram,rhs);return beta?clamp(vec(current).reduce((sum,v,k)=>sum+v*beta[k],0)):0;
 }
-const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée'];
+const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée','Situations de marché similaires (candidat)','Choix selon la situation (candidat)'];
 function candidates(past,current,previous){
  const train=past.slice(-CONFIG.window),books=train.filter(s=>s.hasBook).length;
- const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null];
+ const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null,null,null];
  if(current.hasBook&&books>=30)p[7]=ridge(train,current,13,80);
  if(current.hasBar&&train.filter(s=>s.hasBar).length>=30)p[9]=ridge(train,current,16,100);
+ const similar=past.slice(-240).filter(s=>s.regime===current.regime);
+ if(similar.length>=30)p[10]=ridge(similar,current,16,120);
  const eligible=[0,1,2,3,4,5,6,7,9].filter(k=>p[k]!==null&&previous.filter(r=>r.p[k]!==null).length>=CONFIG.selection);
  if(eligible.length>=2){const weights=eligible.map(k=>1/(1e-5+mean(previous.slice(-40).filter(r=>r.p[k]!==null).map(r=>Math.abs(r.y-r.p[k])))));p[8]=eligible.reduce((v,k,i)=>v+p[k]*weights[i],0)/weights.reduce((s,v)=>s+v,0);}
+ p[11]=p[choose(previous,p,current.regime,true)];
  return p.map(v=>v===null?null:clamp(v));
 }
-function choose(previous,current){
+function choose(previous,current,regime,experimental=false){
  if(previous.length<CONFIG.selection)return 0;
- const recent=previous.slice(-60);let selected=0,best=mean(recent.map(r=>Math.abs(r.y)));
- for(let k=1;k<NAMES.length;k++){
+ const same=previous.slice(-120).filter(r=>r.regime===regime);
+ const recent=(experimental&&same.length>=24?same:previous).slice(-60);let selected=0,best=mean(recent.map(r=>Math.abs(r.y)));
+ for(let k=1;k<(experimental?11:10);k++){
   if(current[k]===null||recent.some(r=>r.p[k]===null))continue;
   const loss=mean(recent.map(r=>Math.abs(r.y-r.p[k]))),base=mean(recent.map(r=>Math.abs(r.y)));
   const folds=Array.from({length:3},(_,i)=>recent.slice(Math.floor(i*recent.length/3),Math.floor((i+1)*recent.length/3)));
@@ -124,11 +130,11 @@ function forecast(a,options={}){
  if(samples.length<CONFIG.minimum)return unavailable('Au moins 80 transitions valides sont nécessaires, dont 20 séances réservées à l’évaluation chronologique.');
  const trace=[];
  for(let i=CONFIG.warmup;i<samples.length;i++){
-  const s=samples[i],p=candidates(samples.slice(0,i),s,trace),selected=choose(trace,p);
+  const s=samples[i],p=candidates(samples.slice(0,i),s,trace),selected=choose(trace,p,s.regime);
   const predicted=p[selected],r=radius(trace);
   trace.push({...s,p,selected,predicted,error:s.y-predicted,radius:r,test:i>=CONFIG.testStart});
  }
- const tested=trace.filter(r=>r.test),metrics=summarize(tested),predictions=candidates(samples,current,trace),selected=choose(trace,predictions),expectedReturn=predictions[selected],r=radius(trace);
+ const tested=trace.filter(r=>r.test),metrics=summarize(tested),predictions=candidates(samples,current,trace),selected=choose(trace,predictions,current.regime),expectedReturn=predictions[selected],r=radius(trace);
  const target=nextSession(last.date,options.calendar?.closedDates||[]);
  return {available:true,version:VERSION,date:last.date,target,targetConfirmed:false,price:last.close,n:samples.length,tests:tested.length,model:NAMES[selected],modelId:selected,
   expected:last.close*(1+expectedReturn),low:last.close*(1+expectedReturn-r),high:last.close*(1+expectedReturn+r),expectedReturn,
@@ -136,6 +142,8 @@ function forecast(a,options={}){
   folds:Array.from({length:3},(_,i)=>summarize(tested.slice(Math.floor(i*tested.length/3),Math.floor((i+1)*tested.length/3)))),
   orderCandidate:current.hasBook&&samples.slice(-CONFIG.window).filter(s=>s.hasBook).length>=30,orderTraining:samples.filter(s=>s.hasBook).length,orderTests:tested.filter(s=>s.hasBook).length,
   book:last.orderBook||null,usesMarket:current.market,usesSector:current.sector,excluded:prepared.excluded,
+  regime:{key:current.regime,label:({active:'Échanges soutenus',volatile:'Volatilité élevée',trend_up:'Tendance haussière',trend_down:'Tendance baissière',calm:'Sans tendance marquée'})[current.regime],relativeVolume:current.relativeVolume,volatilityPct:current.volatilityPct,selectionSamples:trace.slice(-120).filter(t=>t.regime===current.regime).length},
+  regimeExperiment:{name:NAMES[11],expected:last.close*(1+predictions[11]),selected:NAMES[choose(trace,predictions,current.regime,true)],status:'candidate'},
   candidates:NAMES.map((name,k)=>{const rows=tested.filter(t=>t.p[k]!==null);return {name,n:rows.length,mae:rows.length?mean(rows.map(t=>Math.abs(t.y-t.p[k])))*100:null};}),
   nextCandidates:NAMES.map((name,k)=>({name,expected:predictions[k]===null?null:last.close*(1+predictions[k])})),
   trace:options.trace?trace:undefined};

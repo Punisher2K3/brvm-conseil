@@ -23,6 +23,7 @@ jobs:
           node test_previsions.cjs
           node test_previsions_j1.cjs
           node test_signaux.cjs
+          node test_recherche.cjs
           python -m unittest test_collecter_sources.py
           node test_journal_previsions.cjs
           node test_valorisations.cjs

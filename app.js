@@ -123,6 +123,7 @@ function renderForecastSection(){
 function render(){
  BRVM_RESEARCH_UI.mount(analyses,window.BRVM_FUNDAMENTALS||{});
  renderForecastSection();
+ BRVM_SIGNALS_UI.mount(window.BRVM_FORECAST_REPORT,analyses,symbol=>{const select=$('forecastAction');select.value=symbol;select.onchange();$('previsions').scrollIntoView({behavior:'smooth'});});
  const q=$('search').value.toLocaleLowerCase('fr');
  const rows=analyses.filter(a=>(a.name+' '+a.symbol).toLocaleLowerCase('fr').includes(q)&&($('sector').value==='all'||a.sector===$('sector').value)&&($('filter').value==='all'||a.verdict===$('filter').value));
  const key=$('sort').value;
@@ -183,7 +184,7 @@ $('rows').addEventListener('change',e=>{const s=e.target.dataset.select;if(!s)re
  document.addEventListener('click',e=>{const b=e.target.closest('[data-detail]');if(b)detail(b.dataset.detail);});
 async function api(path,body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const j=await r.json();if(!r.ok)throw Error(j.error||'Opération indisponible');return j;}
 $('export').onclick=async()=>{if(window.BRVM_PUBLIC_MODE){exportPublic();return;}try{const r=await api('/api/export',{options:options(),rows:analyses.map(a=>({symbol:a.symbol,name:a.name,date:a.asOf,verdict:a.verdict,score:a.score,coverage:a.coverage,per:a.per,yield:a.metrics.yieldNet,turnover:a.metrics.turnover,source:a.source}))});alert('Analyse enregistrée dans le dossier du projet : '+r.file);}catch(e){alert('Ouvrez le site avec « Ouvrir le site.cmd » pour exporter dans le dossier du projet. '+e.message);}};
-function currentRevision(){return (data.revision||data.fetched||'')+'|'+(window.BRVM_FINANCIALS_REVISION||'legacy')+'|'+(window.BRVM_FUNDAMENTALS_REVISION||'legacy');}
+function currentRevision(){return (data.revision||data.fetched||'')+'|'+(window.BRVM_FINANCIALS_REVISION||'legacy')+'|'+(window.BRVM_FUNDAMENTALS_REVISION||'legacy')+'|'+(window.BRVM_FORECAST_REPORT?.inputSha256||'none');}
 let appliedRevision=currentRevision(), dataRefreshRunning=false, automaticStatusRunning=false, pendingRevision=null;
 let lastCalendarDate=new Date().toLocaleDateString('fr-FR',{timeZone:'Europe/Paris'});
 function loadDataScript(name){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=name+'?verification='+Date.now();script.onload=()=>{script.remove();resolve();};script.onerror=()=>{script.remove();reject(Error('Chargement des données interrompu'));};document.head.appendChild(script);});}

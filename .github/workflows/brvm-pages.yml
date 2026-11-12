@@ -45,12 +45,16 @@ jobs:
             exit 1
           fi
           python -c "import json; d=json.load(open('base-marche.json',encoding='utf-8')); print('Séance analysée :',d['session']); print('Séances avec limites résiduelles :',sum(s.get('orderBookExtraction',0)>0 for s in d['sessions'])); print('Actions avec limites dans le dernier bulletin :',sum('orderBook' in r for r in d['stocks']))"
+      - name: Recouper les pages publiques et étendre les historiques complémentaires
+        run: python collecter_sources.py --lot 12 --archives-lot 2
       - name: Vérifier les calculs fondamentaux
         run: |
           python -m unittest test_collecte_historique.py
           node test_fondamentaux.cjs
           node test_previsions.cjs
           node test_previsions_j1.cjs
+          node test_signaux.cjs
+          python -m unittest test_collecter_sources.py
           node test_journal_previsions.cjs
           node test_valorisations.cjs
           node --check valorisations_ui.js
@@ -65,7 +69,7 @@ jobs:
           python gerer_base.py sauvegarder
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js previsions-journal.json
+          git add obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js previsions-journal.json sources-complementaires.json.gz
           if ! git diff --cached --quiet; then
             git commit -m "Actualiser les données officielles BRVM"
             git push

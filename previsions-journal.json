@@ -585,6 +585,4011 @@
       "expected": 12500,
       "low": 11996.951219512195,
       "high": 13003.048780487805
+    },
+    {
+      "id": "NTLC|2026-11-12|j1-1.1.0",
+      "symbol": "NTLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 13145,
+      "low": 12713.373134328358,
+      "high": 13576.626865671642,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 46.601941747572816,
+          "up": 22.330097087378643
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "PALC|2026-11-12|j1-1.1.0",
+      "symbol": "PALC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 7645,
+      "low": 7458.122222222222,
+      "high": 7831.877777777778,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 36.89320388349515,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SPHC|2026-11-12|j1-1.1.0",
+      "symbol": "SPHC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Retour partiel",
+      "expected": 8000,
+      "low": 7709.090909090909,
+      "high": 8290.909090909092,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 29.126213592233007,
+          "up": 37.86407766990291
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SMBC|2026-11-12|j1-1.1.0",
+      "symbol": "SMBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 18000,
+      "low": 17403.647416413372,
+      "high": 18596.352583586628,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 24.137001506860365,
+          "stable": 53.27211134803163,
+          "up": 22.590887145108006
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "TTLC|2026-11-12|j1-1.1.0",
+      "symbol": "TTLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Retour partiel",
+      "expected": 3074.469320066335,
+      "low": 2966.823065196409,
+      "high": 3182.1155749362606,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 32.038834951456316,
+          "stable": 29.126213592233007,
+          "up": 38.83495145631068
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "TTLS|2026-11-12|j1-1.1.0",
+      "symbol": "TTLS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 3700,
+      "low": 3589.55223880597,
+      "high": 3810.44776119403,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 33.980582524271846,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ECOC|2026-11-12|j1-1.1.0",
+      "symbol": "ECOC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Retour partiel",
+      "expected": 15591.201366559484,
+      "low": 15302.219885078004,
+      "high": 15880.182848040968,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 33.980582524271846,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SGBC|2026-11-12|j1-1.1.0",
+      "symbol": "SGBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Retour partiel",
+      "expected": 38816.95531088083,
+      "low": 38147.4564101908,
+      "high": 39486.45421157086,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 20.388349514563107,
+          "stable": 57.28155339805825,
+          "up": 22.330097087378643
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SIBC|2026-11-12|j1-1.1.0",
+      "symbol": "SIBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 8800,
+      "low": 8670.65868263473,
+      "high": 8929.341317365268,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 32.32334109490765,
+          "stable": 42.38636437441634,
+          "up": 25.29029453067604
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ONTBF|2026-11-12|j1-1.1.0",
+      "symbol": "ONTBF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2900,
+      "low": 2808.0133555926545,
+      "high": 2991.986644407345,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 27.184466019417474,
+          "stable": 48.54368932038835,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ORAC|2026-11-12|j1-1.1.0",
+      "symbol": "ORAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 20000,
+      "low": 19351.123806088544,
+      "high": 20648.876193911456,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 28.155339805825243,
+          "stable": 33.00970873786408,
+          "up": 38.83495145631068
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SNTS|2026-11-12|j1-1.1.0",
+      "symbol": "SNTS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 4195,
+      "low": 4010.2202380952376,
+      "high": 4379.779761904762,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 23.300970873786408,
+          "stable": 40.77669902912621,
+          "up": 35.92233009708738
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SCRC|2026-11-12|j1-1.1.0",
+      "symbol": "SCRC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Médiane récente",
+      "expected": 1582.874617737003,
+      "low": 1487.7526665174908,
+      "high": 1677.9965689565151,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 57.128807451393605,
+          "stable": 15.329705914331035,
+          "up": 27.541486634275376
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SLBC|2026-11-12|j1-1.1.0",
+      "symbol": "SLBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 42945,
+      "low": 42382.19333189002,
+      "high": 43507.80666810998,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 27.18483567864919,
+          "stable": 45.29902834570586,
+          "up": 27.51613597564496
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SOGC|2026-11-12|j1-1.1.0",
+      "symbol": "SOGC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 7885,
+      "low": 7593.152597402597,
+      "high": 8176.847402597404,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 35.92233009708738,
+          "stable": 26.21359223300971,
+          "up": 37.86407766990291
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "STBC|2026-11-12|j1-1.1.0",
+      "symbol": "STBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Retour partiel",
+      "expected": 21237.470518867925,
+      "low": 20837.76302805416,
+      "high": 21637.17800968169,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 25.24271844660194,
+          "stable": 50.48543689320388,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "UNLC|2026-11-12|j1-1.1.0",
+      "symbol": "UNLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 47000,
+      "low": 44103.03587856486,
+      "high": 49896.96412143515,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 32.038834951456316,
+          "stable": 43.689320388349515,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ABJC|2026-11-12|j1-1.1.0",
+      "symbol": "ABJC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 3295,
+      "low": 3194.84802431611,
+      "high": 3395.15197568389,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.980582524271846,
+          "stable": 36.89320388349515,
+          "up": 29.126213592233007
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BNBC|2026-11-12|j1-1.1.0",
+      "symbol": "BNBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 1725,
+      "low": 1629.9212598425197,
+      "high": 1820.07874015748,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 41.74757281553398,
+          "stable": 27.184466019417474,
+          "up": 31.06796116504854
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CFAC|2026-11-12|j1-1.1.0",
+      "symbol": "CFAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours, volumes et limites résiduelles",
+      "expected": 1254.228393980085,
+      "low": 1209.6718372316188,
+      "high": 1298.7849507285514,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 52.97237807459217,
+          "stable": 23.315662229333796,
+          "up": 23.711959696074004
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "LNBB|2026-11-12|j1-1.1.0",
+      "symbol": "LNBB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 3935,
+      "low": 3848.5164835164833,
+      "high": 4021.4835164835163,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 38.83495145631068,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "NEIC|2026-11-12|j1-1.1.0",
+      "symbol": "NEIC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 1980,
+      "low": 1874.0740740740741,
+      "high": 2085.925925925926,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 36.28531337807528,
+          "stable": 43.03888786591707,
+          "up": 20.675798756007637
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "PRSC|2026-11-12|j1-1.1.0",
+      "symbol": "PRSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 3700,
+      "low": 3555.46875,
+      "high": 3844.53125,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 37.86407766990291,
+          "stable": 34.95145631067961,
+          "up": 27.184466019417474
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "UNXC|2026-11-12|j1-1.1.0",
+      "symbol": "UNXC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 1890,
+      "low": 1843.90243902439,
+      "high": 1936.09756097561,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 48.63754695929648,
+          "stable": 26.79538714893897,
+          "up": 24.567065891764535
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SHEC|2026-11-12|j1-1.1.0",
+      "symbol": "SHEC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2030,
+      "low": 1962.3333333333333,
+      "high": 2097.6666666666665,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 30.097087378640776,
+          "stable": 44.66019417475729,
+          "up": 25.24271844660194
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BICB|2026-11-12|j1-1.1.0",
+      "symbol": "BICB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 7950,
+      "low": 7693.138423854252,
+      "high": 8206.861576145748,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 32.718162438184166,
+          "stable": 34.489879255807,
+          "up": 32.791958306008844
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BICC|2026-11-12|j1-1.1.0",
+      "symbol": "BICC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 31705,
+      "low": 30506.529209621993,
+      "high": 32903.470790378,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 25.24271844660194,
+          "stable": 40.77669902912621,
+          "up": 33.980582524271846
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAB|2026-11-12|j1-1.1.0",
+      "symbol": "BOAB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Marché et secteur (régression)",
+      "expected": 9566.291269738209,
+      "low": 9272.417876538162,
+      "high": 9860.164662938258,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.980582524271846,
+          "stable": 34.95145631067961,
+          "up": 31.06796116504854
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOABF|2026-11-12|j1-1.1.0",
+      "symbol": "BOABF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 8000,
+      "low": 7792.207792207792,
+      "high": 8207.792207792209,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 34.95145631067961,
+          "up": 35.92233009708738
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAC|2026-11-12|j1-1.1.0",
+      "symbol": "BOAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 11990,
+      "low": 11798.924302788844,
+      "high": 12181.075697211156,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 25.49969069915012,
+          "stable": 50.068542650583666,
+          "up": 24.4317666502662
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAM|2026-11-12|j1-1.1.0",
+      "symbol": "BOAM",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 5705,
+      "low": 5516.1247877758915,
+      "high": 5893.8752122241085,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 27.605707339164287,
+          "stable": 38.55617571300332,
+          "up": 33.83811694783238
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAN|2026-11-12|j1-1.1.0",
+      "symbol": "BOAN",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 4975,
+      "low": 4774.828263002944,
+      "high": 5175.171736997056,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.980582524271846,
+          "stable": 31.06796116504854,
+          "up": 34.95145631067961
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAS|2026-11-12|j1-1.1.0",
+      "symbol": "BOAS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 8200,
+      "low": 8098.765432098765,
+      "high": 8301.234567901234,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 40.77669902912621,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CBIBF|2026-11-12|j1-1.1.0",
+      "symbol": "CBIBF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 32000,
+      "low": 30947.013162335472,
+      "high": 33052.986837664525,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 22.330097087378643,
+          "stable": 35.92233009708738,
+          "up": 41.74757281553398
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ETIT|2026-11-12|j1-1.1.0",
+      "symbol": "ETIT",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 59,
+      "low": 57.25904555876437,
+      "high": 60.74095444123562,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 30.54155167819991,
+          "stable": 35.12055337524188,
+          "up": 34.33789494655819
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "NSBC|2026-11-12|j1-1.1.0",
+      "symbol": "NSBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 17100,
+      "low": 16615.4478976234,
+      "high": 17584.5521023766,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 42.71844660194174,
+          "up": 26.21359223300971
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ORGT|2026-11-12|j1-1.1.0",
+      "symbol": "ORGT",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2560,
+      "low": 2482.2857142857147,
+      "high": 2637.7142857142853,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 36.89320388349515,
+          "up": 33.980582524271846
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SAFC|2026-11-12|j1-1.1.0",
+      "symbol": "SAFC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 3685,
+      "low": 3513.456896551724,
+      "high": 3856.543103448276,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 49.51456310679612,
+          "stable": 12.62135922330097,
+          "up": 37.86407766990291
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CABC|2026-11-12|j1-1.1.0",
+      "symbol": "CABC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2915,
+      "low": 2838.064516129032,
+      "high": 2991.935483870968,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.01249478715765,
+          "stable": 43.9071638567924,
+          "up": 23.08034135604993
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "FTSC|2026-11-12|j1-1.1.0",
+      "symbol": "FTSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 1700,
+      "low": 1632,
+      "high": 1768,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 38.83495145631068,
+          "up": 28.155339805825243
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SDSC|2026-11-12|j1-1.1.0",
+      "symbol": "SDSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2800,
+      "low": 2682.200241159964,
+      "high": 2917.7997588400353,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 41.74757281553398,
+          "stable": 14.563106796116504,
+          "up": 43.689320388349515
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SIVC|2026-11-12|j1-1.1.0",
+      "symbol": "SIVC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 1700,
+      "low": 1626.7942583732058,
+      "high": 1773.2057416267942,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 48.54368932038835,
+          "stable": 23.300970873786408,
+          "up": 28.155339805825243
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "STAC|2026-11-12|j1-1.1.0",
+      "symbol": "STAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 2075,
+      "low": 1945.3125,
+      "high": 2204.6875,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 50.48543689320388,
+          "stable": 20.388349514563107,
+          "up": 29.126213592233007
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CIEC|2026-11-12|j1-1.1.0",
+      "symbol": "CIEC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Médiane récente",
+      "expected": 4952.830188679245,
+      "low": 4743.52786309785,
+      "high": 5162.13251426064,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 44.640243345745354,
+          "stable": 30.04808307821329,
+          "up": 25.31167357604135
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SDCC|2026-11-12|j1-1.1.0",
+      "symbol": "SDCC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:20:04.879Z",
+      "version": "j1-1.1.0",
+      "inputSha256": "0bf2bdd9eee4b73c6688b75816bb1888f17faaa7622cbf070c164dfd90750980",
+      "model": "Cours inchangé",
+      "expected": 12500,
+      "low": 11996.951219512195,
+      "high": 13003.048780487805,
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 26.21359223300971,
+          "stable": 40.77669902912621,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "NTLC|2026-11-12|j1-1.2.0",
+      "symbol": "NTLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 13145,
+      "low": 12713.373134328358,
+      "high": 13576.626865671642,
+      "originPrice": 13145,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 13145
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 13137.534078000757
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 13092.064169328964
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 13149.669592627475
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 13141.245715917745
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 13157.579063734458
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 13208.04201356408
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 13191.211345097117
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 13152.956577867992
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 13156.9660050597
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 46.601941747572816,
+          "up": 22.330097087378643
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "PALC|2026-11-12|j1-1.2.0",
+      "symbol": "PALC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 7645,
+      "low": 7458.122222222222,
+      "high": 7831.877777777778,
+      "originPrice": 7645,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 7645
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 7645
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 7645.333010678031
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 7667.197603577602
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 7631.150362318841
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 7616.6683245350905
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 7630.467361728208
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 7607.401706995166
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 7631.99446164671
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 7602.608983178118
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 36.89320388349515,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SPHC|2026-11-12|j1-1.2.0",
+      "symbol": "SPHC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Retour partiel",
+      "expected": 8000,
+      "low": 7709.090909090909,
+      "high": 8290.909090909092,
+      "originPrice": 8000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 8000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 8000
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 8006.15458267713
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 8000.0453400503775
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 8000
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 8012.770452171637
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 8012.965343283787
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 8010.371880107207
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 8006.42426903728
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 8017.528391802751
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 29.126213592233007,
+          "up": 37.86407766990291
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SMBC|2026-11-12|j1-1.2.0",
+      "symbol": "SMBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 18000,
+      "low": 17403.647416413372,
+      "high": 18596.352583586628,
+      "originPrice": 18000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 18000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 17996.91780821918
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 18071.261283428274
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 18010.04283025273
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 17984.949832775917
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 18036.217684950938
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 18064.397182984023
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 18028.7409028339
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 18029.93664821429
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 18068.776516024387
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 25.974187482435973,
+          "stable": 52.15779813008123,
+          "up": 21.86801438748279
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "TTLC|2026-11-12|j1-1.2.0",
+      "symbol": "TTLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Retour partiel",
+      "expected": 3074.469320066335,
+      "low": 2966.823065196409,
+      "high": 3182.1155749362606,
+      "originPrice": 3095,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3095
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3095
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3097.9309611889844
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3104.2668269415626
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3074.469320066335
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3069.94706554033
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3076.157661329955
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3077.4631969491593
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3085.743578031568
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3083.5276658417733
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.73961162834606,
+          "stable": 36.46552062983254,
+          "up": 29.794867741821424
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "TTLS|2026-11-12|j1-1.2.0",
+      "symbol": "TTLS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 3700,
+      "low": 3589.55223880597,
+      "high": 3810.44776119403,
+      "originPrice": 3700,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3700
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3700
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3700.5575021687173
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3700.0691697406714
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3698.7483085250337
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3708.8533269493937
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3708.7202388706096
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3689.379941929105
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3698.8364386178423
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3684.056436857904
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 33.980582524271846,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ECOC|2026-11-12|j1-1.2.0",
+      "symbol": "ECOC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Retour partiel",
+      "expected": 15591.201366559484,
+      "low": 15293.083504389764,
+      "high": 15889.319228729206,
+      "originPrice": 15605,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 15605
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 15605
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 15596.640085366784
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 15616.966287754934
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 15591.201366559484
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 15578.083091276518
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 15586.969827045446
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 15592.403758436401
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 15595.774003415656
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 15594.285146993336
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 33.980582524271846,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SGBC|2026-11-12|j1-1.2.0",
+      "symbol": "SGBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Retour partiel",
+      "expected": 38816.95531088083,
+      "low": 38147.4564101908,
+      "high": 39486.45421157086,
+      "originPrice": 38890,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 38890
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 38890
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 38888.3129725695
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 38859.77876258112
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 38816.95531088083
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 38823.18760470772
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 38836.307034383535
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 38793.664555014926
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 38847.373753204665
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 38836.41434531564
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 20.388349514563107,
+          "stable": 57.28155339805825,
+          "up": 22.330097087378643
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SIBC|2026-11-12|j1-1.2.0",
+      "symbol": "SIBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 8800,
+      "low": 8670.65868263473,
+      "high": 8929.341317365268,
+      "originPrice": 8800,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 8800
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 8800
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 8797.848273715535
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 8810.551373902244
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 8750.145264381174
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 8714.542622565303
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 8727.84058868901
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 8737.69909505859
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 8765.645453752191
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 8748.281800490804
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 37.86407766990291,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ONTBF|2026-11-12|j1-1.2.0",
+      "symbol": "ONTBF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 2900,
+      "low": 2808.0133555926545,
+      "high": 2991.986644407345,
+      "originPrice": 2900,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2900
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2895.2614379084966
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2900.337722467539
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2891.337501215965
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2900
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2925.5054674234425
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2922.686096624053
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2926.4398860011433
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2910.350049893322
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2931.6821091695997
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 22.263439783993213,
+          "stable": 51.829041994891234,
+          "up": 25.907518221115527
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ORAC|2026-11-12|j1-1.2.0",
+      "symbol": "ORAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 20000,
+      "low": 19287.54484879549,
+      "high": 20712.45515120451,
+      "originPrice": 20000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 20000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 20000
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 19965.933437029908
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 19895.28323177612
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 20000
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 20113.122122422894
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 20106.852161992676
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 20149.399901109216
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 20040.349872722592
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 20146.625879854215
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 28.155339805825243,
+          "stable": 33.00970873786408,
+          "up": 38.83495145631068
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SNTS|2026-11-12|j1-1.2.0",
+      "symbol": "SNTS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 4195,
+      "low": 4010.2202380952376,
+      "high": 4379.779761904762,
+      "originPrice": 4195,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 4195
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 4170.029761904762
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 4183.552859266435
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 4210.816433710623
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 4193.748508353222
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 4197.45659598397
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 4206.3901680409535
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 4199.514045292432
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 4195.209064733924
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 4203.714724682808
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 23.300970873786408,
+          "stable": 40.77669902912621,
+          "up": 35.92233009708738
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SCRC|2026-11-12|j1-1.2.0",
+      "symbol": "SCRC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Médiane récente",
+      "expected": 1582.874617737003,
+      "low": 1487.7526665174908,
+      "high": 1677.9965689565151,
+      "originPrice": 1600,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1600
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1582.874617737003
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1585.5778849250273
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1577.7664692521782
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1608.5626911314985
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1571.6810189162045
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1574.1323259669816
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1573.4054996598848
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1582.7399987981094
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1573.4998816256987
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 55.86622750292848,
+          "stable": 15.202872139601265,
+          "up": 28.930900357470247
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SLBC|2026-11-12|j1-1.2.0",
+      "symbol": "SLBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 42945,
+      "low": 42382.19333189002,
+      "high": 43507.80666810998,
+      "originPrice": 42945,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 42945
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 42950.50718132855
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 43066.56157943833
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 43359.98353217034
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 42154.54359375
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 41680.8572248907
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 41903.32744219085
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 42315.843702238555
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 42525.80803369224
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 42278.554454961464
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 28.50034636476145,
+          "stable": 44.5925572447559,
+          "up": 26.90709639048265
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SOGC|2026-11-12|j1-1.2.0",
+      "symbol": "SOGC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours et amplitude quotidienne vérifiée",
+      "expected": 7903.197201216863,
+      "low": 7606.0716202312815,
+      "high": 8200.322782202442,
+      "originPrice": 7885,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 7885
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 7885
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 7890.646636373538
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 7904.135670783465
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 7824.445261437909
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 7828.793796720387
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 7823.147011570027
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 7897.79711453089
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 7871.430116471786
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 7903.197201216863
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 37.76462759101318,
+          "stable": 21.544668224617933,
+          "up": 40.69070418436886
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "STBC|2026-11-12|j1-1.2.0",
+      "symbol": "STBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Retour partiel",
+      "expected": 21237.470518867925,
+      "low": 20837.76302805416,
+      "high": 21637.17800968169,
+      "originPrice": 21250,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 21250
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 21274.882903981266
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 21252.656390334305
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 21260.046214733502
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 21237.470518867925
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 21204.30487461124
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 21177.950205099645
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 21121.921162821993
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 21210.667104433913
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 21100.501523314695
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 25.24271844660194,
+          "stable": 50.48543689320388,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "UNLC|2026-11-12|j1-1.2.0",
+      "symbol": "UNLC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 47000,
+      "low": 44103.03587856486,
+      "high": 49896.96412143515,
+      "originPrice": 47000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 47000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 47000
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 47083.78865650408
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 46901.56798245614
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 47000
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 46980.2765814314
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 47062.49649131689
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 46867.49148960489
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 46975.446431195705
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 46875.16685140941
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 32.038834951456316,
+          "stable": 43.689320388349515,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ABJC|2026-11-12|j1-1.2.0",
+      "symbol": "ABJC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 3295,
+      "low": 3194.84802431611,
+      "high": 3395.15197568389,
+      "originPrice": 3295,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3295
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3295
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3300.2991485752227
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3285.2948535646688
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3296.2481060606065
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3285.7454251076374
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3294.2328321887526
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3288.130953642738
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3293.0674659248725
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3297.2623920511724
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.980582524271846,
+          "stable": 36.89320388349515,
+          "up": 29.126213592233007
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BNBC|2026-11-12|j1-1.2.0",
+      "symbol": "BNBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 1725,
+      "low": 1629.9212598425197,
+      "high": 1820.07874015748,
+      "originPrice": 1725,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1725
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1725
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1724.3161559738242
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1702.602819243474
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1741.8175487465182
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1725.9992405333942
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1730.0796121554781
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1731.0583772811262
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1725.9540873882659
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1728.1289248357562
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 41.74757281553398,
+          "stable": 27.184466019417474,
+          "up": 31.06796116504854
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CFAC|2026-11-12|j1-1.2.0",
+      "symbol": "CFAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours et amplitude quotidienne vérifiée",
+      "expected": 1250.6027363114465,
+      "low": 1207.1544604493777,
+      "high": 1294.0510121735153,
+      "originPrice": 1260,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1260
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1257.75
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1258.1338544889652
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1261.1145308495747
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1260
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1258.9792807884107
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1258.954895547628
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1254.228393980085
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1257.688885027251
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1250.6027363114465
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 47.373331477914725,
+          "stable": 25.0465932810789,
+          "up": 27.58007524100637
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "LNBB|2026-11-12|j1-1.2.0",
+      "symbol": "LNBB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 3935,
+      "low": 3848.5164835164833,
+      "high": 4021.4835164835163,
+      "originPrice": 3935,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3935
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3935
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3931.7744249716366
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3950.6309381818974
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3926.1714743589746
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3899.083757467309
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3903.2675494297187
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3914.338978171201
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3923.048560216272
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3911.6224156581643
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 38.83495145631068,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "NEIC|2026-11-12|j1-1.2.0",
+      "symbol": "NEIC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours et amplitude quotidienne vérifiée",
+      "expected": 1970.7103661784004,
+      "low": 1860.9847759967977,
+      "high": 2080.435956360003,
+      "originPrice": 1980,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1980
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1977.6814988290398
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1976.8104780398141
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1995.543492505547
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1976.2213740458017
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1975.2422388937218
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1977.6193584217294
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1972.759208181248
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1978.14720005009
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1970.7103661784004
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 36.89320388349515,
+          "stable": 38.83495145631068,
+          "up": 24.271844660194176
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "PRSC|2026-11-12|j1-1.2.0",
+      "symbol": "PRSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 3700,
+      "low": 3555.46875,
+      "high": 3844.53125,
+      "originPrice": 3700,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3700
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3697.4447513812156
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3688.0536374766157
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3706.348375713387
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3656.8246110325317
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3694.8947006355565
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3694.685076343533
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3686.725208084686
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3691.4967252130236
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3699.7579875955876
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 37.86407766990291,
+          "stable": 34.95145631067961,
+          "up": 27.184466019417474
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "UNXC|2026-11-12|j1-1.2.0",
+      "symbol": "UNXC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 1890,
+      "low": 1839.1834745747906,
+      "high": 1940.8165254252092,
+      "originPrice": 1890,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1890
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1880.6666666666667
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1883.4723958843122
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1878.0548233028253
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1897.3828125
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1883.977184342015
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1891.2481686768276
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1885.9154087598208
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1885.8769136860901
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1883.5118726919723
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 50.552352792033275,
+          "stable": 26.643944741482407,
+          "up": 22.803702466484328
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SHEC|2026-11-12|j1-1.2.0",
+      "symbol": "SHEC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 2030,
+      "low": 1962.3333333333333,
+      "high": 2097.6666666666665,
+      "originPrice": 2030,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2030
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2027.6720183486239
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2026.3785619384273
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2021.596798170383
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2046.9166666666665
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2038.1930670791821
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2041.2530776160147
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2005.283444261164
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2026.255820251915
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2001.738598200442
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 30.097087378640776,
+          "stable": 44.66019417475729,
+          "up": 25.24271844660194
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BICB|2026-11-12|j1-1.2.0",
+      "symbol": "BICB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 7950,
+      "low": 7671.067488545017,
+      "high": 8228.932511454983,
+      "originPrice": 7950,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 7950
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 7950
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 7939.32265903492
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 7935.772968195659
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 7984.394313967862
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 7939.413062457289
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 7969.836650303925
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 7976.293883834879
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 7958.374897863578
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 7974.954995140155
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.99512954606343,
+          "stable": 32.91739216344988,
+          "up": 33.08747829048666
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BICC|2026-11-12|j1-1.2.0",
+      "symbol": "BICC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 31705,
+      "low": 30506.529209621993,
+      "high": 32903.470790378,
+      "originPrice": 31705,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 31705
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 31707.477340209407
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 31723.57306527854
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 31679.201337388295
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 31703.749802839116
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 31836.309855737618
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 31845.228779194953
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 31868.489725267966
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 31770.777832988653
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 31881.15620500638
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 20.279697951950823,
+          "stable": 45.99889190156356,
+          "up": 33.72141014648559
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAB|2026-11-12|j1-1.2.0",
+      "symbol": "BOAB",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours et amplitude quotidienne vérifiée",
+      "expected": 9543.50948512086,
+      "low": 9234.463589481458,
+      "high": 9852.555380760261,
+      "originPrice": 9500,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 9500
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 9489.673913043478
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 9508.068178140056
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 9500.983989184671
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 9477.284803400638
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 9575.094370068542
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 9566.291269738209
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 9557.278741006154
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 9525.796327123393
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 9543.50948512086
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 30.615836321978897,
+          "stable": 37.42853405677724,
+          "up": 31.95562962124387
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOABF|2026-11-12|j1-1.2.0",
+      "symbol": "BOABF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 8000,
+      "low": 7792.207792207792,
+      "high": 8207.792207792209,
+      "originPrice": 8000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 8000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 7994.784876140809
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 8000.3210897023555
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 8000.622487746971
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 7974.683544303797
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 8054.763168940047
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 8050.572186215778
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 8035.264180744653
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 8012.845495790227
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 8028.086406830399
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 34.95145631067961,
+          "up": 35.92233009708738
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAC|2026-11-12|j1-1.2.0",
+      "symbol": "BOAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 11990,
+      "low": 11796.612903225807,
+      "high": 12183.387096774193,
+      "originPrice": 11990,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 11990
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 11990
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 12006.39757663404
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 11993.025746857213
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 11977.447654941372
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 12019.993384465984
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 12021.23140712977
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 12001.327004316421
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 12001.584799058712
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 12017.049358389007
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 23.819048476671757,
+          "stable": 50.990795720817594,
+          "up": 25.190155802510628
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAM|2026-11-12|j1-1.2.0",
+      "symbol": "BOAM",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 5705,
+      "low": 5516.1247877758915,
+      "high": 5893.8752122241085,
+      "originPrice": 5705,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 5705
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 5705
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 5705.541104705161
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 5687.113795337205
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 5703.748903508773
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 5734.44213965901
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 5734.393836107279
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 5715.704098291907
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 5711.106385790132
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 5715.506004543854
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 27.873213704465343,
+          "stable": 36.992896053811165,
+          "up": 35.13389024172347
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAN|2026-11-12|j1-1.2.0",
+      "symbol": "BOAN",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 4975,
+      "low": 4774.828263002944,
+      "high": 5175.171736997056,
+      "originPrice": 4975,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 4975
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 4964.635416666667
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 4983.496282168577
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 4972.587525824006
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 4961.096290650406
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 4977.765395175667
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 4978.151802539413
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 4970.817842161948
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 4972.7405941997395
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 4971.4634619737235
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.980582524271846,
+          "stable": 31.06796116504854,
+          "up": 34.95145631067961
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "BOAS|2026-11-12|j1-1.2.0",
+      "symbol": "BOAS",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 8200,
+      "low": 8098.765432098765,
+      "high": 8301.234567901234,
+      "originPrice": 8200,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 8200
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 8200
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 8201.525678909578
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 8182.321604720347
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 8184.889434889435
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 8225.62175692792
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 8226.679506292563
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 8244.854782783012
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 8210.120471427359
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 8229.325343802224
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 29.126213592233007,
+          "stable": 40.77669902912621,
+          "up": 30.097087378640776
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CBIBF|2026-11-12|j1-1.2.0",
+      "symbol": "CBIBF",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 32000,
+      "low": 30947.013162335472,
+      "high": 33052.986837664525,
+      "originPrice": 32000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 32000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 32000
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 32027.907782288574
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 31947.133082064982
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 32000
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 32286.40976815818
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 32263.465728331397
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 32279.870804957747
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 32113.805705282488
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 32230.945349680816
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 22.330097087378643,
+          "stable": 35.92233009708738,
+          "up": 41.74757281553398
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ETIT|2026-11-12|j1-1.2.0",
+      "symbol": "ETIT",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 59,
+      "low": 57.23880597014926,
+      "high": 60.76119402985075,
+      "originPrice": 59,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 59
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 59
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 58.862894195115
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 59.00333333333334
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 59.24583333333333
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 58.82532356479378
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 58.89179163766656
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 59.004495098921865
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 58.98148984796294
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 58.958936242639965
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 28.684791127274465,
+          "stable": 37.15817748506397,
+          "up": 34.15703138766159
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "NSBC|2026-11-12|j1-1.2.0",
+      "symbol": "NSBC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 17100,
+      "low": 16615.4478976234,
+      "high": 17584.5521023766,
+      "originPrice": 17100,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 17100
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 17036.047180667432
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 17018.379360367966
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 17056.35640732364
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 17077.38095238095
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 17033.733415476534
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 17032.946418451844
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 17019.72227991088
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 17042.287258762815
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 17006.544259276223
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.06796116504854,
+          "stable": 42.71844660194174,
+          "up": 26.21359223300971
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "ORGT|2026-11-12|j1-1.2.0",
+      "symbol": "ORGT",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 2560,
+      "low": 2482.2857142857147,
+      "high": 2637.7142857142853,
+      "originPrice": 2560,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2560
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2557.6895306859205
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2554.212658536537
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2556.0174416692653
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2557.4901960784314
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2562.2923503133215
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2565.763477884179
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2563.863920383005
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2559.626279471149
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2559.7666116146816
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 28.72082673324201,
+          "stable": 38.1682173508508,
+          "up": 33.11095591590717
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SAFC|2026-11-12|j1-1.2.0",
+      "symbol": "SAFC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 3685,
+      "low": 3513.456896551724,
+      "high": 3856.543103448276,
+      "originPrice": 3685,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 3685
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 3668.074146981627
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 3680.1285261491057
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 3673.78095530895
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 3687.4932341001354
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 3692.790805622781
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 3696.319340354477
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 3675.1535111703256
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 3681.184420972719
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 3672.8309392705064
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 49.51456310679612,
+          "stable": 12.62135922330097,
+          "up": 37.86407766990291
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CABC|2026-11-12|j1-1.2.0",
+      "symbol": "CABC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 2915,
+      "low": 2838.064516129032,
+      "high": 2991.935483870968,
+      "originPrice": 2915,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2915
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2912.570833333333
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2912.5990934069737
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2940.618094071726
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2913.747852233677
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2904.2568070207594
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2902.960646573593
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2902.0427337928477
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2910.988986876512
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2896.5299475319625
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 31.668306565799874,
+          "stable": 43.716358546567456,
+          "up": 24.61533488763267
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "FTSC|2026-11-12|j1-1.2.0",
+      "symbol": "FTSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 1700,
+      "low": 1632,
+      "high": 1768,
+      "originPrice": 1700,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1700
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1700
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1697.9392667970403
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1702.3444275702486
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1697.4852071005917
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1685.570028827833
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1685.5193905383721
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1684.0301898640103
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1692.7859323866205
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1682.1122866197456
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 33.00970873786408,
+          "stable": 38.83495145631068,
+          "up": 28.155339805825243
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SDSC|2026-11-12|j1-1.2.0",
+      "symbol": "SDSC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours et amplitude quotidienne vérifiée",
+      "expected": 2802.521109980449,
+      "low": 2685.400208151882,
+      "high": 2919.6420118090164,
+      "originPrice": 2800,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2800
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2797.5609756097565
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2794.7084057876555
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2801.2377717634627
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2807.4204946996465
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2800.6200872322893
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2803.7163731747833
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2795.4692427032987
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2800.382411618281
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2802.521109980449
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 43.082458938117554,
+          "stable": 13.044863425475667,
+          "up": 43.87267763640675
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SIVC|2026-11-12|j1-1.2.0",
+      "symbol": "SIVC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 1700,
+      "low": 1626.7942583732058,
+      "high": 1773.2057416267942,
+      "originPrice": 1700,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 1700
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 1700
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 1698.1799193020577
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 1700.7635014558093
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 1712.142857142857
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 1694.1141282370602
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 1696.7367486031496
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 1694.330314615271
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 1698.8071075993528
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 1692.2538218072737
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 48.54368932038835,
+          "stable": 23.300970873786408,
+          "up": 28.155339805825243
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "STAC|2026-11-12|j1-1.2.0",
+      "symbol": "STAC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 2075,
+      "low": 1945.3125,
+      "high": 2204.6875,
+      "originPrice": 2075,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 2075
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 2072.110027855153
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 2080.2675583420796
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 2099.2347768995987
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 2066.0998774509803
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 2052.458254700465
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 2050.935959655571
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 2042.8717868940848
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 2063.812861060544
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 2036.7801680941325
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "down",
+        "probabilities": {
+          "down": 50.14558930593878,
+          "stable": 24.72446808354242,
+          "up": 25.129942610518768
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "CIEC|2026-11-12|j1-1.2.0",
+      "symbol": "CIEC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Médiane récente",
+      "expected": 4952.830188679245,
+      "low": 4739.494167774313,
+      "high": 5166.1662095841775,
+      "originPrice": 5000,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 5000
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 4952.830188679245
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 4979.838322598214
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 4971.681152779535
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 4974.489795918367
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 4968.982111721166
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 4981.463076470653
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 4941.499879783327
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 4968.400057492651
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 4943.794507079666
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 43.29385204123821,
+          "stable": 34.00087484387785,
+          "up": 22.705273114883944
+        },
+        "support": "fragile"
+      }
+    },
+    {
+      "id": "SDCC|2026-11-12|j1-1.2.0",
+      "symbol": "SDCC",
+      "origin": "2026-11-12",
+      "targetIndicative": "2026-11-13",
+      "recordedAt": "2026-11-12T20:33:31.002Z",
+      "version": "j1-1.2.0",
+      "inputSha256": "72d0e6d4574edc41669426f3f91352b1cdefa9b8da67d100e3818929282f1295",
+      "model": "Cours inchangé",
+      "expected": 12500,
+      "low": 11996.951219512195,
+      "high": 13003.048780487805,
+      "originPrice": 12500,
+      "challengers": [
+        {
+          "name": "Cours inchangé",
+          "expected": 12500
+        },
+        {
+          "name": "Médiane récente",
+          "expected": 12492.732558139536
+        },
+        {
+          "name": "Moyenne atténuée",
+          "expected": 12491.235929760647
+        },
+        {
+          "name": "Tendance atténuée",
+          "expected": 12522.29078774921
+        },
+        {
+          "name": "Retour partiel",
+          "expected": 12500
+        },
+        {
+          "name": "Cours et volumes (régression)",
+          "expected": 12529.115744432735
+        },
+        {
+          "name": "Marché et secteur (régression)",
+          "expected": 12548.393278385525
+        },
+        {
+          "name": "Cours, volumes et limites résiduelles",
+          "expected": 12537.87646488543
+        },
+        {
+          "name": "Combinaison pondérée",
+          "expected": 12514.177662381107
+        },
+        {
+          "name": "Cours et amplitude quotidienne vérifiée",
+          "expected": 12508.94757983663
+        }
+      ],
+      "signal": {
+        "version": "direction-1.0.0",
+        "direction": "uncertain",
+        "probabilities": {
+          "down": 26.21359223300971,
+          "stable": 40.77669902912621,
+          "up": 33.00970873786408
+        },
+        "support": "fragile"
+      }
     }
   ]
 }

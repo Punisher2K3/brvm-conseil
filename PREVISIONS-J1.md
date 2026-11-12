@@ -13,13 +13,13 @@ Un changement de date de dividende affiché ne détruit plus tout l'historique. 
 
 ## Modèles et choix chronologique
 
-Le moteur compare le dernier cours, une médiane récente, une moyenne atténuée, une tendance, un retour partiel, trois régressions régularisées (cours/volumes ; contexte marché/secteur ; limites résiduelles) et une combinaison pondérée par les erreurs passées. Les régressions normalisent leurs variables sur leurs seules données d'entraînement. Les variables manquantes ont des indicateurs de disponibilité ; les ordres inconnus ne deviennent pas une absence d'ordres.
+Le moteur compare dix candidats : le dernier cours, une médiane récente, une moyenne atténuée, une tendance, un retour partiel, trois régressions régularisées (cours/volumes ; contexte marché/secteur ; limites résiduelles) et une combinaison pondérée par les erreurs passées. Les régressions normalisent leurs variables sur leurs seules données d'entraînement. Les variables manquantes ont des indicateurs de disponibilité ; les ordres inconnus ne deviennent pas une absence d'ordres.
 
 Les premières 20 lignes servent aux variables retardées. Après 30 transitions d'apprentissage, chaque prévision candidate est calculée avec les observations précédentes. Le choix utilise jusqu'à 60 erreurs candidates déjà observées. Pour remplacer le dernier cours, il faut au moins 20 observations de sélection, une erreur récente inférieure d'au moins 2 % et un gain sur deux des trois sous-périodes de sélection. Le dernier cours reste un candidat à chaque date. Les trois sous-périodes se trouvent dans les données déjà connues et ne sont pas des tests futurs.
 
 Le test commence à la 60e transition et exige au moins 20 prévisions évaluables. Il porte sur la procédure complète, y compris ses changements de méthode. Les résultats des candidats séparés servent au diagnostic ; ils ne permettent pas de remplacer après coup la procédure par le meilleur modèle sur le test.
 
-Paramètres figés dans `previsions.js`, version `j1-1.0.0`. Les résultats de cette base ont été consultés pendant le développement : ils constituent une validation rétrospective exploratoire, pas une preuve indépendante de performance future. Toute optimisation ultérieure devra utiliser une validation chronologique imbriquée et une nouvelle période finale tenue à l'écart, ou être jugée sur le journal prospectif.
+Paramètres figés dans `previsions.js`, version `j1-1.2.0`. Les résultats de cette base ont été consultés pendant le développement : ils constituent une validation rétrospective exploratoire, pas une preuve indépendante de performance future. Toute optimisation ultérieure devra utiliser une validation chronologique imbriquée et une nouvelle période finale tenue à l'écart, ou être jugée sur le journal prospectif.
 
 ## Erreur et fourchette
 
@@ -58,3 +58,6 @@ python preparer_publication.py
 ```
 
 Sources : [bulletins BRVM](https://www.brvm.org/fr/bulletins-officiels-de-la-cote), [validation chronologique, Hyndman et Athanasopoulos](https://otexts.com/fpp3/tscv.html), [intervalles de prévision](https://otexts.com/fpp3/prediction-intervals.html).
+
+
+Les variables OHLC complémentaires, le modèle directionnel et le suivi continu sont détaillés dans [AMELIORATION-CONTINUE.md](AMELIORATION-CONTINUE.md).

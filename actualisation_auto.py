@@ -36,7 +36,8 @@ def revision():
     match=re.search(r'BRVM_FINANCIALS_REVISION\s*=\s*[\'"]([a-f0-9]+)',finances)
     extra=(ROOT/'fondamentaux.js').read_text(encoding='utf-8') if (ROOT/'fondamentaux.js').exists() else ''
     deep=re.search(r'BRVM_FUNDAMENTALS_REVISION\s*=\s*[\'"]([a-f0-9]+)',extra)
-    return str(market.get('revision') or market.get('fetched') or '')+'|'+(match[1] if match else 'legacy')+'|'+(deep[1] if deep else 'legacy')
+    forecast=read_json(ROOT/'previsions-calcul.json',{}).get('inputSha256','none')
+    return str(market.get('revision') or market.get('fetched') or '')+'|'+(match[1] if match else 'legacy')+'|'+(deep[1] if deep else 'legacy')+'|'+forecast
 class ProjectLock:
     def __enter__(self):
         path=ROOT/'collecte'/'actualisation.lock';path.parent.mkdir(exist_ok=True)

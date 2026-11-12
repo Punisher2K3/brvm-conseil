@@ -1,7 +1,7 @@
 /* Prévisions J+1 : toutes les décisions au point t utilisent uniquement les données <= t. */
 (function(root){
 'use strict';
-const VERSION='j1-1.0.0';
+const VERSION='j1-1.2.0';
 const CONFIG=Object.freeze({warmup:30,selection:20,testStart:60,minimum:80,window:80,calibration:60});
 const mean=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
 const clamp=(x,l=-.10,h=.10)=>Math.max(l,Math.min(h,x));
@@ -47,9 +47,12 @@ function prepare(a,options={}){
   const peers=(ctx.values.get(current.date)||[]).filter(r=>r.symbol!==a.symbol);
   const sector=peers.filter(r=>r.sector===current.sector);
   const volumeBase=median(w.map(r=>r.volume).filter(v=>Number.isFinite(v)&&v>0));
+  const bar=options.bars?.get(a.symbol+'|'+current.date);
+  const hasBar=!!(bar?.verified&&bar.close>0&&bar.high>=bar.low);
   return {x:[(own[i]||0)/.03,mean(past.slice(-5))/.03,vmean/.03,vol/.03,clamp(Math.log(Math.max(1,current.volume)/Math.max(1,volumeBase)),-4,4)/4,past.filter(v=>v===0).length/past.length,
    peers.length>=10?mean(peers.map(r=>r.value))/.03:0,sector.length>=2?mean(sector.map(r=>r.value))/.03:0,peers.length>=10?1:0,sector.length>=2?1:0,
-   hasBook?book.imbalance:0,hasBook?clamp(spread/10,0,3):0,hasBook?1:0],hasBook,market:peers.length>=10,sector:sector.length>=2,
+   hasBook?book.imbalance:0,hasBook?clamp(spread/10,0,3):0,hasBook?1:0,
+   hasBar?clamp((bar.high-bar.low)/bar.close,0,.2)/.05:0,hasBar&&bar.high>bar.low?(bar.close-bar.low)/(bar.high-bar.low)-.5:0,hasBar?1:0],hasBook,hasBar,market:peers.length>=10,sector:sector.length>=2,
    median:median(past),average:vmean,momentum:mean(past.slice(-5)),reversal:-(own[i]||0)*.25};
  }
  for(let i=19;i<rows.length-1;i++){
@@ -80,12 +83,13 @@ function ridge(past,current,dim,lambda){
  for(let j=0;j<n;j++)gram[j][j]+=j?lambda:1e-6;
  const beta=solve(gram,rhs);return beta?clamp(vec(current).reduce((sum,v,k)=>sum+v*beta[k],0)):0;
 }
-const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée'];
+const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée'];
 function candidates(past,current,previous){
  const train=past.slice(-CONFIG.window),books=train.filter(s=>s.hasBook).length;
- const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null];
+ const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null];
  if(current.hasBook&&books>=30)p[7]=ridge(train,current,13,80);
- const eligible=[0,1,2,3,4,5,6,7].filter(k=>p[k]!==null&&previous.filter(r=>r.p[k]!==null).length>=CONFIG.selection);
+ if(current.hasBar&&train.filter(s=>s.hasBar).length>=30)p[9]=ridge(train,current,16,100);
+ const eligible=[0,1,2,3,4,5,6,7,9].filter(k=>p[k]!==null&&previous.filter(r=>r.p[k]!==null).length>=CONFIG.selection);
  if(eligible.length>=2){const weights=eligible.map(k=>1/(1e-5+mean(previous.slice(-40).filter(r=>r.p[k]!==null).map(r=>Math.abs(r.y-r.p[k])))));p[8]=eligible.reduce((v,k,i)=>v+p[k]*weights[i],0)/weights.reduce((s,v)=>s+v,0);}
  return p.map(v=>v===null?null:clamp(v));
 }
@@ -133,6 +137,7 @@ function forecast(a,options={}){
   orderCandidate:current.hasBook&&samples.slice(-CONFIG.window).filter(s=>s.hasBook).length>=30,orderTraining:samples.filter(s=>s.hasBook).length,orderTests:tested.filter(s=>s.hasBook).length,
   book:last.orderBook||null,usesMarket:current.market,usesSector:current.sector,excluded:prepared.excluded,
   candidates:NAMES.map((name,k)=>{const rows=tested.filter(t=>t.p[k]!==null);return {name,n:rows.length,mae:rows.length?mean(rows.map(t=>Math.abs(t.y-t.p[k])))*100:null};}),
+  nextCandidates:NAMES.map((name,k)=>({name,expected:predictions[k]===null?null:last.close*(1+predictions[k])})),
   trace:options.trace?trace:undefined};
 }
 const api={VERSION,CONFIG,forecast,prepare,context,nextSession,normalise,pairReturn,summarize,quantile};

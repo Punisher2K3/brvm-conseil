@@ -20,9 +20,15 @@ function render(data){
  <details><summary>Rapports financiers, annonces et opérations sur titres</summary><label>Filtrer par action <select id="officialSymbol"><option value="">Toutes les publications</option>${(data.symbols||[]).map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('')}</select></label><div id="officialLibrary">${library(data)}</div></details>
  <details><summary>Calendrier des fermetures BRVM</summary><ul>${(data.calendar?.rows||[]).map(r=>`<li>${esc(r.date)} : ${esc(r.label)}${r.provisional?' · date provisoire':''}</li>`).join('')}</ul><p>Les fêtes mobiles restent à confirmer par un avis officiel.</p></details><details><summary>État des rubriques collectées</summary><ul>${(data.collections||[]).map(c=>`<li><a href="${safe(c.url)}" target="_blank" rel="noopener">${esc(c.kind)}</a> : ${c.state==='partial'?'vérification partielle':c.complete?'parcours terminé dans le périmètre':'collecte en progression'}${c.error?' · '+esc(c.error):''}</li>`).join('')}</ul></details><p class="muted">Les lignes chiffrées extraites automatiquement des rapports restent à vérifier : unité, période et périmètre comptable. Elles ne remplacent pas les comptes validés et ne modifient pas automatiquement le prix estimé. <a href="indices-brvm.json" download>Exporter les indices officiels</a>.</p>`;
 }
-root.BRVM_OFFICIAL_UI={render,library,company};
+function mount(data){
+ const el=document.getElementById('sources-brvm');if(!el||!data)return;
+ const previous=el.querySelector('#officialSymbol')?.value||'';el.innerHTML=render(data);
+ const select=el.querySelector('#officialSymbol');if([...select.options].some(o=>o.value===previous))select.value=previous;
+ const apply=()=>{el.querySelector('#officialLibrary').innerHTML=library(data,select.value);};select.onchange=apply;apply();
+}
+root.BRVM_OFFICIAL_UI={render,library,company,mount};
 if(typeof module!=='undefined')module.exports={render,library,company};
 if(typeof document!=='undefined'){
- const el=document.getElementById('sources-brvm');if(el&&root.BRVM_OFFICIAL){el.innerHTML=render(root.BRVM_OFFICIAL);const select=el.querySelector('#officialSymbol');select.onchange=()=>{el.querySelector('#officialLibrary').innerHTML=library(root.BRVM_OFFICIAL,select.value);};}
+ mount(root.BRVM_OFFICIAL);
 }
 })(typeof window!=='undefined'?window:globalThis);

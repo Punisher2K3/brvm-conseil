@@ -187,13 +187,20 @@ $('export').onclick=async()=>{if(window.BRVM_PUBLIC_MODE){exportPublic();return;
 function currentRevision(){return (data.revision||data.fetched||'')+'|'+(window.BRVM_FINANCIALS_REVISION||'legacy')+'|'+(window.BRVM_FUNDAMENTALS_REVISION||'legacy')+'|'+(window.BRVM_FORECAST_REPORT?.inputSha256||'none');}
 let appliedRevision=currentRevision(), dataRefreshRunning=false, automaticStatusRunning=false, pendingRevision=null;
 let lastCalendarDate=new Date().toLocaleDateString('fr-FR',{timeZone:'Europe/Paris'});
-function loadDataScript(name){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=name+'?verification='+Date.now();script.onload=()=>{script.remove();resolve();};script.onerror=()=>{script.remove();reject(Error('Chargement des données interrompu'));};document.head.appendChild(script);});}
-async function applyPublishedData(revision){
+function loadDataScript(name,integrity){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=name+'?verification='+Date.now();if(integrity){script.integrity=integrity;script.crossOrigin='anonymous';}script.onload=()=>{script.remove();resolve();};script.onerror=()=>{script.remove();reject(Error('Chargement des données interrompu'));};document.head.appendChild(script);});}
+async function applyPublishedData(revision,manifest={}){
  if(revision===appliedRevision||dataRefreshRunning)return;
- if($('detail').open){pendingRevision=revision;$('job').textContent='De nouvelles données sont disponibles. Elles seront chargées automatiquement à la fermeture de cette fiche.';return;}
+ if($('detail').open){pendingRevision={revision,manifest};$('job').textContent='De nouvelles données sont disponibles. Elles seront chargées automatiquement à la fermeture de cette fiche.';return;}
  dataRefreshRunning=true;
- try{await loadDataScript('donnees.js');await loadDataScript('finances.js');await loadDataScript('fondamentaux.js');await loadDataScript('previsions-calcul.js');data=window.BRVM_DATA;appliedRevision=currentRevision();$('autoStatus').dataset.appliedRevision=appliedRevision;pendingRevision=null;recalculate();$('job').textContent='Nouvelles données chargées et avis recalculés automatiquement.';}
- catch(e){$('job').textContent='Les nouvelles données n’ont pas pu être chargées. Les dernières données affichées sont conservées.';}
+ const keys=['BRVM_DATA','BRVM_FINANCIALS','BRVM_FINANCIALS_REVISION','BRVM_FUNDAMENTALS','BRVM_FUNDAMENTALS_REVISION','BRVM_FORECAST_REPORT','BRVM_OFFICIAL'];
+ const saved=Object.fromEntries(keys.map(k=>[k,window[k]])),previousApplied=appliedRevision;
+ try{
+ for(const name of ['donnees.js','finances.js','fondamentaux.js','previsions-calcul.js',...(window.BRVM_PUBLIC_MODE?['brvm-officiel-public.js']:[])])await loadDataScript(name,manifest.assets?.[name]);
+ const next=window.BRVM_DATA,report=window.BRVM_FORECAST_REPORT;
+ const candidate=(next.revision||next.fetched||'')+'|'+(window.BRVM_FINANCIALS_REVISION||'legacy')+'|'+(window.BRVM_FUNDAMENTALS_REVISION||'legacy')+'|'+(report?.inputSha256||'none');
+ if(candidate!==revision||report?.asOf!==next.session||report?.dataRevision!==(next.revision||next.fetched))throw Error('Publication partielle');
+ data=next;window.BRVM_OFFICIAL_UI?.mount(window.BRVM_OFFICIAL);appliedRevision=currentRevision();$('autoStatus').dataset.appliedRevision=appliedRevision;pendingRevision=null;recalculate();$('job').textContent='Nouvelles données chargées et avis recalculés automatiquement.';}
+ catch(e){for(const key of keys)window[key]=saved[key];data=saved.BRVM_DATA;appliedRevision=previousApplied;window.BRVM_OFFICIAL_UI?.mount(saved.BRVM_OFFICIAL);try{recalculate();}catch{}$('job').textContent='Les nouvelles données n’ont pas pu être chargées de façon cohérente. Les dernières données affichées sont conservées ; nouvel essai automatique.';}
  finally{dataRefreshRunning=false;}
 }
 function automaticLabel(j){
@@ -219,7 +226,7 @@ async function checkJob(){
  finally{automaticStatusRunning=false;}
 }
 $('update').onclick=async()=>{if(window.BRVM_PUBLIC_MODE){await checkPublicData(true);return;}try{await api('/api/update',{});$('update').disabled=true;if(!polling)polling=setInterval(checkJob,2500);checkJob();}catch(e){$('job').textContent='Actualisation indisponible : '+e.message+'. Utilisez le lanceur du site.';}};
-$('detail').addEventListener('close',()=>{if(pendingRevision)applyPublishedData(pendingRevision);});
+$('detail').addEventListener('close',()=>{if(pendingRevision)applyPublishedData(pendingRevision.revision,pendingRevision.manifest);});
 recalculate();
 if(location.protocol==='http:'||location.protocol==='https:'){checkJob();setInterval(checkJob,30000);}
 else $('autoStatus').textContent='Pour activer les mises à jour automatiques, ouvrez le site avec « Ouvrir le site.cmd ».';
@@ -227,8 +234,11 @@ else $('autoStatus').textContent='Pour activer les mises à jour automatiques, o
 async function checkPublicData(manual=false){
  if(automaticStatusRunning)return;automaticStatusRunning=true;
  try{const r=await fetch('status-public.json?verification='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('Publication inaccessible');const j=await r.json();
- $('autoStatus').textContent='Version publique : collecte programmée chaque heure sur GitHub. Dernière séance intégrée : '+j.session+'. Le démarrage des tâches peut être retardé par GitHub.';
- if(j.revision!==appliedRevision)await applyPublishedData(j.revision);else if(manual)$('job').textContent='Vous consultez déjà la dernière publication disponible. La collecte est exécutée sur GitHub, pas depuis votre navigateur.';
+ const health=window.BRVM_UPDATE_HEALTH?.label(j,new Date(),window.BRVM_OFFICIAL?.calendar);
+ $('autoStatus').textContent=health?.text||'Actualisation automatique : dernier bulletin '+j.session;
+ $('autoStatus').dataset.health=health?.state||'unknown';
+ if(j.codeRevision&&window.BRVM_CODE_REVISION&&j.codeRevision!==window.BRVM_CODE_REVISION){$('job').textContent='Une nouvelle version du site est disponible. Appuyez sur Actualiser pour la charger.';if(manual&&!$('detail').open)location.reload();return;}
+ if(j.revision!==appliedRevision)await applyPublishedData(j.revision,j);else if(manual)$('job').textContent='Vous consultez déjà la dernière publication disponible. La collecte est exécutée sur GitHub, pas depuis votre navigateur.';
  const date=new Date().toLocaleDateString('fr-FR',{timeZone:'Europe/Paris'});if(date!==lastCalendarDate){lastCalendarDate=date;recalculate();}
  }catch(e){$('autoStatus').textContent='Vérification de la nouvelle publication impossible. Les dernières données chargées sont conservées.';}
  finally{automaticStatusRunning=false;}

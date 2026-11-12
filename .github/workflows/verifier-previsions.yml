@@ -25,12 +25,14 @@ jobs:
           node test_signaux.cjs
           node test_recherche.cjs
           node test_sources_brvm.cjs
+          node test_etat_actualisation.cjs
           python -m unittest test_collecter_sources.py
           node test_journal_previsions.cjs
           node test_valorisations.cjs
-          python -m unittest test_collecte_historique.py test_collecter_brvm.py
+          python -m unittest test_collecte_historique.py test_collecter_brvm.py test_pipeline_actualisation.py test_pages_informations.py
           node --check previsions.js
           node --check fiche_fondamentale.js
           node --check app.js
       - run: node evaluer_previsions.cjs
       - run: python preparer_publication.py
+      - run: python verifier_publication.py

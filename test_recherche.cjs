@@ -56,7 +56,7 @@ test('Résultat futur et conservation de l’exposition initiale',()=>{
 test('Les nouvelles méthodes restent des candidats, avec probabilités finies et échappement HTML',()=>{
  const model=require('./previsions.js'),direction=require('./signaux.js');let value=100;
  const history=Array.from({length:180},(_,i)=>{const date=new Date(Date.UTC(2025,0,1+i)).toISOString().slice(0,10),previous=value;value*=1+.005*Math.sin(i);return {date,close:value,reference:value,previous,volume:100+i%20};});
- const a={symbol:'T',asOf:history.at(-1).date,history},f=model.forecast(a),s=direction.forecast(model.prepare(a));assert.ok(f.modelId<10);assert.equal(f.nextCandidates.length,12);assert.equal(s.experiment.status,'candidate');
+ const a={symbol:'T',asOf:history.at(-1).date,history},f=model.forecast(a),s=direction.forecast(model.prepare(a));assert.ok(f.modelId<10||f.modelId===12);assert.equal(f.nextCandidates.length,13);assert.equal(s.experiment.status,'candidate');
  assert.ok(Math.abs(Object.values(s.experiment.probabilities).reduce((a,b)=>a+b,0)-100)<1e-10);
  const ui=require('./pilote_ui.js'),html=ui.panel({pilot:{members:['T'],rows:[]},predictions:[{symbol:'T',pilot:{activePct:100,medianValue:1e7},regime:{label:'<script>'},available:false}]});
  assert.ok(!html.includes('<script>'));assert.match(html,/Groupe pilote/);assert.match(html,/Annonces d’entreprise/);assert.doesNotMatch(html,/signalFee|signalSlippage|Net central simulé|execution-reading/);

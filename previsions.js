@@ -1,7 +1,7 @@
 /* Prévisions J+1 : toutes les décisions au point t utilisent uniquement les données <= t. */
 (function(root){
 'use strict';
-const VERSION='j1-2.1.0';
+const VERSION='j1-2.2.0';
 const CONFIG=Object.freeze({warmup:30,selection:20,testStart:60,minimum:80,window:80,calibration:60});
 const mean=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
 const clamp=(x,l=-.10,h=.10)=>Math.max(l,Math.min(h,x));
@@ -50,12 +50,16 @@ function prepare(a,options={}){
   const bar=options.bars?.get(a.symbol+'|'+current.date);
   const hasBar=!!(bar?.verified&&bar.close>0&&bar.high>=bar.low);
   const relativeVolume=current.volume/Math.max(1,volumeBase);
+  // Le cours moyen provient uniquement des échanges de la séance déjà terminée.
+  const averagePrice=current.value>0?current.value/current.volume:null;
+  const hasAuction=averagePrice>0&&current.opening>0&&Math.abs(averagePrice/current.close-1)<=.16&&Math.abs(current.opening/current.close-1)<=.16;
+  const auction=hasAuction?[(current.close/averagePrice-1)/.03,(current.close/current.opening-1)/.03,clamp(Math.log(Math.max(.01,relativeVolume)),-4,4)/4,1]:[0,0,0,0];
   const regime=relativeVolume>=1.8?'active':vol>=.025?'volatile':vmean>.003?'trend_up':vmean<-.003?'trend_down':'calm';
   return {x:[(own[i]||0)/.03,mean(past.slice(-5))/.03,vmean/.03,vol/.03,clamp(Math.log(Math.max(1,current.volume)/Math.max(1,volumeBase)),-4,4)/4,past.filter(v=>v===0).length/past.length,
    peers.length>=10?mean(peers.map(r=>r.value))/.03:0,sector.length>=2?mean(sector.map(r=>r.value))/.03:0,peers.length>=10?1:0,sector.length>=2?1:0,
    hasBook?book.imbalance:0,hasBook?clamp(spread/10,0,3):0,hasBook?1:0,
    hasBar?clamp((bar.high-bar.low)/bar.close,0,.2)/.05:0,hasBar&&bar.high>bar.low?(bar.close-bar.low)/(bar.high-bar.low)-.5:0,hasBar?1:0],hasBook,hasBar,market:peers.length>=10,sector:sector.length>=2,
-   median:median(past),average:vmean,momentum:mean(past.slice(-5)),reversal:-(own[i]||0)*.25,regime,relativeVolume,volatilityPct:vol*100};
+   median:median(past),average:vmean,momentum:mean(past.slice(-5)),reversal:-(own[i]||0)*.25,regime,relativeVolume,volatilityPct:vol*100,hasAuction,auction};
  }
  for(let i=19;i<rows.length-1;i++){
   const f=features(i),y=pairReturn(rows[i],rows[i+1]);
@@ -85,10 +89,12 @@ function ridge(past,current,dim,lambda){
  for(let j=0;j<n;j++)gram[j][j]+=j?lambda:1e-6;
  const beta=solve(gram,rhs);return beta?clamp(vec(current).reduce((sum,v,k)=>sum+v*beta[k],0)):0;
 }
-const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée','Situations de marché similaires (candidat)','Choix selon la situation (candidat)'];
+const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée','Situations de marché similaires (candidat)','Choix selon la situation (candidat)','Prix moyen, ouverture et volumes'];
 function candidates(past,current,previous){
  const train=past.slice(-CONFIG.window),books=train.filter(s=>s.hasBook).length;
- const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null,null,null];
+ const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null,null,null,null];
+ const auctionTrain=train.filter(s=>s.hasAuction),augment=s=>({...s,x:[...s.x,...s.auction]});
+ if(current.hasAuction&&auctionTrain.length>=40)p[12]=ridge(auctionTrain.map(augment),augment(current),20,120);
  if(current.hasBook&&books>=30)p[7]=ridge(train,current,13,80);
  if(current.hasBar&&train.filter(s=>s.hasBar).length>=30)p[9]=ridge(train,current,16,100);
  const similar=past.slice(-240).filter(s=>s.regime===current.regime);
@@ -102,12 +108,12 @@ function choose(previous,current,regime,experimental=false){
  if(previous.length<CONFIG.selection)return 0;
  const same=previous.slice(-120).filter(r=>r.regime===regime);
  const recent=(experimental&&same.length>=24?same:previous).slice(-60);let selected=0,best=mean(recent.map(r=>Math.abs(r.y)));
- for(let k=1;k<(experimental?11:10);k++){
+ for(const k of [...Array.from({length:experimental?10:9},(_,i)=>i+1),12]){
   if(current[k]===null||recent.some(r=>r.p[k]===null))continue;
   const loss=mean(recent.map(r=>Math.abs(r.y-r.p[k]))),base=mean(recent.map(r=>Math.abs(r.y)));
   const folds=Array.from({length:3},(_,i)=>recent.slice(Math.floor(i*recent.length/3),Math.floor((i+1)*recent.length/3)));
   const wins=folds.filter(f=>mean(f.map(r=>Math.abs(r.y-r.p[k])))<mean(f.map(r=>Math.abs(r.y)))).length;
-  if(loss<base*.98&&wins>=2&&loss<best){selected=k;best=loss;}
+  if(loss<base*.95&&wins===3&&loss<best){selected=k;best=loss;}
  }return selected;
 }
 function radius(past){const scores=past.slice(-CONFIG.calibration).map(r=>Math.abs(r.error));if(scores.length<20)return null;return quantile(scores,Math.min(1,Math.ceil((scores.length+1)*.8)/scores.length));}

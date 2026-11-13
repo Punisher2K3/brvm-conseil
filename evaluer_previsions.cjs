@@ -34,10 +34,10 @@ for(const f of predictions){
  f.pilot=report.pilot.rows.find(r=>r.symbol===f.symbol);
  f.eventsTracked=observedFeed;
  f.events=observedFeed?announcements.exposure(f.recentEvents,f.symbol,generatedAt):[];
- const recorded=settled.records.find(r=>r.version===model.VERSION&&r.origin===f.date&&r.symbol===f.symbol);
+ const recorded=require('./bilan_previsions.cjs').capturedForecast(settled.records,f,model.VERSION,today);
  if(recorded&&f.available){
   for(const key of ['expected','low','high','model'])f[key]=recorded[key];
-  f.capturedAt=recorded.recordedAt;f.capturedInputSha256=recorded.inputSha256;f.expectedReturn=f.expected/f.price-1;f.modelId=f.candidates.findIndex(c=>c.name===f.model);
+  f.capturedAt=recorded.recordedAt;f.capturedModelVersion=recorded.version;f.capturedInputSha256=recorded.inputSha256;f.expectedReturn=f.expected/f.price-1;f.modelId=f.candidates.findIndex(c=>c.name===f.model);
   if(recorded.signal&&f.signal?.available){f.signal={...f.signal,...recorded.signal};f.signal.label=f.signal.direction==='up'?'Hausse envisagée':f.signal.direction==='down'?'Baisse envisagée':'Signal incertain';}
   f.events=recorded.events||[];f.eventsTracked=recorded.eventsTracked===true;
  }
@@ -48,6 +48,7 @@ for(const f of predictions){
 for(const f of predictions)if(previousMonitoring.degrading.includes(f.symbol)&&f.signal?.available){f.signal.direction='uncertain';f.signal.label='Signal suspendu : erreurs récentes en hausse';f.signal.support='blocked';}
 const journal=updateJournal(settled,data,predictions,generatedAt,report.inputSha256);
 report.continuous=require('./suivi_previsions.cjs').monitoring(journal,model.VERSION);
+report.audit=require('./bilan_previsions.cjs').audit(journal,model.VERSION);
 report.eventStudy=announcements.study(journal,model.VERSION,asOf);
 const currentRecords=journal.records.filter(r=>r.version===model.VERSION),prospective=currentRecords.filter(r=>r.outcome?.eligible);
 const directional=prospective.filter(r=>['up','down'].includes(r.signal?.direction)&&r.outcome.direction);

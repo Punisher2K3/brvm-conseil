@@ -24,6 +24,7 @@ jobs:
           node test_previsions_j1.cjs
           node test_signaux.cjs
           node test_recherche.cjs
+          node test_amelioration.cjs
           node test_sources_brvm.cjs
           node test_etat_actualisation.cjs
           python -m unittest test_collecter_sources.py

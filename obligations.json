@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-13T15:22:58.766703+00:00",
-  "lastSuccess": "2026-11-13T15:22:58.766703+00:00",
+  "checkedAt": "2026-11-13T16:28:25.518416+00:00",
+  "lastSuccess": "2026-11-13T16:28:25.518416+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
@@ -92,7 +92,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
+      "verifiedAt": "2026-11-13T16:28:25.518416+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -184,7 +184,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
+      "verifiedAt": "2026-11-13T16:28:25.518416+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -236,7 +236,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
+      "verifiedAt": "2026-11-13T16:28:25.518416+00:00"
     }
   ],
   "warnings": [

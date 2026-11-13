@@ -1,0 +1,82 @@
+name: Vérifier les cours web toutes les cinq minutes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cours-rapides.yml'
+      - 'collecter_cours_rapides.py'
+      - 'collecter_fondamentaux.py'
+      - 'test_cours_rapides.py'
+  workflow_dispatch:
+  schedule:
+    # Le passage horaire à :17 assure aussi le contrôle des cours.
+    - cron: '2,7,12,22,27,32,37,42,47,52,57 9-18 * * 1-5'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: brvm-publication
+  cancel-in-progress: false
+jobs:
+  cours:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Restaurer seulement l’état du contrôle rapide
+        uses: actions/cache@v4
+        with:
+          path: collecte/cours-rapides-etat.json
+          key: brvm-cours-rapides-${{ github.run_id }}
+          restore-keys: brvm-cours-rapides-
+      - name: Vérifier le collecteur léger
+        run: python -m unittest test_cours_rapides.py
+      - name: Lire une seule page de cours officielle
+        id: snapshot
+        run: python collecter_cours_rapides.py
+      - name: Restaurer les données si le contenu a changé
+        if: steps.snapshot.outputs.changed == 'true'
+        run: python gerer_base.py restaurer
+      - name: Calculer et vérifier uniquement après un changement
+        if: steps.snapshot.outputs.changed == 'true'
+        run: |
+          node evaluer_previsions.cjs
+          python preparer_publication.py
+          python verifier_publication.py
+      - name: Enregistrer sans écraser une publication concurrente
+        if: steps.snapshot.outputs.changed == 'true'
+        id: save
+        run: |
+          git fetch origin main
+          if [ "$(git rev-parse origin/main)" != "$(git rev-parse HEAD)" ]; then
+            echo "::notice::Branche modifiée ; le prochain contrôle repartira de la version récente."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fondamentaux.json fondamentaux.js previsions-journal.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualiser uniquement les cours web officiels modifiés"
+            git push
+          fi
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/configure-pages@v5
+        if: steps.save.outputs.publish == 'true'
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.save.outputs.publish == 'true'
+        with:
+          path: site-public
+      - name: Publier les cours modifiés
+        id: deployment
+        if: steps.save.outputs.publish == 'true'
+        uses: actions/deploy-pages@v4

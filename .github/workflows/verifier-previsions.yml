@@ -30,7 +30,7 @@ jobs:
           python -m unittest test_collecter_sources.py
           node test_journal_previsions.cjs
           node test_valorisations.cjs
-          python -m unittest test_collecte_historique.py test_collecter_brvm.py test_pipeline_actualisation.py test_pages_informations.py
+          python -m unittest test_collecte_historique.py test_collecter_brvm.py test_pipeline_actualisation.py test_pages_informations.py test_cours_rapides.py
           node --check previsions.js
           node --check fiche_fondamentale.js
           node --check app.js

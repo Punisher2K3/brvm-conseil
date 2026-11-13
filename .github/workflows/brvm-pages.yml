@@ -45,7 +45,7 @@ jobs:
           restore-keys: brvm-collecte-
       - name: Vérifier la reprise et la fraîcheur
         run: |
-          python -m unittest test_pipeline_actualisation.py test_pages_informations.py
+          python -m unittest test_pipeline_actualisation.py test_pages_informations.py test_cours_rapides.py
           node test_etat_actualisation.cjs
       - name: Collecter avec reprise indépendante des sources
         env:

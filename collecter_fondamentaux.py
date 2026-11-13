@@ -101,7 +101,11 @@ def collect_capitalisations(stocks,refresh=False):
     if len(records)<40:raise ValueError('Capitalisations incomplètes : dernière version conservée')
     return records
 def collect_live_market(stocks,refresh=True):
-    url=HOST+'/fr/cours-actions/0';html=fetch(url,'cours-actions.html',refresh)
+    html=fetch(HOST+'/fr/cours-actions/0','cours-actions.html',refresh)
+    return parse_live_market(html,stocks)
+
+def parse_live_market(html,stocks):
+    url=HOST+'/fr/cours-actions/0'
     m=re.search(r'Dernière mise à jour\s*:\s*[^,]+,\s*(\d+)\s+([a-zéû]+),?\s+(20\d{2})\s*-\s*(\d{2}:\d{2})',html)
     months={'janvier':1,'février':2,'mars':3,'avril':4,'mai':5,'juin':6,'juillet':7,'août':8,'septembre':9,'octobre':10,'novembre':11,'décembre':12}
     if not m:raise ValueError('Horodatage des cours officiels absent')
@@ -133,3 +137,4 @@ def main():
     old.update(dividends=records,dividendUnmatched=unmatched,dividendCollection=datetime.now(timezone.utc).isoformat(),capitalisations=collect_capitalisations(stocks,args.refresh))
     publish(old);print(json.dumps({'dividends':len(records),'profiles':len(profiles),'unmatched':unmatched},ensure_ascii=False))
 if __name__=='__main__':main()
+

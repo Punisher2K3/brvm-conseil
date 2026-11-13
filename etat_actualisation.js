@@ -11,7 +11,7 @@ function label(status,at=new Date(),calendar={}){
  const checked=status.lastSuccessfulCollection||status.checkedAt;
  const old=checked&&Date.parse(at)-Date.parse(checked)>30*3600000;
  const state=late||old?'stale':status.collectionState==='degraded'?'degraded':'ok';
- let text='Actualisation automatique sur GitHub, même quand votre ordinateur est éteint. Dernier bulletin : '+status.session+'.';
+ let text='Actualisation automatique sur GitHub, même quand votre ordinateur est éteint. Cours web : contrôle programmé toutes les 5 minutes en journée du lundi au vendredi ; collecte complète chaque heure. Démarrages et publications peuvent être retardés. Dernier bulletin : '+status.session+'.';
  if(checked)text+=' Dernière vérification : '+new Date(checked).toLocaleString('fr-FR',{timeZone:'Africa/Abidjan'})+' (Abidjan).';
  if(state==='stale')text+=' Données à actualiser : le dernier bulletin attendu ou la dernière vérification manque. Les estimations doivent être revérifiées.';
  else if(state==='degraded')text+=' Certaines sources sont indisponibles ; les dernières données valides sont conservées.';

@@ -212,6 +212,7 @@ function automaticLabel(j){
  if(j.state==='running')text+=' Vérification en cours…';
  if(j.state==='error')text+=' Échec de la dernière tentative ; nouvel essai automatique dans '+j.auto.retryMinutes+' min. Les données précédentes restent disponibles.';
  target.textContent=text;
+ $('refreshStatus').textContent='Actualisation locale : '+(j.lastSuccess||'aucune collecte réussie confirmée')+'. Le bouton lance la collecte sur le serveur local.';
 }
 async function checkJob(){
  if(window.BRVM_PUBLIC_MODE)return checkPublicData();
@@ -226,6 +227,7 @@ async function checkJob(){
  finally{automaticStatusRunning=false;}
 }
 $('update').onclick=async()=>{if(window.BRVM_PUBLIC_MODE){await checkPublicData(true);return;}try{await api('/api/update',{});$('update').disabled=true;if(!polling)polling=setInterval(checkJob,2500);checkJob();}catch(e){$('job').textContent='Actualisation indisponible : '+e.message+'. Utilisez le lanceur du site.';}};
+$('refreshPublished').onclick=()=>{if(!automaticStatusRunning)$('update').click();};
 $('detail').addEventListener('close',()=>{if(pendingRevision)applyPublishedData(pendingRevision.revision,pendingRevision.manifest);});
 recalculate();
 if(location.protocol==='http:'||location.protocol==='https:'){checkJob();setInterval(checkJob,30000);}
@@ -233,15 +235,17 @@ else $('autoStatus').textContent='Pour activer les mises à jour automatiques, o
 
 async function checkPublicData(manual=false){
  if(automaticStatusRunning)return;automaticStatusRunning=true;
+ if(manual){$('update').disabled=true;$('refreshPublished').disabled=true;$('job').textContent='Recherche de la dernière publication…';}
  try{const r=await fetch('status-public.json?verification='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('Publication inaccessible');const j=await r.json();
  const health=window.BRVM_UPDATE_HEALTH?.label(j,new Date(),window.BRVM_OFFICIAL?.calendar);
  $('autoStatus').textContent=health?.text||'Actualisation automatique : dernier bulletin '+j.session;
  $('autoStatus').dataset.health=health?.state||'unknown';
+ $('refreshStatus').textContent=window.BRVM_UPDATE_HEALTH?.details(j)||'Dernier bulletin : '+j.session;
  if(j.codeRevision&&window.BRVM_CODE_REVISION&&j.codeRevision!==window.BRVM_CODE_REVISION){$('job').textContent='Une nouvelle version du site est disponible. Appuyez sur Actualiser pour la charger.';if(manual&&!$('detail').open)location.reload();return;}
  if(j.revision!==appliedRevision)await applyPublishedData(j.revision,j);else if(manual)$('job').textContent='Vous consultez déjà la dernière publication disponible. La collecte est exécutée sur GitHub, pas depuis votre navigateur.';
  const date=new Date().toLocaleDateString('fr-FR',{timeZone:'Europe/Paris'});if(date!==lastCalendarDate){lastCalendarDate=date;recalculate();}
- }catch(e){$('autoStatus').textContent='Vérification de la nouvelle publication impossible. Les dernières données chargées sont conservées.';}
- finally{automaticStatusRunning=false;}
+ }catch(e){$('autoStatus').textContent='Vérification de la nouvelle publication impossible. Les dernières données chargées sont conservées.';if(manual)$('job').textContent='Actualisation impossible pour le moment. Les dernières données restent affichées ; réessayez dans quelques instants.';}
+ finally{automaticStatusRunning=false;$('update').disabled=false;$('refreshPublished').disabled=false;}
 }
 function exportPublic(){
  const fields=['symbol','name','asOf','verdict','score','coverage'];

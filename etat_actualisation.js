@@ -17,5 +17,6 @@ function label(status,at=new Date(),calendar={}){
  else if(state==='degraded')text+=' Certaines sources sont indisponibles ; les dernières données valides sont conservées.';
  return {state,text,expected};
 }
-const api={label,expectedSession};root.BRVM_UPDATE_HEALTH=api;if(typeof module!=='undefined')module.exports=api;
+function details(status){const fmt=value=>value&&Number.isFinite(Date.parse(value))?new Date(value).toLocaleString('fr-FR',{timeZone:'Africa/Abidjan'}):'non disponible';return 'Bulletin analysé : '+status.session+' · Dernière tentative de collecte : '+fmt(status.checkedAt)+' · Publication : '+fmt(status.published)+' (heures d’Abidjan). La date de publication ne signifie pas qu’une nouvelle séance a été reçue.';}
+const api={label,expectedSession,details};root.BRVM_UPDATE_HEALTH=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

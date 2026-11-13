@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-12T23:41:07.868314+00:00",
-  "lastSuccess": "2026-11-12T23:41:07.868314+00:00",
+  "checkedAt": "2026-11-13T06:36:39.167019+00:00",
+  "lastSuccess": "2026-11-13T06:36:39.167019+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -92,7 +92,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-12T23:21:44.544718+00:00"
+      "verifiedAt": "2026-11-13T06:36:39.167019+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -144,11 +144,10 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-12T23:41:07.868314+00:00"
+      "verifiedAt": "2026-11-13T06:36:39.167019+00:00"
     }
   ],
   "warnings": [
-    "Accès UMOA-Titres : URLError",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/735 (ValueError)",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/736 (ValueError)"
   ],

@@ -1,7 +1,99 @@
 {
-  "checkedAt": "2026-11-13T06:36:39.167019+00:00",
-  "lastSuccess": "2026-11-13T06:36:39.167019+00:00",
+  "checkedAt": "2026-11-13T15:22:58.766703+00:00",
+  "lastSuccess": "2026-11-13T15:22:58.766703+00:00",
   "events": [
+    {
+      "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
+      "title": "es (BAT - OAT - OAT - OAT) - Côte d’Ivoire - 17/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
+      "date": "2026-11-17",
+      "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
+      "documents": [
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-CI-ES-17.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-CI-ES-17.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2025/02/NI-2024-Cote-dIvoire-Fr-VF.pdf"
+      ],
+      "details": [
+        {
+          "label": "Date de l'opération:",
+          "value": "17/11/2026"
+        },
+        {
+          "label": "Montant mis en adjudication:",
+          "value": "50 000 millions de FCFA"
+        },
+        {
+          "label": "Date de valeur:",
+          "value": "18/11/2026"
+        },
+        {
+          "label": "Durée:",
+          "value": "12 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "16/11/2027"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "%"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "1 000 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "36 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "18/11/2029"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "5,2000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "60 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "18/11/2031"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "5,4500 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "84 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "18/11/2033"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "5,7000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        }
+      ],
+      "kind": "Adjudication de titres publics",
+      "publicationDate": null,
+      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
+    },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
       "title": "es (BAT - OAT - OAT - OAT) - Burkina - 18/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
@@ -92,7 +184,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-13T06:36:39.167019+00:00"
+      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -144,7 +236,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-13T06:36:39.167019+00:00"
+      "verifiedAt": "2026-11-13T15:22:58.766703+00:00"
     }
   ],
   "warnings": [

@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-14T10:17:28.238348+00:00",
-  "lastSuccess": "2026-11-14T10:17:28.238348+00:00",
+  "checkedAt": "2026-11-14T16:38:46.863192+00:00",
+  "lastSuccess": "2026-11-14T16:38:46.863192+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-guinee-bissau-du-16-11-2026/",
@@ -61,7 +61,55 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-14T10:17:28.238348+00:00"
+      "verifiedAt": "2026-11-14T16:38:46.863192+00:00"
+    },
+    {
+      "id": "https://www.umoatitres.org/fr/emission/emission-de-bons-du-tresor-du-senegal-du-16-11-2026/",
+      "title": "BAT - Sénégal - 16/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
+      "date": "2026-11-16",
+      "source": "https://www.umoatitres.org/fr/emission/emission-de-bons-du-tresor-du-senegal-du-16-11-2026/",
+      "documents": [
+        "https://www.umoatitres.org/wp-content/uploads/2026/11/AAO-SN-EM-BAT-91-jours-16.11.2026-1.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/11/TEC-SN-BAT-91-jours-16.11.2026-1.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2022/12/UT_NI_2022_SENEGAL.pdf"
+      ],
+      "details": [
+        {
+          "label": "Montant 50 000 (millions de FCFA)",
+          "value": "Montant retenu -- (millions de FCFA) · Taux marginal -- % · Rendement moyen pondéré -- %"
+        },
+        {
+          "label": "Date de l'opération:",
+          "value": "16/11/2026"
+        },
+        {
+          "label": "Montant mis en adjudication:",
+          "value": "50 000 millions de F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "3 mois"
+        },
+        {
+          "label": "Date de valeur:",
+          "value": "17/11/2026"
+        },
+        {
+          "label": "Échéance:",
+          "value": "15/02/2027"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "multiple"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "1 000 000 F CFA"
+        }
+      ],
+      "kind": "Adjudication de titres publics",
+      "publicationDate": null,
+      "verifiedAt": "2026-11-14T16:38:46.863192+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
@@ -153,7 +201,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-14T10:17:28.238348+00:00"
+      "verifiedAt": "2026-11-14T16:38:46.863192+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -245,7 +293,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-14T10:17:28.238348+00:00"
+      "verifiedAt": "2026-11-14T16:38:46.863192+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -297,7 +345,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-14T10:17:28.238348+00:00"
+      "verifiedAt": "2026-11-14T16:38:46.863192+00:00"
     }
   ],
   "warnings": [

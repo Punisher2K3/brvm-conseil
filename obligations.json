@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-16T18:57:33.704725+00:00",
-  "lastSuccess": "2026-11-16T18:57:33.704725+00:00",
+  "checkedAt": "2026-11-16T20:26:34.540789+00:00",
+  "lastSuccess": "2026-11-16T20:26:34.540789+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-guinee-bissau-du-16-11-2026/",
@@ -87,7 +87,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-de-bons-du-tresor-du-senegal-du-16-11-2026/",
@@ -158,7 +158,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
@@ -251,7 +251,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -343,7 +343,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -395,7 +395,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",
@@ -471,7 +471,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
     }
   ],
   "warnings": [

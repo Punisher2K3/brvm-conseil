@@ -24,6 +24,20 @@ function card(f,options={}){
  <p>Les nouvelles collectées aujourd’hui sont un contexte de vérification. Leur effet sur le cours n’est pas chiffré sans historique horodaté validé.</p></details>
  <button data-forecast-symbol="${esc(f.symbol)}">Examiner la prévision</button></article>`;
 }
+
+function dailyReview(report){
+ const daily=report?.audit?.daily||[];
+ if(!daily.length)return '<article class="card"><h3>Bilan quotidien : prévu contre observé</h3><p>Le bilan sera disponible après réception du bulletin officiel et rapprochement avec les prévisions enregistrées avant la séance.</p></article>';
+ const last=daily[0];
+ const direction={up:'Hausse',down:'Baisse',stable:'Stable (±0,5 %)',uncertain:'Incertain'};
+ return '<article class="card"><p class="eyebrow">PRÉVISIONS ENREGISTRÉES AVANT LA SÉANCE</p><h3>Résultats réels du '+esc(last.date)+'</h3><p>Version '+esc(last.version)+' · '+last.n+' prévisions évaluées.</p>'+
+ '<div class="metrics"><div><span>Erreur moyenne</span><strong>'+fmt(last.maePct,3)+' %</strong></div><div><span>Repère cours inchangé</span><strong>'+fmt(last.baselinePct,3)+' %</strong></div><div><span>Directions correctes</span><strong>'+last.directionalHits+' / '+last.directionalN+'</strong><small>Seulement les signaux explicites de hausse ou baisse</small></div></div>'+
+ '<p><strong>'+(last.gainPct>0?'Erreur inférieure au cours inchangé sur cette séance.':last.gainPct===0?'Erreur identique au cours inchangé sur cette séance.':'Avantage non démontré sur cette séance : erreur supérieure au cours inchangé.')+'</strong> Écart relatif de performance : '+fmt(last.gainPct,2)+' %. Un résultat quotidien ne suffit pas à modifier le modèle.</p>'+
+ '<p>'+last.exact+' prix exacts, dont '+last.exactUnchanged+' cours restés inchangés et '+last.exactMoved+' cours ayant varié. Erreur inférieure ou égale à 1 % : '+fmt(last.within1Pct)+' %. Couverture de la fourchette : '+fmt(last.coveragePct)+' %.</p>'+
+ '<details><summary>Voir toutes les actions évaluées, réussites et erreurs</summary><div class="table-wrap"><table><thead><tr><th>Action</th><th>Prix prévu</th><th>Clôture réelle</th><th>Erreur absolue</th><th>Erreur du cours inchangé</th><th>Signal / réalisé</th><th>Prévision enregistrée le</th></tr></thead><tbody>'+
+ last.rows.map(r=>'<tr><td>'+esc(r.symbol)+'</td><td>'+money(r.expected)+'</td><td>'+money(r.actual)+'</td><td>'+fmt(r.errorPct,3)+' %</td><td>'+fmt(r.baselineErrorPct,3)+' %</td><td>'+esc(direction[r.signal]||r.signal)+' / '+esc(direction[r.observed]||r.observed)+'</td><td>'+esc(r.recordedAt)+'</td></tr>').join('')+'</tbody></table></div><p>Les signaux de direction et l’estimation centrale du prix proviennent de modèles distincts. Une prévision centrale inchangée n’est pas, à elle seule, un signal de stabilité.</p></details><p class="muted">Évaluation sur bulletin officiel, distincte des cours web provisoires et des tests reconstruits. Les prévisions initiales ne sont pas réécrites après réception du résultat. La comparaison des candidats exige plusieurs séances distinctes.</p></article>';
+}
+
 function render(report,analyses,today,options={}){
  const live=new Map(analyses.map(a=>[a.symbol,a]));
  const predictions=(report?.predictions||[]).filter(f=>live.has(f.symbol)&&(options.universe!=='pilot'||report?.pilot?.members.includes(f.symbol)));
@@ -39,6 +53,7 @@ function render(report,analyses,today,options={}){
  return `<p class="eyebrow">PRÉVISIONS AVANT LA PROCHAINE SÉANCE</p><h2>Hausse ou baisse : les signaux à surveiller.</h2>
  <p>Séance attendue du <strong>${esc(title)}</strong> · données du bulletin du ${esc(report?.asOf||'—')}.</p>
  <p class="signal-caution"><strong>Une tendance estimée, avec son incertitude.</strong> ${expired?'Échéance passée : attendre une nouvelle collecte.':'Un signal peut être erroné. Il ne suffit pas à décider d’un achat ; les frais, le prix proposé et la facilité de revente comptent aussi.'}</p>
+ ${dailyReview(report)}
  ${root.BRVM_PILOT_UI?.panel(report,options)||''}
  <details class="forecast-audit"><summary>Prévu contre observé : bilan réel par version</summary><p>Comparaison aux bulletins officiels après la séance. Les résultats des versions précédentes restent visibles après une amélioration du moteur.</p>
  <div class="table-wrap"><table><thead><tr><th>Version</th><th>Résultats évalués</th><th>Séances</th><th>Prix exacts</th><th>Erreur moyenne</th><th>Repère cours inchangé</th><th>Directions réussies</th></tr></thead><tbody>${(report?.audit?.versions||[]).map(v=>'<tr><td>'+esc(v.version)+'</td><td>'+v.scored+' / '+v.recorded+'</td><td>'+v.sessions+'</td><td>'+v.exact+'</td><td>'+fmt(v.meanAbsolutePct,3)+' %</td><td>'+fmt(v.baselinePct,3)+' %</td><td>'+v.directionalHits+' / '+v.directionalN+'</td></tr>').join('')}</tbody></table></div>

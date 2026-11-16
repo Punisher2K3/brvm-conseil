@@ -6,8 +6,8 @@ const forecast=rows=>model.forecast({symbol:'T',asOf:rows.at(-1).date,history:ro
 const f=forecast(history),prefix=forecast(history.slice(0,150)),observed=f.trace.find(r=>r.origin===prefix.date);
 assert.equal(observed.predicted,prefix.expectedReturn);assert.equal(observed.selected,prefix.modelId);
 assert.ok(f.nextCandidates.find(c=>c.name==='Prix moyen, ouverture et volumes').expected>0);
-const missing=forecast(history.map(r=>({...r,value:null})));assert.equal(missing.nextCandidates.at(-1).expected,null);
-const invalid=forecast(history.map(r=>({...r,value:r.volume*r.close*100})));assert.equal(invalid.nextCandidates.at(-1).expected,null);
+const missing=forecast(history.map(r=>({...r,value:null})));assert.equal(missing.nextCandidates.find(c=>c.name==='Prix moyen, ouverture et volumes').expected,null);
+const invalid=forecast(history.map(r=>({...r,value:r.volume*r.close*100})));assert.equal(invalid.nextCandidates.find(c=>c.name==='Prix moyen, ouverture et volumes').expected,null);
 const flat=forecast(history.map(r=>({...r,close:1000,reference:1000,previous:1000,opening:1000,value:r.volume*1000})));assert.equal(flat.expected,1000);assert.equal(flat.better,false);
 const record={symbol:'T',origin:'2026-11-12',targetIndicative:'2026-11-13',version:'ancienne',recordedAt:'2026-11-12T20:00:00Z',expected:101,originPrice:100,signal:{direction:'up'},outcome:{eligible:true,date:'2026-11-13',close:102,direction:'up'}};
 const journal={records:[record,{...record,version:'nouvelle',outcome:undefined}]},before=JSON.stringify(journal),a=audit(journal,'nouvelle');
@@ -15,4 +15,8 @@ assert.equal(a.versions[0].meanAbsolutePct,1);assert.equal(a.versions[0].baselin
 const prediction={symbol:'T',date:'2026-11-12',target:'2026-11-13'};
 assert.equal(capturedForecast([record],prediction,'nouvelle','2026-11-13').expected,101);
 assert.equal(capturedForecast([record],prediction,'nouvelle','2026-11-12'),null);
+const review=audit({records:[{...record,version:'daily',originPrice:100,outcome:{eligible:true,date:'2026-11-16',close:102,direction:'up'}},{...record,symbol:'FLAT',version:'daily',expected:100,originPrice:100,signal:{direction:'uncertain'},outcome:{eligible:true,date:'2026-11-16',close:100,direction:'stable'}}]},'daily');
+assert.equal(review.daily[0].n,2);assert.equal(review.daily[0].exactUnchanged,1);assert.equal(review.daily[0].exactMoved,0);assert.equal(review.daily[0].directionalHits,1);assert.equal(review.daily[0].directionalN,1);
+assert.ok(f.nextCandidates.find(c=>c.name==='Prix, marché et volumes robustes (candidat)').expected>0);
+assert.notEqual(f.modelId,13);
 console.log('Amélioration : données manquantes ou incohérentes, absence de fuite future, conservation des prévisions échues et bilan par version vérifiés.');

@@ -89,10 +89,18 @@ function ridge(past,current,dim,lambda){
  for(let j=0;j<n;j++)gram[j][j]+=j?lambda:1e-6;
  const beta=solve(gram,rhs);return beta?clamp(vec(current).reduce((sum,v,k)=>sum+v*beta[k],0)):0;
 }
-const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée','Situations de marché similaires (candidat)','Choix selon la situation (candidat)','Prix moyen, ouverture et volumes'];
+const NAMES=['Cours inchangé','Médiane récente','Moyenne atténuée','Tendance atténuée','Retour partiel','Cours et volumes (régression)','Marché et secteur (régression)','Cours, volumes et limites résiduelles','Combinaison pondérée','Cours et amplitude quotidienne vérifiée','Situations de marché similaires (candidat)','Choix selon la situation (candidat)','Prix moyen, ouverture et volumes','Prix, marché et volumes robustes (candidat)'];
 function candidates(past,current,previous){
  const train=past.slice(-CONFIG.window),books=train.filter(s=>s.hasBook).length;
- const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null,null,null,null];
+ const p=[0,current.median*.5,current.average*.5,current.momentum*.5,current.reversal,ridge(train,current,6,40),ridge(train,current,10,60),null,null,null,null,null,null,null];
+ // Candidat passif : cibles extrêmes atténuées avec les seules observations connues.
+ // Il reste exclu de choose() et de la combinaison de production jusqu’à validation prospective.
+ if(train.length>=60){
+  const center=median(train.map(s=>s.y));
+  const mad=Math.max(.005,median(train.map(s=>Math.abs(s.y-center))));
+  const robust=train.map(s=>({...s,y:clamp(s.y,center-3*mad,center+3*mad)}));
+  p[13]=ridge(robust,current,10,100)*.5;
+ }
  const auctionTrain=train.filter(s=>s.hasAuction),augment=s=>({...s,x:[...s.x,...s.auction]});
  if(current.hasAuction&&auctionTrain.length>=40)p[12]=ridge(auctionTrain.map(augment),augment(current),20,120);
  if(current.hasBook&&books>=30)p[7]=ridge(train,current,13,80);

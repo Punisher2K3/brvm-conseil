@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-16T09:35:39.562637+00:00",
-  "lastSuccess": "2026-11-16T09:35:39.562637+00:00",
+  "checkedAt": "2026-11-16T18:57:33.704725+00:00",
+  "lastSuccess": "2026-11-16T18:57:33.704725+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-guinee-bissau-du-16-11-2026/",
@@ -11,7 +11,9 @@
         "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-GW-ES-16.11.2026.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-GW-ES-16.11.2026.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2022/12/UT_NI_2022_Guinee-Bissau-Digital.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-GW-ES-16.11.2026-1.pdf"
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-GW-ES-16.11.2026-2.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/Annonce-au-MTP-GW-ES-16.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/Compte-Rendu-GW-ES-16.11.2026.pdf"
       ],
       "details": [
         {
@@ -57,11 +59,35 @@
         {
           "label": "Valeur nominale unitaire:",
           "value": "10 000 F CFA"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "7 500 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "2 030,0000 millions de FCFA"
+        },
+        {
+          "label": "Taux moyen pondéré:",
+          "value": "4,9493 %"
+        },
+        {
+          "label": "Taux marginal",
+          "value": "5,0000 %"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "7 500 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "8 483,7100 millions de FCFA"
         }
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T09:35:39.562637+00:00"
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-de-bons-du-tresor-du-senegal-du-16-11-2026/",
@@ -71,12 +97,15 @@
       "documents": [
         "https://www.umoatitres.org/wp-content/uploads/2026/11/AAO-SN-EM-BAT-91-jours-16.11.2026-1.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2026/11/TEC-SN-BAT-91-jours-16.11.2026-1.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2022/12/UT_NI_2022_SENEGAL.pdf"
+        "https://www.umoatitres.org/wp-content/uploads/2022/12/UT_NI_2022_SENEGAL.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/11/NP-SN-BAT-91-jours-16.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/11/Annonce-au-MTP-SN-BAT-91-jours-16.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/11/Compte-Rendu-SN-EM-BAT-91-jours-16.11.2026-.pdf"
       ],
       "details": [
         {
           "label": "Montant 50 000 (millions de FCFA)",
-          "value": "Montant retenu -- (millions de FCFA) · Taux marginal -- % · Rendement moyen pondéré -- %"
+          "value": "Montant retenu 52 056,0000 (millions de FCFA) · Taux marginal 8,0000 % · Rendement moyen pondéré 6,9400 %"
         },
         {
           "label": "Date de l'opération:",
@@ -105,11 +134,31 @@
         {
           "label": "Valeur nominale unitaire:",
           "value": "1 000 000 F CFA"
+        },
+        {
+          "label": "Montant sollicité:",
+          "value": "50 000 millions de FCFA"
+        },
+        {
+          "label": "Montant global des soumissions:",
+          "value": "52 056,0000 millions de FCFA"
+        },
+        {
+          "label": "Taux moyen pondéré:",
+          "value": "6,8181 %"
+        },
+        {
+          "label": "Taux marginal",
+          "value": "8,0000 %"
+        },
+        {
+          "label": "Taux de couverture du montant mis en adjudication::",
+          "value": "104,1100 %"
         }
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T09:35:39.562637+00:00"
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-de-la-cote-divoire-du-17-11-2026/",
@@ -119,7 +168,8 @@
       "documents": [
         "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-CI-ES-17.11.2026.pdf",
         "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-CI-ES-17.11.2026.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2025/02/NI-2024-Cote-dIvoire-Fr-VF.pdf"
+        "https://www.umoatitres.org/wp-content/uploads/2025/02/NI-2024-Cote-dIvoire-Fr-VF.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/NP-CI-ES-17.11.2026.pdf"
       ],
       "details": [
         {
@@ -201,7 +251,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T09:35:39.562637+00:00"
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -293,7 +343,7 @@
       ],
       "kind": "Adjudication de titres publics",
       "publicationDate": null,
-      "verifiedAt": "2026-11-16T09:35:39.562637+00:00"
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
     },
     {
       "id": "https://www.africabourse.com/opportunite/734",
@@ -345,7 +395,83 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-16T09:35:39.562637+00:00"
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
+    },
+    {
+      "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",
+      "title": "es (BAT - OAT - OAT) - Mali - 25/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
+      "date": "2026-11-25",
+      "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",
+      "documents": [
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-ML-ES-25.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-ML-ES-25.11.2026.pdf",
+        "https://www.umoatitres.org/wp-content/uploads/2023/04/UT_NI_2022_MALI-VF.pdf"
+      ],
+      "details": [
+        {
+          "label": "Date de l'opération:",
+          "value": "25/11/2026"
+        },
+        {
+          "label": "Montant mis en adjudication:",
+          "value": "50 000 millions de FCFA"
+        },
+        {
+          "label": "Date de valeur:",
+          "value": "26/11/2026"
+        },
+        {
+          "label": "Durée:",
+          "value": "12 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "24/11/2027"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "%"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "1 000 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "36 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "26/11/2029"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,0000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        },
+        {
+          "label": "Durée:",
+          "value": "60 mois"
+        },
+        {
+          "label": "Echéance:",
+          "value": "29/10/2031"
+        },
+        {
+          "label": "Taux d'intérêt:",
+          "value": "6,2000 %"
+        },
+        {
+          "label": "Valeur nominale unitaire:",
+          "value": "10 000 F CFA"
+        }
+      ],
+      "kind": "Adjudication de titres publics",
+      "publicationDate": null,
+      "verifiedAt": "2026-11-16T18:57:33.704725+00:00"
     }
   ],
   "warnings": [

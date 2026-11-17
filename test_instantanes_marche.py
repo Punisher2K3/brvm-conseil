@@ -10,6 +10,10 @@ class Snapshots(unittest.TestCase):
   self.assertEqual(before['liveMarket']['stocks'][0]['price'],100)
   after['intraday']=history
   self.assertEqual(len(merge_history(after,after)['snapshots']),2)
+ def test_integer_float_representation_is_not_a_revision(self):
+  a={'liveMarket':self.quote(price=100,volume=1000)}
+  b={'liveMarket':self.quote(price=100.0,volume=1000.0)}
+  self.assertEqual(len(merge_history(b,a)['snapshots']),1)
  def test_same_time_revisions_not_overwritten(self):
   before={'liveMarket':self.quote()};after={'liveMarket':self.quote(price=99)}
   self.assertEqual(len(merge_history(after,before)['snapshots']),2)

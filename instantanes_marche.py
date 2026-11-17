@@ -34,7 +34,8 @@ def merge_history(payload,previous=None):
         if point:items.append(point)
     unique={}
     for point in items:
-        key=point.get('session','')+'T'+point.get('time','')+'|'+hashlib.sha256(json.dumps(point.get('rows'),sort_keys=True).encode()).hexdigest()
+        normalised=[[row[0],float(row[1]),float(row[2])] for row in point.get('rows',[])]
+        key=point.get('session','')+'T'+point.get('time','')+'|'+hashlib.sha256(json.dumps(normalised,sort_keys=True).encode()).hexdigest()
         if key not in unique:unique[key]=point
     points=sorted(unique.values(),key=lambda p:(p.get('session',''),p.get('time',''),p.get('collected') or ''))
     current=compact(payload.get('liveMarket'))

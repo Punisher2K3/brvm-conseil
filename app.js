@@ -121,6 +121,7 @@ function renderForecastSection(){
  select.onchange=show;show();
 }
 function render(){
+ BRVM_INTRADAY_UI.mount(window.BRVM_FUNDAMENTALS||{},data);
  BRVM_RESEARCH_UI.mount(analyses,window.BRVM_FUNDAMENTALS||{});
  renderForecastSection();
  BRVM_SIGNALS_UI.mount(window.BRVM_FORECAST_REPORT,analyses,symbol=>{const select=$('forecastAction');select.value=symbol;select.onchange();$('previsions').scrollIntoView({behavior:'smooth'});});

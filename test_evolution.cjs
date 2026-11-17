@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict'),m=require('./evolution_ui.js');
+const data={sessions:[{date:'2026-11-16',stocks:[{symbol:'T',close:100},{symbol:'S',close:100}]}]};
+const f={liveMarket:{session:'2026-11-17',time:'14:00',stocks:[{symbol:'T',name:'<script>',price:99,volume:120},{symbol:'S',price:110,volume:0}]},intraday:{snapshots:[{session:'2026-11-17',time:'13:00',rows:[['T',98,100]]},{session:'2026-11-17',time:'14:00',rows:[['T',99,120]]}]}};
+let d=m.inspect(f,data,'T');assert.equal(d.chosen.daily,-1.0000000000000009);assert.equal(d.pressure.n,1);assert.equal(d.pressure.down,1);assert.ok(d.fromFirst>0);assert.equal(d.volumeDelta,20);assert.equal(d.volumeRevised,false);
+assert.ok(!m.panel(d).includes('<script>'));
+const changed=structuredClone(f);changed.intraday.snapshots[1].rows[0][2]=80;
+assert.equal(m.inspect(changed,data,'T').volumeDelta,null);assert.equal(m.inspect(changed,data,'T').volumeRevised,true);
+const closed={sessions:[...data.sessions,{date:'2026-11-17',stocks:[{symbol:'T',close:99}]}]};
+assert.equal(m.inspect(f,closed,'T').previousDate,'2026-11-16');
+assert.equal(m.inspect({},data,'T'),null);
+assert.equal(m.inspect({...f,intraday:{}},data,'T').fromFirst,null);
+console.log('Évolution : comparaison au bulletin précédent, pression, volumes révisés, absence de données et échappement vérifiés.');

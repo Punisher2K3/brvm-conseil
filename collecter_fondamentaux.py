@@ -123,6 +123,13 @@ def parse_live_market(html,stocks):
     if any(s['price'] is not None and s['price']<=0 for s in records):raise ValueError('Cours officiel invalide')
     return dict(session=session,time=m[4],timezone='Africa/Abidjan',source=url,stocks=records,kind='snapshot',collected=datetime.now(timezone.utc).isoformat())
 def publish(payload):
+    from instantanes_marche import archive_into,merge_history
+    previous=json.loads((ROOT/'fondamentaux.json').read_text(encoding='utf-8')) if (ROOT/'fondamentaux.json').exists() else {}
+    seed=ROOT/'instantanes-initiaux.json'
+    if seed.exists():
+        initial=json.loads(seed.read_text(encoding='utf-8'))
+        previous['intraday']=merge_history(initial,previous)
+    archive_into(payload,previous)
     content=json.dumps(payload,ensure_ascii=False,sort_keys=True)
     revision=hashlib.sha256(content.encode()).hexdigest()
     for name,value in [('fondamentaux.json',content),('fondamentaux.js','window.BRVM_FUNDAMENTALS = '+content+';\nwindow.BRVM_FUNDAMENTALS_REVISION = "'+revision+'";\n')]:

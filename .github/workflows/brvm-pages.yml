@@ -55,13 +55,15 @@ jobs:
         run: python pipeline_actualisation.py --mode "$BRVM_MODE"
       - name: Vérifier les données et calculs
         run: |
-          python -m unittest test_collecte_historique.py test_collecter_brvm.py test_collecter_sources.py
+          python -m unittest test_instantanes_marche.py test_collecte_historique.py test_collecter_brvm.py test_collecter_sources.py
           node test_fondamentaux.cjs
           node test_previsions.cjs
           node test_previsions_j1.cjs
           node test_signaux.cjs
           node test_recherche.cjs
           node test_amelioration.cjs
+          node test_evolution.cjs
+          node --check evolution_ui.js
           node test_sources_brvm.cjs
           node test_journal_previsions.cjs
           node test_valorisations.cjs

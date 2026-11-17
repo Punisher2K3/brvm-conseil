@@ -7,7 +7,7 @@ from html import escape
 from urllib.parse import urlparse
 from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parent
-PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js','previsions.js','previsions-calcul.js','previsions-calcul.json','previsions-journal.json','signaux_ui.js','sources-complementaires.json','pilote_ui.js','etat_actualisation.js']
+PUBLIC=['index.html','style.css','app.js','moteur.js','donnees.js','finances.js','fondamentaux.js','analyse_fondamentale.js','fiche_fondamentale.js','valorisations.js','valorisations_ui.js','previsions.js','previsions-calcul.js','previsions-calcul.json','previsions-journal.json','signaux_ui.js','sources-complementaires.json','pilote_ui.js','etat_actualisation.js','evolution_ui.js']
 GENERATED={'brvm_officiel_ui.js','brvm-officiel-public.js','brvm-officiel-public.json','indices-brvm.json','mode-public.js','.nojekyll','status-public.json','integrite-publication.json','mentions-legales.html','confidentialite.html','conditions-utilisation.html','securite.html'}
 
 GENERATED.add('fiabilite-sources.html')

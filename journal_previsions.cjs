@@ -22,7 +22,7 @@ function updateJournal(previous,data,predictions,recordedAt,inputSha256){
   if(!f.available||f.target<=today||f.date>today)continue;
   const id=[f.symbol,f.date,model.VERSION].join('|');if(journal.records.some(r=>r.id===id))continue;
   journal.records.push({id,symbol:f.symbol,origin:f.date,targetIndicative:f.target,recordedAt,version:model.VERSION,inputSha256,model:f.model,expected:f.expected,low:f.low,high:f.high,
-   originPrice:f.price,challengers:f.nextCandidates,
+   originPrice:f.price,challengers:f.nextCandidates,selectionGuard:f.selectionGuard,
    sector:f.sector,pilotMember:f.pilot?.selected===true,regime:f.regime?.key,eventsTracked:f.eventsTracked===true,events:f.events||[],
    signalExperiment:f.signal?.experiment,
    signal:f.signal?{version:f.signal.version,direction:f.signal.direction,probabilities:f.signal.probabilities,support:f.signal.support}:undefined});

@@ -1,7 +1,7 @@
 /* Prévisions J+1 : toutes les décisions au point t utilisent uniquement les données <= t. */
 (function(root){
 'use strict';
-const VERSION='j1-2.2.0';
+const VERSION='j1-2.3.0';
 const CONFIG=Object.freeze({warmup:30,selection:20,testStart:60,minimum:80,window:80,calibration:60});
 const mean=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
 const clamp=(x,l=-.10,h=.10)=>Math.max(l,Math.min(h,x));
@@ -124,6 +124,17 @@ function choose(previous,current,regime,experimental=false){
   if(loss<base*.95&&wins===3&&loss<best){selected=k;best=loss;}
  }return selected;
 }
+
+function productionGuard(previous){
+ const rows=previous.filter(r=>Number.isFinite(r.shadowError)).slice(-60);
+ if(rows.length<30)return {allow:false,n:rows.length,gain:null,wins:0,reason:'Moins de 30 décisions chronologiques antérieures de la procédure complète.'};
+ const baseline=mean(rows.map(r=>Math.abs(r.y))),loss=mean(rows.map(r=>Math.abs(r.shadowError)));
+ const folds=Array.from({length:3},(_,i)=>rows.slice(Math.floor(i*rows.length/3),Math.floor((i+1)*rows.length/3)));
+ const wins=folds.filter(f=>mean(f.map(r=>Math.abs(r.shadowError)))<mean(f.map(r=>Math.abs(r.y)))).length;
+ const gain=baseline>0?(1-loss/baseline)*100:0,allow=baseline>0&&loss<baseline*.99&&wins>=2;
+ return {allow,n:rows.length,gain,wins,reason:allow?'La procédure complète réduit l’erreur récente de plus de 1 % et gagne sur au moins deux sous-périodes.':'La procédure complète n’a pas confirmé un avantage récent assez régulier face au cours inchangé.'};
+}
+
 function radius(past){const scores=past.slice(-CONFIG.calibration).map(r=>Math.abs(r.error));if(scores.length<20)return null;return quantile(scores,Math.min(1,Math.ceil((scores.length+1)*.8)/scores.length));}
 function summarize(records){
  if(!records.length)return null;
@@ -144,15 +155,15 @@ function forecast(a,options={}){
  if(samples.length<CONFIG.minimum)return unavailable('Au moins 80 transitions valides sont nécessaires, dont 20 séances réservées à l’évaluation chronologique.');
  const trace=[];
  for(let i=CONFIG.warmup;i<samples.length;i++){
-  const s=samples[i],p=candidates(samples.slice(0,i),s,trace),selected=choose(trace,p,s.regime);
+  const s=samples[i],p=candidates(samples.slice(0,i),s,trace),shadowSelected=choose(trace,p,s.regime),guard=productionGuard(trace),selected=guard.allow?shadowSelected:0;
   const predicted=p[selected],r=radius(trace);
-  trace.push({...s,p,selected,predicted,error:s.y-predicted,radius:r,test:i>=CONFIG.testStart});
+  trace.push({...s,p,selected,shadowSelected,shadowError:s.y-p[shadowSelected],predicted,error:s.y-predicted,radius:r,test:i>=CONFIG.testStart});
  }
- const tested=trace.filter(r=>r.test),metrics=summarize(tested),predictions=candidates(samples,current,trace),selected=choose(trace,predictions,current.regime),expectedReturn=predictions[selected],r=radius(trace);
+ const tested=trace.filter(r=>r.test),metrics=summarize(tested),predictions=candidates(samples,current,trace),shadowSelected=choose(trace,predictions,current.regime),guard=productionGuard(trace),selected=guard.allow?shadowSelected:0,expectedReturn=predictions[selected],r=radius(trace);
  const target=nextSession(last.date,options.calendar?.closedDates||[]);
  return {available:true,version:VERSION,date:last.date,target,targetConfirmed:false,price:last.close,n:samples.length,tests:tested.length,model:NAMES[selected],modelId:selected,
   expected:last.close*(1+expectedReturn),low:last.close*(1+expectedReturn-r),high:last.close*(1+expectedReturn+r),expectedReturn,
-  mae:metrics.mae,maeFcfa:metrics.maeFcfa,baseline:metrics.baseline,coverage:metrics.coverage,better:metrics.gain>5,metrics,
+  selectionGuard:{...guard,shadowModel:NAMES[shadowSelected]},mae:metrics.mae,maeFcfa:metrics.maeFcfa,baseline:metrics.baseline,coverage:metrics.coverage,better:metrics.gain>5,metrics,
   folds:Array.from({length:3},(_,i)=>summarize(tested.slice(Math.floor(i*tested.length/3),Math.floor((i+1)*tested.length/3)))),
   orderCandidate:current.hasBook&&samples.slice(-CONFIG.window).filter(s=>s.hasBook).length>=30,orderTraining:samples.filter(s=>s.hasBook).length,orderTests:tested.filter(s=>s.hasBook).length,
   book:last.orderBook||null,usesMarket:current.market,usesSector:current.sector,excluded:prepared.excluded,
@@ -162,6 +173,6 @@ function forecast(a,options={}){
   nextCandidates:NAMES.map((name,k)=>({name,expected:predictions[k]===null?null:last.close*(1+predictions[k])})),
   trace:options.trace?trace:undefined};
 }
-const api={VERSION,CONFIG,forecast,prepare,context,nextSession,normalise,pairReturn,summarize,quantile};
+const api={VERSION,CONFIG,forecast,prepare,context,nextSession,normalise,pairReturn,summarize,quantile,productionGuard};
 root.BRVM_FORECAST=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

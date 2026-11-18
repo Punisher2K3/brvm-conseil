@@ -59,6 +59,7 @@ jobs:
           node test_fondamentaux.cjs
           node test_previsions.cjs
           node test_previsions_j1.cjs
+          node test_protection_formule.cjs
           node test_signaux.cjs
           node test_recherche.cjs
           node test_amelioration.cjs

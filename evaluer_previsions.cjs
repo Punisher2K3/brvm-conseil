@@ -37,6 +37,7 @@ for(const f of predictions){
  const recorded=require('./bilan_previsions.cjs').capturedForecast(settled.records,f,model.VERSION,today);
  if(recorded&&f.available){
   for(const key of ['expected','low','high','model'])f[key]=recorded[key];
+  f.selectionGuard=recorded.selectionGuard||null;
   f.capturedAt=recorded.recordedAt;f.capturedModelVersion=recorded.version;f.capturedInputSha256=recorded.inputSha256;f.expectedReturn=f.expected/f.price-1;f.modelId=f.candidates.findIndex(c=>c.name===f.model);
   if(recorded.signal&&f.signal?.available){f.signal={...f.signal,...recorded.signal};f.signal.label=f.signal.direction==='up'?'Hausse envisagée':f.signal.direction==='down'?'Baisse envisagée':'Signal incertain';}
   f.events=recorded.events||[];f.eventsTracked=recorded.eventsTracked===true;

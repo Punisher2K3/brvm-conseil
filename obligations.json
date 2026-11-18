@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-18T13:00:53.049544+00:00",
-  "lastSuccess": "2026-11-18T13:00:53.049544+00:00",
+  "checkedAt": "2026-11-18T18:11:06.633945+00:00",
+  "lastSuccess": "2026-11-18T18:11:06.633945+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
@@ -144,7 +144,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-18T13:00:53.049544+00:00"
+      "verifiedAt": "2026-11-18T18:11:06.633945+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",
@@ -224,7 +224,7 @@
     }
   ],
   "warnings": [
-    "Aucune émission future reconnue sur la page officielle ; dernières annonces conservées.",
+    "Accès UMOA-Titres : HTTPError",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/735 (ValueError)",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/736 (ValueError)"
   ],

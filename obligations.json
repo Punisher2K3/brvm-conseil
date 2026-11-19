@@ -1,99 +1,7 @@
 {
-  "checkedAt": "2026-11-18T21:25:44.945950+00:00",
-  "lastSuccess": "2026-11-18T21:25:44.945950+00:00",
+  "checkedAt": "2026-11-19T03:22:16.461945+00:00",
+  "lastSuccess": "2026-11-19T03:22:16.461945+00:00",
   "events": [
-    {
-      "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
-      "title": "es (BAT - OAT - OAT - OAT) - Burkina - 18/11/2026 Voulez-vous être informé lors de la publication des prochains documents liés à cette émission ?",
-      "date": "2026-11-18",
-      "source": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-burkina-du-18-11-2026/",
-      "documents": [
-        "https://www.umoatitres.org/wp-content/uploads/2026/10/AAO-BF-ES-18.11.2026.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2026/10/TEC-BF-ES-18.11.2026.pdf",
-        "https://www.umoatitres.org/wp-content/uploads/2026/04/NI-2025-–-BF-–-V3-note-dinfos-2025-1.pdf"
-      ],
-      "details": [
-        {
-          "label": "Date de l'opération:",
-          "value": "18/11/2026"
-        },
-        {
-          "label": "Montant mis en adjudication:",
-          "value": "30 000 millions de FCFA"
-        },
-        {
-          "label": "Date de valeur:",
-          "value": "19/11/2026"
-        },
-        {
-          "label": "Durée:",
-          "value": "12 mois"
-        },
-        {
-          "label": "Echéance:",
-          "value": "17/11/2027"
-        },
-        {
-          "label": "Taux d'intérêt:",
-          "value": "%"
-        },
-        {
-          "label": "Valeur nominale unitaire:",
-          "value": "1 000 000 F CFA"
-        },
-        {
-          "label": "Durée:",
-          "value": "36 mois"
-        },
-        {
-          "label": "Echéance:",
-          "value": "19/11/2029"
-        },
-        {
-          "label": "Taux d'intérêt:",
-          "value": "6,0000 %"
-        },
-        {
-          "label": "Valeur nominale unitaire:",
-          "value": "10 000 F CFA"
-        },
-        {
-          "label": "Durée:",
-          "value": "60 mois"
-        },
-        {
-          "label": "Echéance:",
-          "value": "19/11/2031"
-        },
-        {
-          "label": "Taux d'intérêt:",
-          "value": "6,2000 %"
-        },
-        {
-          "label": "Valeur nominale unitaire:",
-          "value": "10 000 F CFA"
-        },
-        {
-          "label": "Durée:",
-          "value": "84 mois"
-        },
-        {
-          "label": "Echéance:",
-          "value": "19/11/2033"
-        },
-        {
-          "label": "Taux d'intérêt:",
-          "value": "6,4000 %"
-        },
-        {
-          "label": "Valeur nominale unitaire:",
-          "value": "10 000 F CFA"
-        }
-      ],
-      "kind": "Adjudication de titres publics",
-      "publicationDate": null,
-      "verifiedAt": "2026-11-16T20:26:34.540789+00:00"
-    },
     {
       "id": "https://www.africabourse.com/opportunite/734",
       "title": "Emprunt obligataire « Fidelis Finance – PME Elan Croissance UMOA 3 – 7,00 % 2026-2031",
@@ -144,7 +52,7 @@
           "value": "5 ans, dont 1 an de différé sur le capital"
         }
       ],
-      "verifiedAt": "2026-11-18T21:25:44.945950+00:00"
+      "verifiedAt": "2026-11-19T03:22:16.461945+00:00"
     },
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",

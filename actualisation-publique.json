@@ -1,44 +1,44 @@
 {
   "version": 1,
-  "lastAttemptAt": "2026-11-20T03:08:13.840318+00:00",
-  "finishedAt": "2026-11-20T03:09:32.041405+00:00",
+  "lastAttemptAt": "2026-11-20T10:23:41.412543+00:00",
+  "finishedAt": "2026-11-20T10:24:57.984066+00:00",
   "state": "ok",
   "session": "2026-11-19",
   "stages": [
     {
       "name": "Bulletins et comptes normalisés",
-      "startedAt": "2026-11-20T03:08:14.013518+00:00",
+      "startedAt": "2026-11-20T10:23:41.603681+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-20T03:09:17.359364+00:00"
+      "finishedAt": "2026-11-20T10:24:45.877340+00:00"
     },
     {
       "name": "Cours web, capitalisations et dividendes",
-      "startedAt": "2026-11-20T03:09:17.440137+00:00",
+      "startedAt": "2026-11-20T10:24:45.967202+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-20T03:09:19.561012+00:00"
+      "finishedAt": "2026-11-20T10:24:47.886452+00:00"
     },
     {
       "name": "Annonces obligataires",
-      "startedAt": "2026-11-20T03:09:19.637496+00:00",
+      "startedAt": "2026-11-20T10:24:47.970935+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-20T03:09:24.065495+00:00"
+      "finishedAt": "2026-11-20T10:24:51.343474+00:00"
     },
     {
       "name": "Sources complémentaires",
-      "startedAt": "2026-11-20T03:09:24.138932+00:00",
+      "startedAt": "2026-11-20T10:24:51.426025+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-20T03:09:31.628088+00:00"
+      "finishedAt": "2026-11-20T10:24:57.555341+00:00"
     },
     {
       "name": "Indices officiels",
-      "startedAt": "2026-11-20T03:09:31.702680+00:00",
+      "startedAt": "2026-11-20T10:24:57.637405+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-20T03:09:31.967803+00:00"
+      "finishedAt": "2026-11-20T10:24:57.901970+00:00"
     }
   ],
   "intervalMinutes": 60,
   "archiveAfterUtcHour": 15,
   "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/44665559820",
-  "lastSuccessfulCollection": "2026-11-20T03:09:17.359364+00:00",
+  "lastSuccessfulCollection": "2026-11-20T10:24:45.877340+00:00",
   "lastArchiveDate": "2026-11-19"
 }

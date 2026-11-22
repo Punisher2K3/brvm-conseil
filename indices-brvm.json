@@ -1,7 +1,732 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-22T11:14:48.301511+00:00",
+  "checkedAt": "2026-11-22T18:38:22.197019+00:00",
   "sessions": [
+    {
+      "session": "2025-12-09",
+      "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251209.pdf",
+      "sha256": "4ead9805e5cae25d14e6cb95d11b2313e24c04677c13db622968f08a0e9ae8d3",
+      "parserVersion": 2,
+      "kind": "official_bulletin",
+      "final": true,
+      "rows": [
+        {
+          "name": "BRVM COMPOSITE",
+          "series": "BRVM COMPOSITE",
+          "value": 350.57
+        },
+        {
+          "name": "BRVM 30",
+          "series": "BRVM 30",
+          "value": 167.96
+        },
+        {
+          "name": "BRVM PRESTIGE",
+          "series": "BRVM PRESTIGE",
+          "value": 145.29
+        },
+        {
+          "name": "BRVM-PRESTIGE",
+          "series": "compartiment|BRVM-PRESTIGE",
+          "companies": 10,
+          "value": 145.29,
+          "variationPct": -1.0
+        },
+        {
+          "name": "BRVM-PRINCIPAL",
+          "series": "compartiment|BRVM-PRINCIPAL",
+          "companies": 37,
+          "value": 220.56,
+          "variationPct": -0.84
+        },
+        {
+          "name": "BRVM - INDUSTRIE",
+          "series": "anciens|BRVM - INDUSTRIE",
+          "companies": 11,
+          "value": 269.47,
+          "variationPct": 0.08
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "anciens|BRVM - SERVICES PUBLICS",
+          "companies": 5,
+          "value": 743.97,
+          "variationPct": 0.12
+        },
+        {
+          "name": "BRVM - FINANCES",
+          "series": "anciens|BRVM - FINANCES",
+          "companies": 16,
+          "value": 147.92,
+          "variationPct": -1.39
+        },
+        {
+          "name": "BRVM - TRANSPORT",
+          "series": "anciens|BRVM - TRANSPORT",
+          "companies": 1,
+          "value": 357.37,
+          "variationPct": 4.29
+        },
+        {
+          "name": "BRVM - AGRICULTURE",
+          "series": "anciens|BRVM - AGRICULTURE",
+          "companies": 5,
+          "value": 338.18,
+          "variationPct": -0.22
+        },
+        {
+          "name": "BRVM - DISTRIBUTION",
+          "series": "anciens|BRVM - DISTRIBUTION",
+          "companies": 7,
+          "value": 519.98,
+          "variationPct": -3.08
+        },
+        {
+          "name": "BRVM - AUTRES SECTEURS",
+          "series": "anciens|BRVM - AUTRES SECTEURS",
+          "companies": 2,
+          "value": 597.46,
+          "variationPct": 2.05
+        },
+        {
+          "name": "BRVM - TELECOMMUNICATIONS",
+          "series": "base2025|BRVM - TELECOMMUNICATIONS",
+          "companies": 3,
+          "value": 96.89,
+          "variationPct": 0.12
+        },
+        {
+          "name": "BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "series": "base2025|BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "companies": 7,
+          "value": 176.83,
+          "variationPct": -3.68
+        },
+        {
+          "name": "BRVM - SERVICES FINANCIERS",
+          "series": "base2025|BRVM - SERVICES FINANCIERS",
+          "companies": 16,
+          "value": 145.38,
+          "variationPct": -1.39
+        },
+        {
+          "name": "BRVM - CONSOMMATION DE BASE",
+          "series": "base2025|BRVM - CONSOMMATION DE BASE",
+          "companies": 9,
+          "value": 224.69,
+          "variationPct": -0.09
+        },
+        {
+          "name": "BRVM - INDUSTRIELS",
+          "series": "base2025|BRVM - INDUSTRIELS",
+          "companies": 6,
+          "value": 123.99,
+          "variationPct": 1.81
+        },
+        {
+          "name": "BRVM - ENERGIE",
+          "series": "base2025|BRVM - ENERGIE",
+          "companies": 4,
+          "value": 114.92,
+          "variationPct": 0.1
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "base2025|BRVM - SERVICES PUBLICS",
+          "companies": 2,
+          "value": 111.96,
+          "variationPct": 0.0
+        }
+      ],
+      "activity": {
+        "capitalisation": 13516354619082.0,
+        "volume": 298622.0,
+        "value": 488053926.0,
+        "advances": 20.0,
+        "declines": 18.0,
+        "unchanged": 8.0
+      }
+    },
+    {
+      "session": "2025-12-10",
+      "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251210.pdf",
+      "sha256": "ef57fef801a00f5f1befca371159f70a0d060ff31340d2591c2160d24f94bac5",
+      "parserVersion": 2,
+      "kind": "official_bulletin",
+      "final": true,
+      "rows": [
+        {
+          "name": "BRVM COMPOSITE",
+          "series": "BRVM COMPOSITE",
+          "value": 349.31
+        },
+        {
+          "name": "BRVM 30",
+          "series": "BRVM 30",
+          "value": 167.3
+        },
+        {
+          "name": "BRVM PRESTIGE",
+          "series": "BRVM PRESTIGE",
+          "value": 144.61
+        },
+        {
+          "name": "BRVM-PRESTIGE",
+          "series": "compartiment|BRVM-PRESTIGE",
+          "companies": 10,
+          "value": 144.61,
+          "variationPct": -0.47
+        },
+        {
+          "name": "BRVM-PRINCIPAL",
+          "series": "compartiment|BRVM-PRINCIPAL",
+          "companies": 37,
+          "value": 219.44,
+          "variationPct": -0.51
+        },
+        {
+          "name": "BRVM - INDUSTRIE",
+          "series": "anciens|BRVM - INDUSTRIE",
+          "companies": 11,
+          "value": 268.73,
+          "variationPct": -0.27
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "anciens|BRVM - SERVICES PUBLICS",
+          "companies": 5,
+          "value": 744.41,
+          "variationPct": 0.06
+        },
+        {
+          "name": "BRVM - FINANCES",
+          "series": "anciens|BRVM - FINANCES",
+          "companies": 16,
+          "value": 147.03,
+          "variationPct": -0.6
+        },
+        {
+          "name": "BRVM - TRANSPORT",
+          "series": "anciens|BRVM - TRANSPORT",
+          "companies": 1,
+          "value": 354.92,
+          "variationPct": -0.69
+        },
+        {
+          "name": "BRVM - AGRICULTURE",
+          "series": "anciens|BRVM - AGRICULTURE",
+          "companies": 5,
+          "value": 337.26,
+          "variationPct": -0.27
+        },
+        {
+          "name": "BRVM - DISTRIBUTION",
+          "series": "anciens|BRVM - DISTRIBUTION",
+          "companies": 7,
+          "value": 510.8,
+          "variationPct": -1.77
+        },
+        {
+          "name": "BRVM - AUTRES SECTEURS",
+          "series": "anciens|BRVM - AUTRES SECTEURS",
+          "companies": 2,
+          "value": 589.03,
+          "variationPct": -1.41
+        },
+        {
+          "name": "BRVM - TELECOMMUNICATIONS",
+          "series": "base2025|BRVM - TELECOMMUNICATIONS",
+          "companies": 3,
+          "value": 96.95,
+          "variationPct": 0.06
+        },
+        {
+          "name": "BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "series": "base2025|BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "companies": 7,
+          "value": 171.93,
+          "variationPct": -2.77
+        },
+        {
+          "name": "BRVM - SERVICES FINANCIERS",
+          "series": "base2025|BRVM - SERVICES FINANCIERS",
+          "companies": 16,
+          "value": 144.5,
+          "variationPct": -0.61
+        },
+        {
+          "name": "BRVM - CONSOMMATION DE BASE",
+          "series": "base2025|BRVM - CONSOMMATION DE BASE",
+          "companies": 9,
+          "value": 224.12,
+          "variationPct": -0.25
+        },
+        {
+          "name": "BRVM - INDUSTRIELS",
+          "series": "base2025|BRVM - INDUSTRIELS",
+          "companies": 6,
+          "value": 122.97,
+          "variationPct": -0.82
+        },
+        {
+          "name": "BRVM - ENERGIE",
+          "series": "base2025|BRVM - ENERGIE",
+          "companies": 4,
+          "value": 114.82,
+          "variationPct": -0.09
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "base2025|BRVM - SERVICES PUBLICS",
+          "companies": 2,
+          "value": 111.96,
+          "variationPct": 0.0
+        }
+      ],
+      "activity": {
+        "capitalisation": 13467797177692.0,
+        "volume": 2156414.0,
+        "value": 768223520.0,
+        "advances": 9.0,
+        "declines": 24.0,
+        "unchanged": 13.0
+      }
+    },
+    {
+      "session": "2025-12-11",
+      "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251211.pdf",
+      "sha256": "3a740ebaf5681dc92675d091f7d71cf856fc0b83b27c5ddbcf86ea1a2c9fbbd6",
+      "parserVersion": 2,
+      "kind": "official_bulletin",
+      "final": true,
+      "rows": [
+        {
+          "name": "BRVM COMPOSITE",
+          "series": "BRVM COMPOSITE",
+          "value": 347.37
+        },
+        {
+          "name": "BRVM 30",
+          "series": "BRVM 30",
+          "value": 166.63
+        },
+        {
+          "name": "BRVM PRESTIGE",
+          "series": "BRVM PRESTIGE",
+          "value": 144.15
+        },
+        {
+          "name": "BRVM-PRESTIGE",
+          "series": "compartiment|BRVM-PRESTIGE",
+          "companies": 10,
+          "value": 144.15,
+          "variationPct": -0.32
+        },
+        {
+          "name": "BRVM-PRINCIPAL",
+          "series": "compartiment|BRVM-PRINCIPAL",
+          "companies": 37,
+          "value": 219.35,
+          "variationPct": -0.04
+        },
+        {
+          "name": "BRVM - INDUSTRIE",
+          "series": "anciens|BRVM - INDUSTRIE",
+          "companies": 11,
+          "value": 263.49,
+          "variationPct": -1.95
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "anciens|BRVM - SERVICES PUBLICS",
+          "companies": 5,
+          "value": 733.0,
+          "variationPct": -1.53
+        },
+        {
+          "name": "BRVM - FINANCES",
+          "series": "anciens|BRVM - FINANCES",
+          "companies": 16,
+          "value": 147.88,
+          "variationPct": 0.58
+        },
+        {
+          "name": "BRVM - TRANSPORT",
+          "series": "anciens|BRVM - TRANSPORT",
+          "companies": 1,
+          "value": 362.26,
+          "variationPct": 2.07
+        },
+        {
+          "name": "BRVM - AGRICULTURE",
+          "series": "anciens|BRVM - AGRICULTURE",
+          "companies": 5,
+          "value": 338.94,
+          "variationPct": 0.5
+        },
+        {
+          "name": "BRVM - DISTRIBUTION",
+          "series": "anciens|BRVM - DISTRIBUTION",
+          "companies": 7,
+          "value": 512.75,
+          "variationPct": 0.38
+        },
+        {
+          "name": "BRVM - AUTRES SECTEURS",
+          "series": "anciens|BRVM - AUTRES SECTEURS",
+          "companies": 2,
+          "value": 594.2,
+          "variationPct": 0.88
+        },
+        {
+          "name": "BRVM - TELECOMMUNICATIONS",
+          "series": "base2025|BRVM - TELECOMMUNICATIONS",
+          "companies": 3,
+          "value": 95.41,
+          "variationPct": -1.59
+        },
+        {
+          "name": "BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "series": "base2025|BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "companies": 7,
+          "value": 173.46,
+          "variationPct": 0.89
+        },
+        {
+          "name": "BRVM - SERVICES FINANCIERS",
+          "series": "base2025|BRVM - SERVICES FINANCIERS",
+          "companies": 16,
+          "value": 145.33,
+          "variationPct": 0.57
+        },
+        {
+          "name": "BRVM - CONSOMMATION DE BASE",
+          "series": "base2025|BRVM - CONSOMMATION DE BASE",
+          "companies": 9,
+          "value": 220.71,
+          "variationPct": -1.52
+        },
+        {
+          "name": "BRVM - INDUSTRIELS",
+          "series": "base2025|BRVM - INDUSTRIELS",
+          "companies": 6,
+          "value": 124.71,
+          "variationPct": 1.41
+        },
+        {
+          "name": "BRVM - ENERGIE",
+          "series": "base2025|BRVM - ENERGIE",
+          "companies": 4,
+          "value": 114.53,
+          "variationPct": -0.25
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "base2025|BRVM - SERVICES PUBLICS",
+          "companies": 2,
+          "value": 111.96,
+          "variationPct": 0.0
+        }
+      ],
+      "activity": {
+        "capitalisation": 13393160965444.0,
+        "volume": 215249.0,
+        "value": 636967933.0,
+        "advances": 20.0,
+        "declines": 14.0,
+        "unchanged": 12.0
+      }
+    },
+    {
+      "session": "2025-12-12",
+      "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251212.pdf",
+      "sha256": "3c58bffe6377644a5c9c4fc98b512e62029c9b2b80a74378916b6c01d75c4458",
+      "parserVersion": 2,
+      "kind": "official_bulletin",
+      "final": true,
+      "rows": [
+        {
+          "name": "BRVM COMPOSITE",
+          "series": "BRVM COMPOSITE",
+          "value": 347.81
+        },
+        {
+          "name": "BRVM 30",
+          "series": "BRVM 30",
+          "value": 166.65
+        },
+        {
+          "name": "BRVM PRESTIGE",
+          "series": "BRVM PRESTIGE",
+          "value": 143.3
+        },
+        {
+          "name": "BRVM-PRESTIGE",
+          "series": "compartiment|BRVM-PRESTIGE",
+          "companies": 10,
+          "value": 143.3,
+          "variationPct": -0.59
+        },
+        {
+          "name": "BRVM-PRINCIPAL",
+          "series": "compartiment|BRVM-PRINCIPAL",
+          "companies": 37,
+          "value": 219.74,
+          "variationPct": 0.18
+        },
+        {
+          "name": "BRVM - INDUSTRIE",
+          "series": "anciens|BRVM - INDUSTRIE",
+          "companies": 11,
+          "value": 264.92,
+          "variationPct": 0.54
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "anciens|BRVM - SERVICES PUBLICS",
+          "companies": 5,
+          "value": 738.87,
+          "variationPct": 0.8
+        },
+        {
+          "name": "BRVM - FINANCES",
+          "series": "anciens|BRVM - FINANCES",
+          "companies": 16,
+          "value": 147.38,
+          "variationPct": -0.34
+        },
+        {
+          "name": "BRVM - TRANSPORT",
+          "series": "anciens|BRVM - TRANSPORT",
+          "companies": 1,
+          "value": 361.04,
+          "variationPct": -0.34
+        },
+        {
+          "name": "BRVM - AGRICULTURE",
+          "series": "anciens|BRVM - AGRICULTURE",
+          "companies": 5,
+          "value": 338.2,
+          "variationPct": -0.22
+        },
+        {
+          "name": "BRVM - DISTRIBUTION",
+          "series": "anciens|BRVM - DISTRIBUTION",
+          "companies": 7,
+          "value": 502.52,
+          "variationPct": -2.0
+        },
+        {
+          "name": "BRVM - AUTRES SECTEURS",
+          "series": "anciens|BRVM - AUTRES SECTEURS",
+          "companies": 2,
+          "value": 590.95,
+          "variationPct": -0.55
+        },
+        {
+          "name": "BRVM - TELECOMMUNICATIONS",
+          "series": "base2025|BRVM - TELECOMMUNICATIONS",
+          "companies": 3,
+          "value": 96.2,
+          "variationPct": 0.83
+        },
+        {
+          "name": "BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "series": "base2025|BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "companies": 7,
+          "value": 168.1,
+          "variationPct": -3.09
+        },
+        {
+          "name": "BRVM - SERVICES FINANCIERS",
+          "series": "base2025|BRVM - SERVICES FINANCIERS",
+          "companies": 16,
+          "value": 144.85,
+          "variationPct": -0.33
+        },
+        {
+          "name": "BRVM - CONSOMMATION DE BASE",
+          "series": "base2025|BRVM - CONSOMMATION DE BASE",
+          "companies": 9,
+          "value": 221.56,
+          "variationPct": 0.39
+        },
+        {
+          "name": "BRVM - INDUSTRIELS",
+          "series": "base2025|BRVM - INDUSTRIELS",
+          "companies": 6,
+          "value": 125.4,
+          "variationPct": 0.55
+        },
+        {
+          "name": "BRVM - ENERGIE",
+          "series": "base2025|BRVM - ENERGIE",
+          "companies": 4,
+          "value": 114.39,
+          "variationPct": -0.12
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "base2025|BRVM - SERVICES PUBLICS",
+          "companies": 2,
+          "value": 112.01,
+          "variationPct": 0.04
+        }
+      ],
+      "activity": {
+        "capitalisation": 13410063777804.0,
+        "volume": 327092.0,
+        "value": 389302853.0,
+        "advances": 18.0,
+        "declines": 23.0,
+        "unchanged": 5.0
+      }
+    },
+    {
+      "session": "2025-12-15",
+      "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251215.pdf",
+      "sha256": "6ed1a214cc25a8561330fa4941c39f768706f5d383e07b089d5dbc7bbf4f0cbc",
+      "parserVersion": 2,
+      "kind": "official_bulletin",
+      "final": true,
+      "rows": [
+        {
+          "name": "BRVM COMPOSITE",
+          "series": "BRVM COMPOSITE",
+          "value": 347.14
+        },
+        {
+          "name": "BRVM 30",
+          "series": "BRVM 30",
+          "value": 166.17
+        },
+        {
+          "name": "BRVM PRESTIGE",
+          "series": "BRVM PRESTIGE",
+          "value": 143.0
+        },
+        {
+          "name": "BRVM-PRESTIGE",
+          "series": "compartiment|BRVM-PRESTIGE",
+          "companies": 10,
+          "value": 143.0,
+          "variationPct": -0.21
+        },
+        {
+          "name": "BRVM-PRINCIPAL",
+          "series": "compartiment|BRVM-PRINCIPAL",
+          "companies": 37,
+          "value": 220.21,
+          "variationPct": 0.21
+        },
+        {
+          "name": "BRVM - INDUSTRIE",
+          "series": "anciens|BRVM - INDUSTRIE",
+          "companies": 11,
+          "value": 266.96,
+          "variationPct": 0.77
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "anciens|BRVM - SERVICES PUBLICS",
+          "companies": 5,
+          "value": 733.1,
+          "variationPct": -0.78
+        },
+        {
+          "name": "BRVM - FINANCES",
+          "series": "anciens|BRVM - FINANCES",
+          "companies": 16,
+          "value": 147.41,
+          "variationPct": 0.02
+        },
+        {
+          "name": "BRVM - TRANSPORT",
+          "series": "anciens|BRVM - TRANSPORT",
+          "companies": 1,
+          "value": 359.82,
+          "variationPct": -0.34
+        },
+        {
+          "name": "BRVM - AGRICULTURE",
+          "series": "anciens|BRVM - AGRICULTURE",
+          "companies": 5,
+          "value": 339.1,
+          "variationPct": 0.27
+        },
+        {
+          "name": "BRVM - DISTRIBUTION",
+          "series": "anciens|BRVM - DISTRIBUTION",
+          "companies": 7,
+          "value": 503.78,
+          "variationPct": 0.25
+        },
+        {
+          "name": "BRVM - AUTRES SECTEURS",
+          "series": "anciens|BRVM - AUTRES SECTEURS",
+          "companies": 2,
+          "value": 581.47,
+          "variationPct": -1.6
+        },
+        {
+          "name": "BRVM - TELECOMMUNICATIONS",
+          "series": "base2025|BRVM - TELECOMMUNICATIONS",
+          "companies": 3,
+          "value": 95.43,
+          "variationPct": -0.8
+        },
+        {
+          "name": "BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "series": "base2025|BRVM - CONSOMMATION DISCRETIONNAIRE",
+          "companies": 7,
+          "value": 168.17,
+          "variationPct": 0.04
+        },
+        {
+          "name": "BRVM - SERVICES FINANCIERS",
+          "series": "base2025|BRVM - SERVICES FINANCIERS",
+          "companies": 16,
+          "value": 144.88,
+          "variationPct": 0.02
+        },
+        {
+          "name": "BRVM - CONSOMMATION DE BASE",
+          "series": "base2025|BRVM - CONSOMMATION DE BASE",
+          "companies": 9,
+          "value": 222.9,
+          "variationPct": 0.6
+        },
+        {
+          "name": "BRVM - INDUSTRIELS",
+          "series": "base2025|BRVM - INDUSTRIELS",
+          "companies": 6,
+          "value": 125.48,
+          "variationPct": 0.06
+        },
+        {
+          "name": "BRVM - ENERGIE",
+          "series": "base2025|BRVM - ENERGIE",
+          "companies": 4,
+          "value": 114.87,
+          "variationPct": 0.42
+        },
+        {
+          "name": "BRVM - SERVICES PUBLICS",
+          "series": "base2025|BRVM - SERVICES PUBLICS",
+          "companies": 2,
+          "value": 111.85,
+          "variationPct": -0.14
+        }
+      ],
+      "activity": {
+        "capitalisation": 13384436707074.0,
+        "volume": 849945.0,
+        "value": 590555522.0,
+        "advances": 16.0,
+        "declines": 22.0,
+        "unchanged": 8.0
+      }
+    },
     {
       "session": "2025-12-16",
       "source": "https://bfin.brvm.org/boc/BOC_JOUR/BOC_20251216.pdf",

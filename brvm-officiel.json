@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-21T17:29:32.580667+00:00",
+  "checkedAt": "2026-11-22T18:32:36.429435+00:00",
   "scope": "Publications publiques BRVM ; collecte progressive avec couverture explicite. Chiffres PDF candidats non intégrés aux comptes ni au modèle sans vérification.",
   "documents": [
     {
@@ -6798,6 +6798,35 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20260427-_avis_ndeg113_brvmdg_-_horaires_de_cotation_du_30_avril_2026.pdf",
+      "title": "Avis : Horaires de cotation du 30 avril 2026",
+      "kind": "avis",
+      "publishedAt": "2026-04-30",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "Avis : Horaires de cotation du 30 avril 2026",
+          "date": "2026-04-30"
+        },
+        {
+          "label": "Date",
+          "value": "28/04/2026",
+          "date": "2026-04-28"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20260429_-_communique_de_presse_-_boa_ng.pdf",
       "title": "BANK OF AFRICA NG · BOA NG : Communiqué de presse",
       "kind": "communiques",
@@ -6822,6 +6851,269 @@
           "label": "Titre de l'annonce",
           "value": "BOA NG : Communiqué de presse",
           "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260429_-_avis_ndeg115_brvmdg_-_resultats_de_premiere_cotation_-_fctc_zaka_rmbs_nsia_banque_ci_700_2025-2036_fnsbc.o4_et_fctc_zaka_rmbs_nsia_banque_ci_900_2025-2036_fnsbc.o5.pdf",
+      "title": "« FCTC ZAKA RMBS NSIA BANQUE CI 7,00 % 2025-2036 » (FNSBC.O4) et « FCTC ZAKA RMBS NSIA BANQUE CI 9,00 % 2025-2036 » (FNSBC.O5) : Résultats de première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-29",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "« FCTC ZAKA RMBS NSIA BANQUE CI 7,00 % 2025-2036 » (FNSBC.O4) et « FCTC ZAKA RMBS NSIA BANQUE CI 9,00 % 2025-2036 » (FNSBC.O5) : Résultats de première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "29/04/2026",
+          "date": "2026-04-29"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260428_-_avis_ndeg114_brvmdg_-_resultats_de_premiere_cotation_-_fctc_nsia_banque_ci_750_2025-2030_fnsbc.o3.pdf",
+      "title": "FCTC NSIA BANQUE CI 7,50 % 2025-2030 (FNSBC.O3) : Résultats de première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-28",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "FCTC NSIA BANQUE CI 7,50 % 2025-2030 (FNSBC.O3) : Résultats de première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "28/04/2026",
+          "date": "2026-04-28"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260427_-_avis_ndeg112_brvmdg_-_rappel_01_mai_2026_jour_ferie_-_fete_du_travail.pdf",
+      "title": "Avis : Rappel, 1er mai 2026, jour férié - fête du Travail",
+      "kind": "avis",
+      "publishedAt": "2026-04-28",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "Avis : Rappel, 1er mai 2026, jour férié - fête du Travail",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "28/04/2026",
+          "date": "2026-04-28"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260523_-_avis_ndeg110_brvmdg_-_resultats_de_premiere_cotation_-_tptg_650_2026-2031_tptg.o5_et_tptg_670_2026-2033_tptg.o6.pdf",
+      "title": "TPTG 6,50% 2026-2031 (TPTG.O5) et TPTG 6,70% 2026-2033 (TPTG.O6) : Résultats de première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "TPTG 6,50% 2026-2031 (TPTG.O5) et TPTG 6,70% 2026-2033 (TPTG.O6) : Résultats de première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260423_-_calendrier_de_paiement_des_dividendes_-_exercice_2025.pdf",
+      "title": "Avis : Calendrier de paiement de dividendes",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "Avis : Calendrier de paiement de dividendes",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260423_-_avis_ndeg109_brvmdg_-_resultats_de_premiere_cotation_-_fctc_ept_75_2025-2032_feptc.o4_fctc_ept_8_2025-2035_feptc.o5_et_fctc_ept_85_2025-2040_feptc.o6.pdf",
+      "title": "FCTC EPT 7,5% 2025-2032 (FEPTC.O4), FCTC EPT 8% 2025-2035 (FEPTC.O5) et FCTC EPT 8,5% 2025-2040 (FEPTC.O6) : Résultats de première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "FCTC EPT 7,5% 2025-2032 (FEPTC.O4), FCTC EPT 8% 2025-2035 (FEPTC.O5) et FCTC EPT 8,5% 2025-2040 (FEPTC.O6) : Résultats de première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260423_-_avis_ndeg108_brvmdg_-_valeur_theorique_-_dps_-_augmentation_de_k_-_safca_ci.pdf",
+      "title": "ALIOS FINANCE (SAFCA CI) : Augmentation de capital - VALEUR THEORIQUE - DPS",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SAFC"
+      ],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "ALIOS FINANCE (SAFCA CI) : Augmentation de capital - VALEUR THEORIQUE - DPS",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260423_-_avis_ndeg107_brvmdg_-_premiere_cotation_-_fctc_croissance_agricole_8_2025-2032_et_fctc_croissance_agricole_9_2025-2032.pdf",
+      "title": "FCTC CROISSANCE AGRICOLE 8 % 2025-2032 (FCAGS.O1) et FCTC CROISSANCE AGRICOLE 9 % 2025-2032 (FCAGS.O2) : Première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "FCTC CROISSANCE AGRICOLE 8 % 2025-2032 (FCAGS.O1) et FCTC CROISSANCE AGRICOLE 9 % 2025-2032 (FCAGS.O2) : Première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20260423_-_avis_ndeg106_brvmdg_-_premiere_cotation_-_fctc_senelec_senior_815_2025_-_2030_et_fctc_senelec_mezzanine_1000_2025_-_2030_-_rectificatif.pdf",
+      "title": "FCTC SENELEC SENIOR 8,15 % 2025 – 2030 (FSNLC.O1) et FCTC SENELEC MEZZANINE 10,00 % 2025 – 2030 (FSNLC.O2) - RECTIFICATIF : Première cotation",
+      "kind": "avis",
+      "publishedAt": "2026-04-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/marche/avis-et-publications/avis?page=13",
+      "fields": [
+        {
+          "label": "",
+          "value": "FCTC SENELEC SENIOR 8,15 % 2025 – 2030 (FSNLC.O1) et FCTC SENELEC MEZZANINE 10,00 % 2025 – 2030 (FSNLC.O2) - RECTIFICATIF : Première cotation",
+          "date": null
+        },
+        {
+          "label": "Date",
+          "value": "24/04/2026",
+          "date": "2026-04-24"
         },
         {
           "label": "",
@@ -19915,6 +20207,42 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20231226_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_air_liquide_ci.pdf",
+      "title": "AIR LIQUIDE CI · AIR LIQUIDE CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-12-26",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SIVC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "26/12/2023",
+          "date": "2023-12-26"
+        },
+        {
+          "label": "Société",
+          "value": "AIR LIQUIDE CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "AIR LIQUIDE CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20231213_-_notation_financiere_-_societe_generale_cote_divoire.pdf",
       "title": "SGCI · SOCIETE GENERALE CÔTE D'IVOIRE : Notation financière",
       "kind": "notations",
@@ -20086,6 +20414,74 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20231110_-_pouvoir_-_assemblee_generale_ordinaire_-_movis_ci_1.pdf",
+      "title": "MOVIS CI · MOVIS CI : Pouvoir - Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-11-10",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "10/11/2023",
+          "date": "2023-11-10"
+        },
+        {
+          "label": "Société",
+          "value": "MOVIS CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "MOVIS CI : Pouvoir - Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20231110_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_movis_ci.pdf",
+      "title": "MOVIS CI · MOVIS CI : Avis de convocation - Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-11-10",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "10/11/2023",
+          "date": "2023-11-10"
+        },
+        {
+          "label": "Société",
+          "value": "MOVIS CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "MOVIS CI : Avis de convocation - Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20231106_-_notation_financiere_-_orabank_7_2021-2026.pdf",
       "title": "ORAGROUP · ORABANK 7% 2021-2026 : Notation financière",
       "kind": "notations",
@@ -20143,6 +20539,42 @@
         {
           "label": "Titre de l'annonce",
           "value": "FCTC TEYLIOM IMMO 7% 2021-2028 : Notation financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20231103_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_vivo_energy_ci.pdf",
+      "title": "VIVO ENERGY CI · VIVO ENERGY CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-11-03",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SHEC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "03/11/2023",
+          "date": "2023-11-03"
+        },
+        {
+          "label": "Société",
+          "value": "VIVO ENERGY CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "VIVO ENERGY CI : Avis de convocation à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -20256,6 +20688,42 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20231012_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_unilever_ci_annule_et_remplace_le_precedent.pdf",
+      "title": "UNILEVER CI · UNILEVER CI : Avis de convocation à l'Assemblée Générale Ordinaire (Annule et remplace le précédent)",
+      "kind": "assemblees",
+      "publishedAt": "2023-10-12",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "UNLC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "12/10/2023",
+          "date": "2023-10-12"
+        },
+        {
+          "label": "Société",
+          "value": "UNILEVER CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "UNILEVER CI : Avis de convocation à l'Assemblée Générale Ordinaire (Annule et remplace le précédent)",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20231011_-_notation_financiere_-_totalenergies_marketing_cote_divoire.pdf",
       "title": "TOTAL · TOTAL CI : Notation Financière",
       "kind": "notations",
@@ -20279,6 +20747,42 @@
         {
           "label": "Titre de l'annonce",
           "value": "TOTAL CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20231011_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_unilever_ci.pdf",
+      "title": "UNILEVER CI · UNILEVER CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-10-11",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "UNLC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "11/10/2023",
+          "date": "2023-10-11"
+        },
+        {
+          "label": "Société",
+          "value": "UNILEVER CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "UNILEVER CI : Avis de convocation à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -20380,6 +20884,78 @@
         {
           "label": "Titre de l'annonce",
           "value": "SMB CI : Projet des textes de résolutions",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20231002_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_smb_ci.pdf",
+      "title": "SMB · SMB CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-10-02",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SMBC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "02/10/2023",
+          "date": "2023-10-02"
+        },
+        {
+          "label": "Société",
+          "value": "SMB",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SMB CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20231002_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_africa_global_logistics_ci_ex_bollore.pdf",
+      "title": "BOLLORE TRANSPORT & LOGISTICS · AFRICA GLOBAL LOGISTICS CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-10-02",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SDSC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "02/10/2023",
+          "date": "2023-10-02"
+        },
+        {
+          "label": "Société",
+          "value": "BOLLORE TRANSPORT & LOGISTICS",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "AFRICA GLOBAL LOGISTICS CI : Avis de convocation à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -20517,6 +21093,42 @@
         {
           "label": "Titre de l'annonce",
           "value": "SUCRIVOIRE CI : Notation financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/eviosys_packaging_siem_avis_de_convocation_-_assemblee_generale_ordinaire_exercice_2022.pdf",
+      "title": "CROWN SIEM CI · CROWN SIEM CI : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-09-14",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SEMC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "14/09/2023",
+          "date": "2023-09-14"
+        },
+        {
+          "label": "Société",
+          "value": "CROWN SIEM CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "CROWN SIEM CI : Avis de convocation à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -20955,6 +21567,108 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20230711_-_prorogation_-_assemblee_generale_-_exercice_2022_-_sicor.pdf",
+      "title": "SICOR · SICOR : Prorogation de l'Assemblée Générale - Exercice 2022",
+      "kind": "assemblees",
+      "publishedAt": "2023-07-11",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "11/07/2023",
+          "date": "2023-07-11"
+        },
+        {
+          "label": "Société",
+          "value": "SICOR",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SICOR : Prorogation de l'Assemblée Générale - Exercice 2022",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20230711_-_prorogation_-_assemblee_generale_-_exercice_2021_-_sicor_0.pdf",
+      "title": "SICOR · SICOR : Prorogation de l'Assemblée Générale - Exercice 2021",
+      "kind": "assemblees",
+      "publishedAt": "2023-07-11",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "11/07/2023",
+          "date": "2023-07-11"
+        },
+        {
+          "label": "Société",
+          "value": "SICOR",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SICOR : Prorogation de l'Assemblée Générale - Exercice 2021",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20230711_-_prorogation_-_assemblee_generale_-_exercice_2020_-_sicor.pdf",
+      "title": "SICOR · SICOR : Prorogation de l'Assemblée Générale - Exercice 2020",
+      "kind": "assemblees",
+      "publishedAt": "2023-07-11",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "11/07/2023",
+          "date": "2023-07-11"
+        },
+        {
+          "label": "Société",
+          "value": "SICOR",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SICOR : Prorogation de l'Assemblée Générale - Exercice 2020",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20230711_-_projet_de_resolution_-_assemblee_generale_-_exercice_2021_-_sicor.pdf",
       "title": "SICOR · SICOR : Projet de résolution à l'Assemblée Générale - Exercice 2021",
       "kind": "resolutions",
@@ -21010,6 +21724,40 @@
         {
           "label": "Titre de l'annonce",
           "value": "SICOR : Projet de résolution à l'Assemblée Générale - Exercice 2020",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20230711_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_sicor.pdf",
+      "title": "SICOR · SICOR : Avis de convocation à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-07-11",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "11/07/2023",
+          "date": "2023-07-11"
+        },
+        {
+          "label": "Société",
+          "value": "SICOR",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SICOR : Avis de convocation à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -21234,6 +21982,37 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20230627_-_avis_de_convocation_-_assemblee_generale_ordinaire_-_smb_ci.pdf",
+      "title": "SMB CI : Avis de convocation - Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-06-27",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SMBC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "27/06/2023",
+          "date": "2023-06-27"
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SMB CI : Avis de convocation - Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20230622_-_projet_de_resolutions_-_assemblee_generale_ordinaire_v2_-_bicici.pdf",
       "title": "BICI CI · BICICI : Projet de résolutions - Assemblée Générale Ordinaire",
       "kind": "resolutions",
@@ -21257,6 +22036,42 @@
         {
           "label": "Titre de l'annonce",
           "value": "BICICI : Projet de résolutions - Assemblée Générale Ordinaire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/avis_de_convocation_filtisac_ci_.pdf",
+      "title": "FILTISAC CI · FILTISAC CI : 2ème Avis de Convocation des Actionnaires à l'Assemblée Générale Ordinaire",
+      "kind": "assemblees",
+      "publishedAt": "2023-06-16",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "FTSC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales?page=13",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "16/06/2023",
+          "date": "2023-06-16"
+        },
+        {
+          "label": "Société",
+          "value": "FILTISAC CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "FILTISAC CI : 2ème Avis de Convocation des Actionnaires à l'Assemblée Générale Ordinaire",
           "date": null
         },
         {
@@ -22813,6 +23628,278 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_sucrivoire_ci.pdf",
+      "title": "SUCRIVOIRE · SUCRIVOIRE CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SCRC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "SUCRIVOIRE",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SUCRIVOIRE CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_smb_ci.pdf",
+      "title": "SMB · SMB CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SMBC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "SMB",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SMB CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_oragroup_tg.pdf",
+      "title": "ORAGROUP · ORAGROUP TOGO : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "ORGT"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "ORAGROUP",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ORAGROUP TOGO : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_nei_ceda_ci.pdf",
+      "title": "NEI-CEDA CI · NEI CEDA CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "NEIC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "NEI-CEDA CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "NEI CEDA CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_etat_du_togo.pdf",
+      "title": "ETAT DU TOGO : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ETAT DU TOGO : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_etat_du_niger.pdf",
+      "title": "ETAT DU NIGER : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ETAT DU NIGER : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_etat_du_benin.pdf",
+      "title": "TPBJ · ETAT DU BENIN : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "TPBJ",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ETAT DU BENIN : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221221_-_notation_financiere_-_alios_finance_ci.pdf",
+      "title": "SAFCA CI · ALIOS FINANCE CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SAFC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/12/2022",
+          "date": "2022-12-21"
+        },
+        {
+          "label": "Société",
+          "value": "SAFCA CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ALIOS FINANCE CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20221221_-_changement_important_dans_la_direction_-_saph_ci.pdf",
       "title": "SAPH CI · SAPH CI : Changement important dans la direction",
       "kind": "dirigeants",
@@ -22849,6 +23936,115 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20221216_-_notation_financiere_-_sitab_ci.pdf",
+      "title": "SITAB · SITAB CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-16",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "STBC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "16/12/2022",
+          "date": "2022-12-16"
+        },
+        {
+          "label": "Société",
+          "value": "SITAB",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SITAB CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221212_-_notation_financiere_-_totalenergies_marketing_senegal.pdf",
+      "title": "TOTAL SENEGAL S.A. · TotalEnergies Marketing Sénégal : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-12-12",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "TTLC",
+        "TTLS"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "12/12/2022",
+          "date": "2022-12-12"
+        },
+        {
+          "label": "Société",
+          "value": "TOTAL SENEGAL S.A.",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "TotalEnergies Marketing Sénégal : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221125_-_notation_financiere_-_sicable_ci.pdf",
+      "title": "SICABLE · SICABLE CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-11-25",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "CABC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "25/11/2022",
+          "date": "2022-11-25"
+        },
+        {
+          "label": "Société",
+          "value": "SICABLE",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SICABLE CI : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20221122_-_communique_-_solibra_ci_1.pdf",
       "title": "SOLIBRA · SOLIBRA CI : Communiqué",
       "kind": "communiques",
@@ -22872,6 +24068,136 @@
         {
           "label": "Titre de l'annonce",
           "value": "SOLIBRA CI : Communiqué",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221121_-_notation_financiere_-_senelec.pdf",
+      "title": "SENELEC : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-11-21",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "21/11/2022",
+          "date": "2022-11-21"
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SENELEC : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221116_-_notation_financiere_-_onatel_bf.pdf",
+      "title": "ONATEL BF · ONATEL BF : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-11-16",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "ONTBF"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "16/11/2022",
+          "date": "2022-11-16"
+        },
+        {
+          "label": "Société",
+          "value": "ONATEL BF",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "ONATEL BF : Notation Financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221107_-_notation_financiere_-_fctc_nsia_banque_7_2020-2025.pdf",
+      "title": "FCTC NSIA BANQUE 7% 2020-2025 : Notation financière",
+      "kind": "notations",
+      "publishedAt": "2022-11-07",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "07/11/2022",
+          "date": "2022-11-07"
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "FCTC NSIA BANQUE 7% 2020-2025 : Notation financière",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20221103_-_notation_financiere_-_bernabe_ci.pdf",
+      "title": "BERNABE CI · BERNABE CI : Notation Financière",
+      "kind": "notations",
+      "publishedAt": "2022-11-03",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BNBC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres?page=11",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "03/11/2022",
+          "date": "2022-11-03"
+        },
+        {
+          "label": "Société",
+          "value": "BERNABE CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "BERNABE CI : Notation Financière",
           "date": null
         },
         {
@@ -28410,6 +29736,362 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20170801-_communique_fractionnement_dactions-_sogb_ci.pdf",
+      "title": "SOGB · Communiqué_ Fractionnement d'actions- SOGB CI",
+      "kind": "communiques",
+      "publishedAt": "2017-08-01",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SOGC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "01/08/2017",
+          "date": "2017-08-01"
+        },
+        {
+          "label": "Société",
+          "value": "SOGB",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Communiqué_ Fractionnement d'actions- SOGB CI",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170725_-_avis_ndeg125_brvmdg_-_admission_a_la_cote_actions_nouvelles_boa_ci.pdf",
+      "title": "BANK OF AFRICA CI · AVIS N°125 BRVMDG - Admission à la cote actions nouvelles BOA CI",
+      "kind": "communiques",
+      "publishedAt": "2017-07-25",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BOAC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "25/07/2017",
+          "date": "2017-07-25"
+        },
+        {
+          "label": "Société",
+          "value": "BANK OF AFRICA CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "AVIS N°125 BRVMDG - Admission à la cote actions nouvelles BOA CI",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170725-_communique_pour_le_fractionnement_de_nei-ceda.pdf",
+      "title": "NEI-CEDA CI · Communiqué pour le Fractionnement de NEI-CEDA",
+      "kind": "communiques",
+      "publishedAt": "2017-07-25",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "NEIC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "25/07/2017",
+          "date": "2017-07-25"
+        },
+        {
+          "label": "Société",
+          "value": "NEI-CEDA CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Communiqué pour le Fractionnement de NEI-CEDA",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170724-mise_a_disposition_dactions_nouvelles_gratuites_de_boa_sn_.pdf",
+      "title": "BANK OF AFRICA SN · Mise à disposition d’actions nouvelles gratuites de BOA SN",
+      "kind": "communiques",
+      "publishedAt": "2017-07-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BOAS"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "24/07/2017",
+          "date": "2017-07-24"
+        },
+        {
+          "label": "Société",
+          "value": "BANK OF AFRICA SN",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Mise à disposition d’actions nouvelles gratuites de BOA SN",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170724-mise_a_disposition_dactions_nouvelles_gratuites_de_boa_bn__0.pdf",
+      "title": "BANK OF AFRICA NG · Mise à disposition d’actions nouvelles gratuites de BOA NG",
+      "kind": "communiques",
+      "publishedAt": "2017-07-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BOAN"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "24/07/2017",
+          "date": "2017-07-24"
+        },
+        {
+          "label": "Société",
+          "value": "BANK OF AFRICA NG",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Mise à disposition d’actions nouvelles gratuites de BOA NG",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170724-mise_a_disposition_dactions_nouvelles_gratuites_de_boa_bn_.pdf",
+      "title": "BANK OF AFRICA BN · Mise à disposition d’actions nouvelles gratuites de BOA BN",
+      "kind": "communiques",
+      "publishedAt": "2017-07-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BOAB"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "24/07/2017",
+          "date": "2017-07-24"
+        },
+        {
+          "label": "Société",
+          "value": "BANK OF AFRICA BN",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Mise à disposition d’actions nouvelles gratuites de BOA BN",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170724-20170724-mise_a_disposition_dactions_nouvelles_gratuites_de_boa_bf__0.pdf",
+      "title": "BANK OF AFRICA BF · Mise à disposition d’actions nouvelles gratuites de BOA BF",
+      "kind": "communiques",
+      "publishedAt": "2017-07-24",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "BOABF"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "24/07/2017",
+          "date": "2017-07-24"
+        },
+        {
+          "label": "Société",
+          "value": "BANK OF AFRICA BF",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Mise à disposition d’actions nouvelles gratuites de BOA BF",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170717_-_communique_fractionnement_dactions_-_bollore_transport_et_logistics_2.pdf",
+      "title": "BOLLORE TRANSPORT & LOGISTICS · Communiqué _ fractionnement d'actions - BOLLORE TRANSPORT ET LOGISTICS",
+      "kind": "communiques",
+      "publishedAt": "2017-07-17",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SDSC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "17/07/2017",
+          "date": "2017-07-17"
+        },
+        {
+          "label": "Société",
+          "value": "BOLLORE TRANSPORT & LOGISTICS",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Communiqué _ fractionnement d'actions - BOLLORE TRANSPORT ET LOGISTICS",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170704-_comunique_de_presse_publication_des_etats_financiers_audites_a_fin_juin_2017.pdf",
+      "title": "ECOBANK TG · Communiqué de presse",
+      "kind": "communiques",
+      "publishedAt": "2017-07-04",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "04/07/2017",
+          "date": "2017-07-04"
+        },
+        {
+          "label": "Société",
+          "value": "ECOBANK TG",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Communiqué de presse",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/communique_-_prorogation_du_delai_de_tenue_de_lassemblee_generale_ordinaire_-_sicor_ci.pdf",
+      "title": "SICOR · Prorogation de l'Assemblée Générale Ordinaire - SICOR",
+      "kind": "communiques",
+      "publishedAt": "2017-07-03",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "03/07/2017",
+          "date": "2017-07-03"
+        },
+        {
+          "label": "Société",
+          "value": "SICOR",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Prorogation de l'Assemblée Générale Ordinaire - SICOR",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/communique_changement_direction_cbi.pdf",
       "title": "Changement Direction - CORIS BANK INTER.",
       "kind": "dirigeants",
@@ -28428,6 +30110,40 @@
         {
           "label": "Titre de l'annonce",
           "value": "Changement Direction - CORIS BANK INTER.",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20170125_-_eveline_tall_quitte_ecobank_apres_20_ans_0.pdf",
+      "title": "ECOBANK TG · Eveline Tall quitte Ecobank après 20 ans",
+      "kind": "communiques",
+      "publishedAt": "2017-01-25",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "25/01/2017",
+          "date": "2017-01-25"
+        },
+        {
+          "label": "Société",
+          "value": "ECOBANK TG",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Eveline Tall quitte Ecobank après 20 ans",
           "date": null
         },
         {
@@ -28500,6 +30216,40 @@
         {
           "label": "Titre de l'annonce",
           "value": "Changement dans la direction - TRACTAFRIC MOTORS C.I.",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20161202_-_communique_movis_ci.pdf",
+      "title": "MOVIS CI · COMMUNIQUE MOVIS CI",
+      "kind": "communiques",
+      "publishedAt": "2016-12-02",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "02/12/2016",
+          "date": "2016-12-02"
+        },
+        {
+          "label": "Société",
+          "value": "MOVIS CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "COMMUNIQUE MOVIS CI",
           "date": null
         },
         {
@@ -28617,6 +30367,42 @@
       "extraction": null
     },
     {
+      "url": "https://www.brvm.org/sites/default/files/20161020_-_communique_-_fractionnement_vivo_energy_ci.pdf",
+      "title": "VIVO ENERGY CI · Fractionnement VIVO ENERGY Côte d'Ivoire",
+      "kind": "communiques",
+      "publishedAt": "2016-10-20",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SHEC"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "20/10/2016",
+          "date": "2016-10-20"
+        },
+        {
+          "label": "Société",
+          "value": "VIVO ENERGY CI",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "Fractionnement VIVO ENERGY Côte d'Ivoire",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
       "url": "https://www.brvm.org/sites/default/files/20160822_-_cd_-_sitab_ci_-_exercice_2016.pdf",
       "title": "SITAB · Changement de dirigeant - SITAB CI - Exercice 2016",
       "kind": "dirigeants",
@@ -28640,6 +30426,42 @@
         {
           "label": "Titre de l'annonce",
           "value": "Changement de dirigeant - SITAB CI - Exercice 2016",
+          "date": null
+        },
+        {
+          "label": "",
+          "value": "Télécharger",
+          "date": null
+        }
+      ],
+      "provider": "BRVM",
+      "type": "publication",
+      "extraction": null
+    },
+    {
+      "url": "https://www.brvm.org/sites/default/files/20160722_-_cm_-_sonatel_sn_-_exercice_2016.pdf",
+      "title": "SONATEL · SONATEL SN - Exercice 2016",
+      "kind": "communiques",
+      "publishedAt": "2016-07-22",
+      "firstSeenAt": "2026-11-22T18:32:36.513400+00:00",
+      "symbols": [
+        "SNTS"
+      ],
+      "listing": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques?page=9",
+      "fields": [
+        {
+          "label": "Date",
+          "value": "22/07/2016",
+          "date": "2016-07-22"
+        },
+        {
+          "label": "Société",
+          "value": "SONATEL",
+          "date": null
+        },
+        {
+          "label": "Titre de l'annonce",
+          "value": "SONATEL SN - Exercice 2016",
           "date": null
         },
         {
@@ -47360,7 +49182,14 @@
       ],
       "provider": "BRVM",
       "type": "publication",
-      "extraction": null
+      "extraction": {
+        "pages": 1,
+        "candidateFacts": [],
+        "textAvailable": false,
+        "sha256": "5f2ef2c14f7837cde8dd3d6c84792eae35ef009fc351254661129de4e8586194",
+        "extractedAt": "2026-11-22T18:37:57.639072+00:00",
+        "bytes": 48916
+      }
     },
     {
       "url": "https://www.brvm.org/sites/default/files/20170922-_avis_ndeg179_brvmdg_-_fractionnement_dactions_bici_ci.pdf",
@@ -47401,7 +49230,14 @@
       ],
       "provider": "BRVM",
       "type": "publication",
-      "extraction": null
+      "extraction": {
+        "pages": 0,
+        "candidateFacts": [],
+        "textAvailable": false,
+        "sha256": "af448a3d3340647a54f90a9be08c9b87acc7031e0a5d8441f3e5d7f31e1bb202",
+        "extractedAt": "2026-11-22T18:38:10.203327+00:00",
+        "bytes": 400341
+      }
     },
     {
       "url": "https://www.brvm.org/sites/default/files/20170921_-_avis_ndeg178_brvmdg_-_radiation_tpci_7_2010-2017.pdf",
@@ -47463,7 +49299,14 @@
       ],
       "provider": "BRVM",
       "type": "publication",
-      "extraction": null
+      "extraction": {
+        "pages": 0,
+        "candidateFacts": [],
+        "textAvailable": false,
+        "sha256": "5b23d627d4970071db8047ddb280ad57766fcddc01029de88e1fffabf0ccc6c5",
+        "extractedAt": "2026-11-22T18:38:20.706137+00:00",
+        "bytes": 463526
+      }
     },
     {
       "url": "https://www.brvm.org/sites/default/files/20170908-communique_augmentation_de_capital_par_incorporation_de_primes_demission_et_des_reserves_libres_et_emission_dactions_nouvelles_gratuites-_boa_ml.pdf",
@@ -49143,61 +50986,61 @@
     {
       "kind": "communiques",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/communiques",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 26,
-      "nextPage": 9,
-      "complete": false
+      "nextPage": 10,
+      "complete": true
     },
     {
       "kind": "notations",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/notations-financieres",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 31,
-      "nextPage": 11,
-      "complete": false
+      "nextPage": 12,
+      "complete": true
     },
     {
       "kind": "assemblees",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/convocations-assemblees-generales",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 59,
-      "nextPage": 13,
-      "complete": false
+      "nextPage": 14,
+      "complete": true
     },
     {
       "kind": "resolutions",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/projets-de-resolution",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 18,
       "nextPage": 9,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "dirigeants",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/changements-de-dirigeants",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 7,
       "nextPage": 8,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "seuils",
       "url": "https://www.brvm.org/fr/emetteurs/type-annonces/franchissements-de-seuil",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
-      "lastPage": 7,
+      "lastPage": 2,
       "nextPage": 8,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "informations",
       "url": "https://www.brvm.org/fr/informations-permanentes",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49206,25 +51049,25 @@
     {
       "kind": "fractionnements",
       "url": "https://www.brvm.org/fr/esv/fractionnement",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
-      "lastPage": 8,
+      "lastPage": 4,
       "nextPage": 9,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "augmentations",
       "url": "https://www.brvm.org/fr/esv/augmentation-de-capital",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
-      "lastPage": 7,
+      "lastPage": 2,
       "nextPage": 8,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "reductions",
       "url": "https://www.brvm.org/fr/esv/reduction-de-capital",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49233,7 +51076,7 @@
     {
       "kind": "fusions",
       "url": "https://www.brvm.org/fr/taxonomy/term/124",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49242,7 +51085,7 @@
     {
       "kind": "consolidations",
       "url": "https://www.brvm.org/fr/esv/consolidation",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49251,34 +51094,34 @@
     {
       "kind": "radiations",
       "url": "https://www.brvm.org/fr/esv/radiation",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
-      "lastPage": 7,
+      "lastPage": 1,
       "nextPage": 8,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "avis",
       "url": "https://www.brvm.org/fr/marche/avis-et-publications/avis",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 192,
-      "nextPage": 13,
+      "nextPage": 14,
       "complete": false
     },
     {
       "kind": "mensuels",
       "url": "https://www.brvm.org/fr/bulletins-mensuels",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
-      "lastPage": 10,
+      "lastPage": 8,
       "nextPage": 11,
-      "complete": true
+      "complete": false
     },
     {
       "kind": "trimestriels",
       "url": "https://www.brvm.org/fr/statistiques-trimestrielles",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49287,7 +51130,7 @@
     {
       "kind": "annuels",
       "url": "https://www.brvm.org/fr/annees-boursieres",
-      "checkedAt": "2026-11-21T17:29:32.688398+00:00",
+      "checkedAt": "2026-11-22T18:32:36.513400+00:00",
       "state": "ok",
       "lastPage": 0,
       "nextPage": 1,
@@ -49295,18 +51138,18 @@
     }
   ],
   "summary": {
-    "documents": 1896,
-    "downloaded": 110,
+    "documents": 1950,
+    "downloaded": 113,
     "candidateFacts": 118,
     "matchedSymbols": 48,
-    "collectionsComplete": 13,
+    "collectionsComplete": 9,
     "collectionsTotal": 17,
     "requestsThisRun": 35
   },
-  "finishedAt": "2026-11-21T17:35:14.313791+00:00",
+  "finishedAt": "2026-11-22T18:38:21.086947+00:00",
   "calendar": {
     "source": "https://www.brvm.org/fr/jours-feries",
-    "observedAt": "2026-11-21T17:29:32.688398+00:00",
+    "observedAt": "2026-11-22T18:32:36.513400+00:00",
     "rows": [
       {
         "date": "2026-01-01",
@@ -49377,8 +51220,8 @@
     ]
   },
   "issuerChecked": {
-    "https://www.brvm.org/fr/rapports-societe-cotes/bernabe-ci": "2026-11-18T21:25:54.453422+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/bici-ci": "2026-11-18T21:25:54.453422+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/bernabe-ci": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/bici-ci": "2026-11-22T18:32:36.513400+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/biic": "2026-11-18T21:25:54.453422+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/bollore-transport-logistics": "2026-11-19T21:31:03.283935+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/cfao-motors-ci": "2026-11-19T21:31:03.283935+00:00",
@@ -49398,12 +51241,12 @@
     "https://www.brvm.org/fr/rapports-societe-cotes/servair-abidjan-ci": "2026-11-21T17:29:32.688398+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/setao-ci": "2026-11-21T17:29:32.688398+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/sgci": "2026-11-21T17:29:32.688398+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/sib": "2026-11-16T20:26:49.177585+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/sicable": "2026-11-17T21:50:36.479832+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/sitab": "2026-11-17T21:50:36.479832+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/societe-ivoirienne-de-raffinage": "2026-11-17T21:50:36.479832+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/sodeci": "2026-11-17T21:50:36.479832+00:00",
-    "https://www.brvm.org/fr/rapports-societe-cotes/sogb": "2026-11-17T21:50:36.479832+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/sib": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/sicable": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/sitab": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/societe-ivoirienne-de-raffinage": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/sodeci": "2026-11-22T18:32:36.513400+00:00",
+    "https://www.brvm.org/fr/rapports-societe-cotes/sogb": "2026-11-22T18:32:36.513400+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/solibra": "2026-11-18T21:25:54.453422+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/sonatel": "2026-11-18T21:25:54.453422+00:00",
     "https://www.brvm.org/fr/rapports-societe-cotes/sucrivoire": "2026-11-18T21:25:54.453422+00:00",

@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-24T04:46:47.195954+00:00",
-  "lastSuccess": "2026-11-24T04:46:47.195954+00:00",
+  "checkedAt": "2026-11-24T15:52:48.487239+00:00",
+  "lastSuccess": "2026-11-24T15:52:48.487239+00:00",
   "events": [
     {
       "id": "https://www.umoatitres.org/fr/emission/emission-simultanee-de-bons-et-dobligations-du-tresor-du-mali-du-25-11-2026/",
@@ -83,7 +83,8 @@
     "Accès UMOA-Titres : HTTPError",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/735 (ValueError)",
     "Souscription non vérifiée : https://www.africabourse.com/opportunite/736 (ValueError)",
-    "Souscription non vérifiée : https://www.africabourse.com/opportunite/737 (ValueError)"
+    "Souscription non vérifiée : https://www.africabourse.com/opportunite/737 (ValueError)",
+    "Souscription non vérifiée : https://www.africabourse.com/opportunite/738 (ValueError)"
   ],
   "scope": "Adjudications UMOA-Titres et souscriptions obligataires identifiées chez la SGI Africabourse. Couverture non exhaustive ; émissions d’entreprise actualisées automatiquement, clôture anticipée à confirmer auprès du placeur."
 }

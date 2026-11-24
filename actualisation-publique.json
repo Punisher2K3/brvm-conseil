@@ -1,50 +1,44 @@
 {
   "version": 1,
-  "lastAttemptAt": "2026-11-23T20:10:51.940352+00:00",
-  "finishedAt": "2026-11-23T20:19:20.236139+00:00",
+  "lastAttemptAt": "2026-11-24T04:44:39.056577+00:00",
+  "finishedAt": "2026-11-24T04:46:55.851121+00:00",
   "state": "ok",
   "session": "2026-11-23",
   "stages": [
     {
       "name": "Bulletins et comptes normalisés",
-      "startedAt": "2026-11-23T20:10:52.141658+00:00",
+      "startedAt": "2026-11-24T04:44:39.228199+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-23T20:13:06.942145+00:00"
+      "finishedAt": "2026-11-24T04:46:45.877606+00:00"
     },
     {
       "name": "Cours web, capitalisations et dividendes",
-      "startedAt": "2026-11-23T20:13:07.032801+00:00",
+      "startedAt": "2026-11-24T04:46:45.959207+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-23T20:13:10.003463+00:00"
+      "finishedAt": "2026-11-24T04:46:47.076377+00:00"
     },
     {
       "name": "Annonces obligataires",
-      "startedAt": "2026-11-23T20:13:10.097283+00:00",
+      "startedAt": "2026-11-24T04:46:47.156291+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-23T20:13:16.776169+00:00"
+      "finishedAt": "2026-11-24T04:46:50.328219+00:00"
     },
     {
       "name": "Sources complémentaires",
-      "startedAt": "2026-11-23T20:13:16.862149+00:00",
+      "startedAt": "2026-11-24T04:46:50.404403+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-23T20:13:35.767009+00:00"
-    },
-    {
-      "name": "Archives publiques BRVM",
-      "startedAt": "2026-11-23T20:13:35.852476+00:00",
-      "status": "ok",
-      "finishedAt": "2026-11-23T20:19:18.590911+00:00"
+      "finishedAt": "2026-11-24T04:46:55.430811+00:00"
     },
     {
       "name": "Indices officiels",
-      "startedAt": "2026-11-23T20:19:18.684726+00:00",
+      "startedAt": "2026-11-24T04:46:55.508404+00:00",
       "status": "ok",
-      "finishedAt": "2026-11-23T20:19:20.152017+00:00"
+      "finishedAt": "2026-11-24T04:46:55.773334+00:00"
     }
   ],
   "intervalMinutes": 60,
   "archiveAfterUtcHour": 15,
-  "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/45256167159",
-  "lastSuccessfulCollection": "2026-11-23T20:13:06.942145+00:00",
+  "runUrl": "https://github.com/Punisher2K3/brvm-conseil/actions/runs/45328415371",
+  "lastSuccessfulCollection": "2026-11-24T04:46:45.877606+00:00",
   "lastArchiveDate": "2026-11-23"
 }

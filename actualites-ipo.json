@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-11-25T17:57:35.032230+00:00",
+  "checkedAt": "2026-11-25T18:01:10.122643+00:00",
   "events": [
     {
       "id": "01a1cfdd-c4c7-73ab-ad43-2ba60b0146aa",
       "issuer": "Coris Bank International Bénin",
       "source": "https://coris-bourse.com/produits-services/souscription-actionnariat/01a1cfdd-c4c7-73ab-ad43-2ba60b0146aa",
-      "lastVerified": "2026-11-25T17:57:35.032230+00:00",
+      "lastVerified": "2026-11-25T18:01:10.122643+00:00",
       "openDate": "2026-12-07",
       "closeDate": "2026-12-11",
       "price": 4700,
@@ -19,7 +19,7 @@
       "id": "01a1d651-3551-713d-aed6-b672bdb6f3fe",
       "issuer": "Coris Bank International Côte d’Ivoire",
       "source": "https://coris-bourse.com/produits-services/souscription-actionnariat/01a1d651-3551-713d-aed6-b672bdb6f3fe",
-      "lastVerified": "2026-11-25T17:57:35.032230+00:00",
+      "lastVerified": "2026-11-25T18:01:10.122643+00:00",
       "openDate": "2026-11-30",
       "closeDate": "2026-12-04",
       "price": 7720,

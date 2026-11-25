@@ -74,6 +74,8 @@ jobs:
         run: node evaluer_previsions.cjs
       - name: Construire et contrôler la publication
         run: |
+          python actualites_ipo.py
+          python -m unittest test_actualites_ipo.py
           python preparer_publication.py
           python verifier_publication.py
       - name: Préparer la sauvegarde de données
@@ -99,7 +101,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add actualisation-publique.json brvm-officiel.json indices-brvm.json obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js previsions-journal.json sources-complementaires.json.gz
+          git add actualites-ipo.json actualisation-publique.json brvm-officiel.json indices-brvm.json obligations.json base-marche.json.gz catalogue.json finances.js fondamentaux.json fondamentaux.js previsions-journal.json sources-complementaires.json.gz
           if ! git diff --cached --quiet; then
             git commit -m "Actualiser les données officielles BRVM et leur état de collecte"
             git push

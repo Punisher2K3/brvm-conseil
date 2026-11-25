@@ -56,6 +56,10 @@ def main():
     html=(out/'index.html').read_text(encoding='utf-8').replace('<script src="donnees.js">','<script src="mode-public.js"></script><script src="donnees.js">')
     html=re.sub(r'<section class="update-help">.*?</section>','<section class="update-help"><strong>Actualisation des données en ligne</strong><p>Les cours web officiels sont contrôlés environ toutes les 5 minutes, du lundi au vendredi entre 9 h et 19 h UTC. La collecte complète reste horaire et les archives sont approfondies par lots quotidiens. Les visiteurs consultent la dernière publication réussie ; le démarrage des tâches peut être retardé. Le bouton Actualiser recherche cette publication sans lancer une collecte depuis le navigateur.</p><p>Les cours web du jour et le dernier bulletin complet sont datés séparément. Les avis utilisent le bulletin complet. Les nouveaux bilans restent soumis à vérification avant intégration.</p></section>',html,flags=re.S)
     html=html.replace('<!-- OBLIGATIONS_AUTOMATIQUES -->',obligations_html())
+    from actualites_ipo import render as render_ipo
+    ipo_path=ROOT/'actualites-ipo.json'
+    ipo_data=json.loads(ipo_path.read_text(encoding='utf-8')) if ipo_path.exists() else {}
+    html=html.replace('<!-- IPO_AUTOMATIQUES -->',render_ipo(ipo_data))
     html=html.replace('<meta charset="utf-8">','<meta charset="utf-8">'+head_security(),1)
     html=html.replace('<title>BRVM Conseil — Le marché, avec du recul</title>','<title>'+escape(site['publicTitle'])+'</title><meta name="author" content="'+escape(site['publisherName'],quote=True)+'"><link rel="canonical" href="'+escape(site['canonicalUrl'],quote=True)+'">')
     html=html.replace('<p id="version"></p>','<p id="version"></p>'+legal_footer)
